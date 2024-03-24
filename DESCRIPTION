@@ -1,5 +1,5 @@
 Package: mammalcol
-Title: What the Package Does (One Line, Title Case)
+Title: Access to the List of Mammals Species of Colombia
 Version: 0.0.0.9000
 Authors@R: 
     person("Diego J.", "Lizcano", , 
@@ -13,8 +13,8 @@ Suggests:
 Config/testthat/edition: 3
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-URL: https://github.com/dlizcano/MamalCol, https://dlizcano.github.io/MammalCol/
-BugReports: https://github.com/dlizcano/MammalCol/issues
+URL: https://github.com/dlizcano/mamalcol, https://dlizcano.github.io/mammalcol/
+BugReports: https://github.com/dlizcano/mammalcol/issues
 Depends: 
     R (>= 2.10)
 Encoding: UTF-8

@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# mammalcol
+# mammalcol <img src="man/figures/logo.png" align="right" height="139" alt="" />
 
 <!-- badges: start -->
 

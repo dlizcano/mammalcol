@@ -13,8 +13,9 @@ knitr::opts_chunk$set(
 )
 ```
 
-# mammalcol
 
+
+# mammalcol <img src="man/figures/logo.png" align="right" height="139" alt="" />
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
@@ -32,25 +33,23 @@ devtools::install_github("dlizcano/mammalcol")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows you how to search mammal names in Colombia
 
-```{r example}
-# library(mammalcol)
-## basic example code
+```{r example1}
+splist <- c("Tapirus bairdii", "Tapirus pinchaque", "Tapirus terrestris",
+           "Tapirus terrestris",  "Pudu mephistophiles", "Tapirus bairdii")
+
+search_mammalcol(splist)
+
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+`mammalcol` has the ability to correct minor typos and lower case in the genus  
 
 ```{r cars}
-summary(cars)
+splist <- c("Tapiru terrestre", "pudu mephistophiles", "tapirus bairdii")
+
+search_mammalcol(splist)
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
-You can also embed plots, for example:
 
-```{r pressure, echo = FALSE}
-
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
