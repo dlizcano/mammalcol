@@ -1,6 +1,6 @@
 Package: mammalcol
 Title: Access to the List of Mammals Species of Colombia
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: 
     person("Diego J.", "Lizcano", , 
     "dj.lizcano@gmail.com", role = c("aut", "cre"),
@@ -24,4 +24,3 @@ Depends:
     R (>= 2.10)
 Encoding: UTF-8
 LazyData: true
-
