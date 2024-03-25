@@ -9,6 +9,7 @@
 #' It is advised to run first the search_mammalcol function.
 #'
 #' @param species A character string containing the name of the species to plot the map.
+#' 
 #'
 #' @return A map for the species.
 #'
@@ -17,6 +18,8 @@
 #' species <- "Tapirus pinchaque" 
 #' mammalmap(species)
 #'
+#' @importFrom rlang taxon
+#' @importFrom rlang colmap
 #' @export
 mammalmap <- function(species){
 
@@ -34,8 +37,8 @@ mammalmap <- function(species){
   distribution_list <-
     strsplit(taxon$distribution, "\\|") # trimws () removes spaces
   
-  deptos <- as.data.frame( cbind(Depto=unique(colmap$NAME_1), fill="white"))
-  sp_id <- which(taxon$scientificName==species)
+  deptos <- as.data.frame(cbind(Depto=unique(colmap$NAME_1), fill="white"))
+  sp_id <- which(taxon$scientificName == species)
   unos <- trimws(distribution_list[[ sp_id ]]) # species number
   
   # nested loop to get deptos
