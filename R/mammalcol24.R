@@ -1,13 +1,13 @@
-#' Mammal_Col_2024 Dataset
+#' taxon Dataset
 #'
-#' The Mammal_Col_2024 dataset comprises a tibble containing information
+#' The taxon dataset comprises a tibble containing information
 #' regarding mammal species documented in Colombia, sourced from the "List of the
 #' mammals of Peru" compiled by Ramírez-Chaves 2021. It encompasses various
 #' details, including scientific names, English names, Spanish names, order,
 #'  family, threat status and distribution of each species. The table is a 
 #'  variant of the taxon table from https://doi.org/10.15472/kl1whs
 #'
-#' @format A tibble with 548 rows and 19 columns:
+#' @format A tibble with 548 rows and 25 columns:
 #'   \describe{
 #'     \item{id}{id from original taxon table.}
 #'     \item{scientificName}{Scientific name of the mammal species.}
@@ -41,10 +41,10 @@
 #' library(mammalcol)
 #'
 #' # Access the mammalcol_tab dataset
-#' data("mammal_colombia_2024")
+#' data("taxon")
 #'
 #' # Display the first few rows
-#' head(mammal_colombia_2024)
+#' head(taxon)
 #'
 #' @seealso
 #' For more information about the "mammalcol" package and the data sources, visit
@@ -57,4 +57,4 @@
 #' Data compilation: Ramírez-Chaves 2021, Package implementation: Diego J. Lizcano
 #'
 #' @keywords dataset
-"mammal_colombia_2024"
+"taxon"

@@ -11,6 +11,180 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+#############
+load(file="C:/CodigoR/Mammal_Col/MammalCol/data/taxon.rda")#, taxon
+load(file="C:/CodigoR/Mammal_Col/MammalCol/data/colmap.rda")#, colmap
+############
+
+search_mammalcol <- function(splist, max_distance = 0.2) {
+  # Defensive function here, check for user input errors
+  if (is.factor(splist)) {
+    splist <- as.character(splist)
+  }
+  # Fix species name
+  splist_st <- standardize_names(splist)
+  dupes_splist_st <- find_duplicates(splist_st)
+
+  if(length(dupes_splist_st) != 0 ){
+    message("The following names are repeated in the 'splist': ",
+            paste(dupes_splist_st, collapse = ", "))
+  }
+  splist_std <- unique(splist_st)
+
+  # create an output data container
+  output_matrix <- matrix(nrow = length(splist_std), ncol = 20) # two more
+  colnames(output_matrix) <- c("name_submitted",
+                               names(taxon), 
+                               "Distance")
+  
+  # loop code to find the matching string
+
+  for (i in seq_along(splist_std)) {
+    # Standardise max distance value
+    if (max_distance < 1 & max_distance > 0) {
+      max_distance_fixed <- ceiling(nchar(splist_std[i]) * max_distance)
+    } else {
+      max_distance_fixed <- max_distance
+    }
+
+    # fuzzy and exact match
+    matches <- agrep(splist_std[i],
+                     taxon$scientificName, # base data column
+                     max.distance = max_distance_fixed,
+                     value = TRUE)
+
+    # check non matching result
+    if (length(matches) == 0) {
+      row_data <- rep("nill", 18) # number of columns
+    }
+    else if (length(matches) != 0){ # match result
+      dis_value <- as.numeric(utils::adist(splist_std[i], matches))
+      matches1 <- matches[dis_value <= max_distance_fixed]
+      dis_val_1 <- dis_value[dis_value <= max_distance_fixed]
+
+      if (length(matches1) == 0){
+        row_data <- rep("nill", 18) # number of columns
+      }
+      else if (length(matches1) != 0){
+        row_data <- as.matrix(taxon[taxon$scientificName %in% matches1,])
+      }
+    }
+
+    # distance value
+    if(is.null(nrow(row_data))){
+      dis_value_1 <- "nill"
+    } else{
+      dis_value_1 <- utils::adist(splist_std[i], row_data[,2])
+    }
+
+    output_matrix[i, ] <-
+      c(splist_std[i], row_data, dis_value_1)
+  }
+
+  # Output
+  output <- as.data.frame(output_matrix)
+  # rownames(output) <- NULL
+  output <- output[,-2]# delete the id column
+  return(output[output$scientificName != "nill",])
+}
+
+
+
+
+standardize_names <- function(splist) {
+  fixed1 <- simple_cap(trimws(splist)) # all up
+  fixed2 <- gsub("cf\\.", "", fixed1)
+  fixed3 <- gsub("aff\\.", "", fixed2)
+  fixed4 <- trimws(fixed3) # remove trailing and leading space
+  fixed5 <- gsub("_", " ", fixed4) # change names separated by _ to space
+
+  # Hybrids
+  fixed6 <- gsub("(^x )|( x$)|( x )", " ", fixed5)
+  hybrids <- fixed5 == fixed6
+  if (!all(hybrids)) {
+    sp_hybrids <- splist[!hybrids]
+    warning(paste("The 'x' sign indicating hybrids have been removed in the",
+                  "following names before search:",
+                  paste(paste0("'", sp_hybrids, "'"), collapse = ", ")),
+            immediate. = TRUE, call. = FALSE)
+  }
+  # Merge multiple spaces
+  fixed7 <- gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", fixed6, perl = TRUE)
+  return(fixed7)
+}
+
+
+
+simple_cap <- function(x) {
+  # Split each string into words, remove unnecessary white spaces, and convert to lowercase
+  words <- sapply(strsplit(x, "\\s+"), function(words) paste(tolower(words), collapse = " "))
+
+  # Capitalize the first letter of each word
+  capitalized <- sapply(strsplit(words, ""), function(word) {
+    if (length(word) > 0) {
+      word[1] <- toupper(word[1])
+    }
+    paste(word, collapse = "")
+  })
+
+  return(capitalized)
+}
+
+
+
+find_duplicates <- function(vector) {
+  # Count the frequency of each word
+  word_counts <- table(vector)
+  # Find words with a frequency greater than 1
+  duplicated_words <- names(word_counts[word_counts > 1])
+  return(duplicated_words)
+}
+
+
+################
+mammalmap <- function(species){
+
+  if (!requireNamespace("ggplot2", quietly = TRUE))
+    install.packages("ggplot2")
+  if (!requireNamespace("sf", quietly = TRUE))
+    install.packages("sf")
+  
+  # require("ggplot2")
+  # require("sf")
+  
+  #load("data/colmap.rda")
+  #load("data/taxon.rda")
+  
+  distribution_list <-
+    strsplit(taxon$distribution, "\\|") # trimws () removes spaces
+  
+  deptos <- as.data.frame( cbind(Depto=unique(colmap$NAME_1), fill="white"))
+  sp_id <- which(taxon$scientificName==species)
+  unos <- trimws(distribution_list[[ sp_id ]]) # species number
+  
+  # nested loop to get deptos
+  for (i in 1:length(deptos[,1])){
+    for (j in 1:length(unos)){
+      if(deptos$Depto[i]==unos[j]){deptos$fill[i] <- "blue"}
+    }
+  }
+  
+  # make the map
+  ggplot2::ggplot(colmap) +
+    ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
+    ggplot2::scale_fill_manual(values = deptos$fill) +
+    # ggtitle(taxon$scientificName[25]) + #species name number
+    ggplot2::labs(subtitle = taxon$scientificName[sp_id])+
+    ggplot2::theme(legend.position="right", # locatio legend
+            legend.title = ggplot2::element_blank(),#element_text(size=7),#,
+            legend.text = ggplot2::element_text(size=7,), # text depto size
+            plot.subtitle = ggplot2::element_text(face = "italic") # italica
+    )#,
+}
+
+
+
 ```
 
 
@@ -20,7 +194,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The goal of mammalcol is to allow access to the List of Mammal Species of Colombia
+The goal of mammalcol is to allow easy access to the List of Mammal Species of Colombia.
 
 ## Installation
 
@@ -33,23 +207,37 @@ devtools::install_github("dlizcano/mammalcol")
 
 ## Example
 
-This is a basic example which shows you how to search mammal names in Colombia
+### Search database
 
-```{r example1}
+This is a basic example which shows you how to search mammal names in Colombia using a vector of mammal names.
+
+```{r example1, eval=TRUE, echo=TRUE}
+# define a vector with species to search for
 splist <- c("Tapirus bairdii", "Tapirus pinchaque", "Tapirus terrestris",
            "Tapirus terrestris",  "Pudu mephistophiles", "Tapirus bairdii")
 
+# search in database
 search_mammalcol(splist)
 
 ```
 
-`mammalcol` has the ability to correct minor typos and lower case in the genus  
+`mammalcol` has the ability to correct minor typos and lower case in the genus.  
 
-```{r cars}
+```{r example2, eval=TRUE, echo=TRUE}
+# vector with species names and intentional typos
 splist <- c("Tapiru terrestre", "pudu mephistophiles", "tapirus bairdii")
 
+# search in database
 search_mammalcol(splist)
 ```
 
+### Produce a map
 
+The function mammalmap produces basic a map of distribution at the "Departamento" level for a single species.
+
+
+```{r example3, eval=TRUE, echo=TRUE}
+# write a species name in the function to map it
+mammalmap("Tapirus pinchaque")
+```
 

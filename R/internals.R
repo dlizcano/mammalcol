@@ -47,3 +47,5 @@ find_duplicates <- function(vector) {
   duplicated_words <- names(word_counts[word_counts > 1])
   return(duplicated_words)
 }
+
+

@@ -12,4 +12,4 @@
 
 * search fixed
 * get departments challenge, still pending
-
+* mammalmap added

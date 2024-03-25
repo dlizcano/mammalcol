@@ -38,9 +38,9 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
   splist_std <- unique(splist_st)
 
   # create an output data container
-  output_matrix <- matrix(nrow = length(splist_std), ncol = 21) # two more
+  output_matrix <- matrix(nrow = length(splist_std), ncol = 20) # two more
   colnames(output_matrix) <- c("name_submitted",
-                               names(mammalcol::mammal_colombia_2024), 
+                               names(taxon), 
                                "Distance")
   
   # loop code to find the matching string
@@ -55,13 +55,13 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
 
     # fuzzy and exact match
     matches <- agrep(splist_std[i],
-                     mammalcol::mammal_colombia_2024$scientificName, # base data column
+                     taxon$scientificName, # base data column
                      max.distance = max_distance_fixed,
                      value = TRUE)
 
     # check non matching result
     if (length(matches) == 0) {
-      row_data <- rep("nill", 19) # number of columns
+      row_data <- rep("nill", 18) # number of columns
     }
     else if (length(matches) != 0){ # match result
       dis_value <- as.numeric(utils::adist(splist_std[i], matches))
@@ -69,10 +69,10 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
       dis_val_1 <- dis_value[dis_value <= max_distance_fixed]
 
       if (length(matches1) == 0){
-        row_data <- rep("nill", 19) # number of columns
+        row_data <- rep("nill", 18) # number of columns
       }
       else if (length(matches1) != 0){
-        row_data <- as.matrix(mammalcol::mammal_colombia_2024[mammalcol::mammal_colombia_2024$scientificName %in% matches1,])
+        row_data <- as.matrix(taxon[taxon$scientificName %in% matches1,])
       }
     }
 
