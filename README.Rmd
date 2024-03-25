@@ -241,3 +241,12 @@ The function mammalmap produces basic a map of distribution at the "Departamento
 mammalmap("Tapirus pinchaque")
 ```
 
+### See the full taxon table
+
+```{r example4}
+
+head(taxon)
+
+```
+
+

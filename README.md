@@ -132,3 +132,66 @@ mammalmap("Tapirus pinchaque")
 ```
 
 <img src="man/figures/README-example3-1.png" width="100%" />
+
+### See the full taxon table
+
+``` r
+
+head(taxon)
+#>             scientificName  kingdom   phylum    class        order   family
+#> 1       Passalites murelia Animalia Chordata Mammalia Artiodactyla Cervidae
+#> 2            Mazama rufina Animalia Chordata Mammalia Artiodactyla Cervidae
+#> 3 Passalites sanctaemartae Animalia Chordata Mammalia Artiodactyla Cervidae
+#> 4            Mazama temama Animalia Chordata Mammalia Artiodactyla Cervidae
+#> 5            Mazama zamora Animalia Chordata Mammalia Artiodactyla Cervidae
+#> 6             Mazama zetta Animalia Chordata Mammalia Artiodactyla Cervidae
+#>        genus specificEpithet taxonRank scientificNameAuthorship
+#> 1 Passalites         murelia   Especie        J. A. Allen, 1915
+#> 2     Mazama          rufina   Especie         (Pucheran, 1851)
+#> 3 Passalites   sanctaemartae   Especie      (J. A. Allen, 1915)
+#> 4     Mazama          temama   Especie             (Kerr, 1792)
+#> 5     Mazama          zamora   Especie        J. A. Allen, 1915
+#> 6     Mazama           zetta   Especie             Thomas, 1913
+#>               taxonRemarks
+#> 1     Elevación (m): 0-900
+#> 2 Elevación (m): 1500-4000
+#> 3     Elevación (m): 0-900
+#> 4      Elevación (m): 0-68
+#> 5  Elevación (m): 600-1200
+#> 6 Elevación (m): 1600-1950
+#>                                                                                                                                                                    bibliographicCitation
+#> 1 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.
+#> 2                                                 ALBERICO M, A CADENA, JI HERNÁNDEZ-CAMACHO y Y MUÑOZ-SABA. 2000b. Mamíferos (Synapsida: Theria) de Colombia. Biota Colombiana 1:43-75.
+#> 3 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.
+#> 4  GROVES C y P GRUBB. 1987. Relationships of living deer. Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA.
+#> 5 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.
+#> 6 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.
+#>   inMDD   Col_redlist
+#> 1     0          <NA>
+#> 2     1 VU A2 cde\r\n
+#> 3     0          <NA>
+#> 4     1            DD
+#> 5     0            DD
+#> 6     0            DD
+#>                                                                                                                                                              distribution
+#> 1                                                                                 Amazonas | Caquetá | Cauca | Meta | Vaupés | Vichada | Nariño | Putumayo | Cundinamarca
+#> 2 Antioquia | Boyacá | Caldas | Cauca | Cesar | Cundinamarca | Huila | Nariño | Norte de Santander | Quindío | Risaralda | Santander | Tolima | Valle del Cauca | Caquetá
+#> 3                                                                                           Bolívar | Cesar | La Guajira | Magdalena | Atlántico | Córdoba | Cundinamarca
+#> 4                                                                                                                                                       Chocó | Magdalena
+#> 5                                                                                                                          Amazonas | Caquetá | Meta | Putumayo | Vichada
+#> 6                                                                                                          Antioquia | Caldas | Cauca | Nariño | Valle del Cauca | Tolima
+#>                                                                                                                         source
+#> 1                                                                Bulletin of the American Museum of Natural History 35:191-238
+#> 2                                                                                                     Biota Colombiana 1:43-75
+#> 3                                                                Bulletin of the American Museum of Natural History 35:191-238
+#> 4 Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA
+#> 5                                                                Bulletin of the American Museum of Natural History 35:191-238
+#> 6                                                                Bulletin of the American Museum of Natural History 35:191-238
+#>   endemic        english_name
+#> 1      No                <NA>
+#> 2      No  Little Red Brocket
+#> 3      No                <NA>
+#> 4      No Mexican Red Brocket
+#> 5      No                <NA>
+#> 6      No                <NA>
+```
