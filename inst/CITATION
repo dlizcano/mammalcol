@@ -1,14 +1,14 @@
-citHeader("To cite avesperu in publications use:")
+citHeader("To cite mammalcol package in publications use:")
 
 bibentry(
   bibtype  = "Manual",
   title    = "mammalcol: Access to the List of Mammal Species of Colombia",
   author   = "Diego J. Lizcano",
-  note     = "R package version 0.0.2",
-  year     = "2024",
+  year     = 2024,
+  note     = "R package version 0.1.0",
   textVersion = paste(
 "Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.0.2"
   ),
-  footer = "To cite the mammalcol dataset, please use: \nPlenge, M. A. Version [06/03/2024] List of the mammals of Colombia / Lista de los mamíferos de Colombia. SCMas: https://doi.org/10.15472/kl1whs"
+  footer = "To cite the mammalcol dataset, please use: Mammals of Colombia / Mamíferos de Colombia. SCMas: https://doi.org/10.15472/kl1whs"
 
 )

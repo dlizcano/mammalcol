@@ -15,12 +15,12 @@ navbar:
       text: "Articles"
       menu:
       -  text: "1. Getting started with mammalcol"
-         href: articles/getting_started.html
+         href: getting_started.html
       -  text: "2. Selecting and filtering species"
-         href: articles/selecting_species.html
+         href: selecting_species.html
       -  text: "3. Using mammalcol to map mammals"
-         href: articles/Spatialize_florabr.html
+         href: Spatialize_florabr.html
       -  text: "4. Getting a Presence-Absence Matrix"
-         href: articles/getting_pam.html
+         href: getting_pam.html
   components:
     home: ~

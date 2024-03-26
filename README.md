@@ -82,8 +82,15 @@ search_mammalcol(splist)
 #> 4          Northern Pudu       17
 ```
 
-`mammalcol` has the ability to correct minor typos and lower case in the
-genus.
+#### Search database whith typos
+
+`mammalcol` has the ability to identify and correct minor typos and
+lower case in the genus. Correcting potential typos or variations in
+species names through fuzzy matching is a crucial aspect of data
+management. This technique ensures precise retrieval by adeptly
+identifying and accommodating minor differences in input names, thus
+enhancing the reliability of analyses conducted on diverse,
+inconsistent, and ensemble datasets.
 
 ``` r
 # vector with species names and intentional typos
@@ -198,4 +205,28 @@ head(taxon)
 #> 4      No Mexican Red Brocket
 #> 5      No                <NA>
 #> 6      No                <NA>
+```
+
+### Sugested citation
+
+``` r
+
+citation("mammalcol")
+#> Warning in citation("mammalcol"): could not determine year for 'mammalcol' from
+#> package DESCRIPTION file
+#> To cite package 'mammalcol' in publications use:
+#> 
+#>   Lizcano D (????). _mammalcol: What the Package Does (One Line, Title
+#>   Case)_. R package version 0.0.0.9000,
+#>   https://dlizcano.github.io/MammalCol/,
+#>   <https://github.com/dlizcano/MamalCol>.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {mammalcol: What the Package Does (One Line, Title Case)},
+#>     author = {Diego J. Lizcano},
+#>     note = {R package version 0.0.0.9000, https://dlizcano.github.io/MammalCol/},
+#>     url = {https://github.com/dlizcano/MamalCol},
+#>   }
 ```
