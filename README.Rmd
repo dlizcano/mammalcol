@@ -223,7 +223,10 @@ search_mammalcol(splist)
 
 ```
 
-`mammalcol` has the ability to correct minor typos and lower case in the genus.  
+#### Search database whith typos
+
+`mammalcol` has the ability to identify and correct minor typos and lower case in the genus. Correcting potential typos or variations in species names through fuzzy matching is a crucial aspect of data management. This technique ensures precise retrieval by adeptly identifying and accommodating minor differences in input names, thus enhancing the reliability of analyses conducted on diverse, inconsistent, and ensemble datasets. 
+
 
 ```{r example2, eval=TRUE, echo=TRUE}
 # vector with species names and intentional typos
@@ -234,9 +237,9 @@ search_mammalcol(splist)
 ```
 
 ### Produce a map
-
+  
 The function mammalmap produces basic a map of distribution at the "Departamento" level for a single species.
-
+ 
 
 ```{r example3, eval=TRUE, echo=TRUE}
 # write a species name in the function to map it
@@ -244,11 +247,16 @@ mammalmap("Tapirus pinchaque")
 ```
 
 ### See the full taxon table
-
+  
 ```{r example4}
 
 head(taxon)
 
 ```
 
+### Sugested citation
+  
+```{r}
+citation("mammalcol")
+```
 
