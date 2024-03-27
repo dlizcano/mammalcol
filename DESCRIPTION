@@ -20,7 +20,8 @@ BugReports: https://github.com/dlizcano/mammalcol/issues
 Depends: 
     R (>= 2.10)
 Imports:
-    ggplot2
+    ggplot2,
+    magrittr
 Suggests:
     dplyr,
     finch,
