@@ -34,7 +34,7 @@ taxon
 \description{
 The taxon dataset comprises a tibble containing information
 regarding mammal species documented in Colombia, sourced from the "List of the
-mammals of Peru" compiled by Ramírez-Chaves 2021. It encompasses various
+mammals of Colombia" compiled by Ramírez-Chaves 2021. It encompasses various
 details, including scientific names, English names, Spanish names, order,
 family, threat status and distribution of each species. The table is a
 variant of the taxon table from https://doi.org/10.15472/kl1whs

@@ -18,8 +18,8 @@
 #' species <- "Tapirus pinchaque" 
 #' mammalmap(species)
 #'
-#' @importFrom rlang taxon
-#' @importFrom rlang colmap
+#' @importFrom mammalcol taxon
+#' @importFrom mammalcol colmap
 #' @export
 mammalmap <- function(species){
 
@@ -27,6 +27,10 @@ mammalmap <- function(species){
     install.packages("ggplot2")
   if (!requireNamespace("sf", quietly = TRUE))
     install.packages("sf")
+  
+  if (!is.character(species)) {
+    stop(paste0("Argument species must be a character, not ", class(Species)))
+  }
   
   # require("ggplot2")
   # require("sf")

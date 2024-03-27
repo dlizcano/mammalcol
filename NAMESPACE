@@ -2,3 +2,4 @@
 
 export(mammalmap)
 export(search_mammalcol)
+export(sp_by_depto)

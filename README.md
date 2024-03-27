@@ -82,7 +82,7 @@ search_mammalcol(splist)
 #> 4          Northern Pudu       17
 ```
 
-#### Search database whith typos
+#### Search database with typos
 
 `mammalcol` has the ability to identify and correct minor typos and
 lower case in the genus. Correcting potential typos or variations in
