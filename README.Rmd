@@ -316,9 +316,9 @@ head(occ.bats)
 
 ### Sugested citation
   
-```{r}
-
+```{r eval=FALSE}
 citation("mammalcol")
 
 ```
 
+Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.1.0

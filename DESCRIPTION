@@ -4,6 +4,7 @@ Version: 0.1.0
 Authors@R: 
     person("Diego J.", "Lizcano", , "dj.lizcano@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9648-0576"))
+Date: 2024
 Maintainer: Diego J. Lizcano <dj.lizcano@gmail.com>
 Description: Allows access to the data found in the species list featured
     in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals

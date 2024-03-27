@@ -294,23 +294,8 @@ head(occ.bats)
 ### Sugested citation
 
 ``` r
-
 citation("mammalcol")
-#> Warning in citation("mammalcol"): could not determine year for 'mammalcol' from
-#> package DESCRIPTION file
-#> To cite package 'mammalcol' in publications use:
-#> 
-#>   Lizcano D (????). _mammalcol: What the Package Does (One Line, Title
-#>   Case)_. R package version 0.0.0.9000,
-#>   https://dlizcano.github.io/MammalCol/,
-#>   <https://github.com/dlizcano/MamalCol>.
-#> 
-#> A BibTeX entry for LaTeX users is
-#> 
-#>   @Manual{,
-#>     title = {mammalcol: What the Package Does (One Line, Title Case)},
-#>     author = {Diego J. Lizcano},
-#>     note = {R package version 0.0.0.9000, https://dlizcano.github.io/MammalCol/},
-#>     url = {https://github.com/dlizcano/MamalCol},
-#>   }
 ```
+
+Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of
+Colombia. R package version 0.1.0
