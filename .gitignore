@@ -2,4 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
-.travis.yml
+inst/doc
+/doc/
+/Meta/

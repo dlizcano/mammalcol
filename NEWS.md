@@ -2,4 +2,6 @@
 
 * Initial CRAN submission.
 * Added vignettes
-* Added mammalmap function
+* Added search_mammalcol() function
+* Added mammalmap() function
+* Added sp_by_depto() function

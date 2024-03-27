@@ -1,0 +1,94 @@
+---
+title: "mammalcol"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{mammalcol}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## load package
+
+```{r setup, eval=FALSE}
+library(mammalcol)
+```
+
+## Search database
+
+This is a basic example which shows you how to search mammal names in Colombia using a vector of mammal names.
+
+```{r example1, eval=FALSE, echo=TRUE}
+# define a vector with species to search for
+splist <- c("Tapirus bairdii", "Tapirus pinchaque", "Tapirus terrestris",
+           "Tapirus terrestris",  "Pudu mephistophiles", "Tapirus bairdii")
+
+# search in database
+search_mammalcol(splist)
+
+```
+
+### Search database with typos
+
+`mammalcol` has the ability to identify and correct minor typos and lower case in the genus. Correcting potential typos or variations in species names through fuzzy matching is a crucial aspect of data management. This technique ensures precise retrieval by adeptly identifying and accommodating minor differences in input names, thus enhancing the reliability of analyses conducted on diverse, inconsistent, and ensemble datasets. 
+
+
+```{r example2, eval=FALSE, echo=TRUE}
+# vector with species names and intentional typos
+splist <- c("Tapiru terrestre", "pudu mephistophiles", "tapirus bairdii")
+
+# search in database
+search_mammalcol(splist)
+```
+
+## Produce a map
+  
+The function mammalmap produces basic a map of distribution at the "Departamento" level for a single species.
+ 
+
+```{r example3, eval=FALSE, echo=TRUE}
+# write a species name in the function to map it
+mammalmap("Tapirus pinchaque")
+```
+
+## Search mammals present by departamento
+
+Use the departamento name or a vector of departamentos to know the mammals species present. The argument type = "any"  retrieve mammals present in any of those departamentos. 
+
+```{r eval=FALSE}
+occ.any <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "any")
+head(occ.any)
+
+```
+
+The argument type = "only" retrieves species present only in that departamento and in no other departamento. 
+
+```{r eval=FALSE}
+occ.only <- sp_by_depto(c("Norte de Santander"), type = "only")
+head(occ.only)
+```
+
+The argument all retrieves species present in both departamentos. The argument taxa limit the search to one order. occ.bats has the bats present in Arauca and Norte de Santander. 
+
+```{r eval=FALSE}
+occ.all <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "all")
+occ.bats <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "all", taxa = "Chiroptera")
+head(occ.bats)
+
+```
+
+
+## Sugested citation
+  
+```{r eval=FALSE}
+citation("mammalcol")
+
+```
+
+Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.1.0

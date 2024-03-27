@@ -6,6 +6,8 @@ template:
 
 # configuracao geral da barra de navegacao
 navbar:
+  rigth: 
+    -  search:
   left:
     - icon: fa-home
       href: index.html
@@ -24,3 +26,4 @@ navbar:
          href: getting_pam.html
   components:
     home: ~
+    

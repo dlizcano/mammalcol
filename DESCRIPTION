@@ -6,7 +6,7 @@ Authors@R:
            comment = c(ORCID = "0000-0002-9648-0576"))
 Date: 2024
 Maintainer: Diego J. Lizcano <dj.lizcano@gmail.com>
-Description: Allows access to the data found in the species list featured
+Description: Allows easy access to the data found in the species list featured
     in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals
     (Mammalia) of Colombia”. Mammalogy Notes 7(2),253.
     <https://doi.org/10.47603/mano.v7n2.253>. This publication stands as
@@ -27,8 +27,10 @@ Suggests:
     dplyr,
     finch,
     geodata,
+    knitr,
     readr,
     readxl,
+    rmarkdown,
     sf,
     stringr,
     testthat (>= 3.0.0)
@@ -37,3 +39,4 @@ Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+VignetteBuilder: knitr
