@@ -15,7 +15,6 @@ knitr::opts_chunk$set(
 #############
 load(file="C:/CodigoR/Mammal_Col/MammalCol/data/taxon.rda")#, taxon
 load(file="C:/CodigoR/Mammal_Col/MammalCol/data/colmap.rda")#, colmap
-load(file="C:/CodigoR/Mammal_Col/MammalCol/data/distribution.rda")#, disribution
 ############
 
 search_mammalcol <- function(splist, max_distance = 0.2) {
@@ -34,7 +33,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
   splist_std <- unique(splist_st)
 
   # create an output data container
-  output_matrix <- matrix(nrow = length(splist_std), ncol = 21) # two more
+  output_matrix <- matrix(nrow = length(splist_std), ncol = 20) # two more
   colnames(output_matrix) <- c("name_submitted",
                                names(taxon), 
                                "Distance")
@@ -57,7 +56,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
 
     # check non matching result
     if (length(matches) == 0) {
-      row_data <- rep("nill", 19) # number of columns
+      row_data <- rep("nill", 18) # number of columns
     }
     else if (length(matches) != 0){ # match result
       dis_value <- as.numeric(utils::adist(splist_std[i], matches))
@@ -65,7 +64,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
       dis_val_1 <- dis_value[dis_value <= max_distance_fixed]
 
       if (length(matches1) == 0){
-        row_data <- rep("nill", 19) # number of columns
+        row_data <- rep("nill", 18) # number of columns
       }
       else if (length(matches1) != 0){
         row_data <- as.matrix(taxon[taxon$scientificName %in% matches1,])
@@ -184,38 +183,6 @@ mammalmap <- function(species){
     )#,
 }
 
-##################
-
-sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
-  if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
-  type <- match.arg(type)
-  states <- sort(states)
-  # states <- paste("BR-", states, sep = "")
-  if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
-  # res <- lapply(occurrences, match, states)
-  if (type == "any") {
-    #res <- lapply(res, function(x) any(!is.na(x)))
-    res <- subset(distribution, grepl(paste(states, collapse = "|"), locality))
-  }
-  if (type == "only") {
-    res <- subset(distribution, grepl(paste("^", paste(states, collapse = "\\|"), "$", sep = ""), locality))
-  }
-  if (type == "all") {
-    res <- subset(distribution, grepl(paste(states, collapse = ".*"), locality))
-  }
-  # res <- distribution[unlist(res), ]
-  if (nrow(res) == 0) {
-    return(NA)
-  }
-  if (is.null(taxa)) {
-    merge(taxon[, c("scientificName", "family", "order",  "id")], res[, c("id", "locality")], by = "id")[,-1]
-    # removes id
-  } else {
-    merge(taxon[taxon$order %in% taxa, c("scientificName", "family", "order",  "id" )], res[, c("id", "locality")], by = "id")[,-1]
-    # removes id
-  }
-}
-
 
 
 ```
@@ -239,86 +206,3 @@ You can install the development version of mammalcol from [GitHub](https://githu
 # install.packages("devtools")
 devtools::install_github("dlizcano/mammalcol")
 ```
-
-## Example
-
-### Search database
-
-This is a basic example which shows you how to search mammal names in Colombia using a vector of mammal names.
-
-```{r example1, eval=TRUE, echo=TRUE}
-# define a vector with species to search for
-splist <- c("Tapirus bairdii", "Tapirus pinchaque", "Tapirus terrestris",
-           "Tapirus terrestris",  "Pudu mephistophiles", "Tapirus bairdii")
-
-# search in database
-search_mammalcol(splist)
-
-```
-
-#### Search database with typos
-
-`mammalcol` has the ability to identify and correct minor typos and lower case in the genus. Correcting potential typos or variations in species names through fuzzy matching is a crucial aspect of data management. This technique ensures precise retrieval by adeptly identifying and accommodating minor differences in input names, thus enhancing the reliability of analyses conducted on diverse, inconsistent, and ensemble datasets. 
-
-
-```{r example2, eval=TRUE, echo=TRUE}
-# vector with species names and intentional typos
-splist <- c("Tapiru terrestre", "pudu mephistophiles", "tapirus bairdii")
-
-# search in database
-search_mammalcol(splist)
-```
-
-### Produce a map
-  
-The function mammalmap produces basic a map of distribution at the "Departamento" level for a single species.
- 
-
-```{r example3, eval=TRUE, echo=TRUE}
-# write a species name in the function to map it
-mammalmap("Tapirus pinchaque")
-```
-
-### See the full taxon table
-  
-```{r example4}
-
-head(taxon)
-
-```
-
-### Search mammals present by departamento
-
-Use the departamento name or a vector of departamentos to know the mammals species present. The argument type = "any"  retrieve mammals present in any of those departamentos. 
-
-```{r}
-occ.any <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "any")
-head(occ.any)
-
-```
-
-The argument type = "only" retrieves species present only in that departamento and in no other departamento. 
-
-```{r}
-occ.only <- sp_by_depto(c("Norte de Santander"), type = "only")
-head(occ.only)
-```
-
-The argument all retrieves species present in both departamentos. The argument taxa limit the search to one order. occ.bats has the bats present in Arauca and Norte de Santander. 
-
-```{r}
-occ.all <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "all")
-occ.bats <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "all", taxa = "Chiroptera")
-head(occ.bats)
-
-```
-
-
-### Sugested citation
-  
-```{r}
-
-citation("mammalcol")
-
-```
-
