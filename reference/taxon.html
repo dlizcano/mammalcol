@@ -22,7 +22,7 @@ variant of the taxon table from https://doi.org/10.15472/kl1whs'><meta property=
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mammalcol</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -73,7 +73,7 @@ variant of the taxon table from https://doi.org/10.15472/kl1whs'><meta property=
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>taxon Dataset</h1>
-    <small class="dont-index">Source: <a href="https://github.com/dlizcano/mammalcol/blob/HEAD/R/mammalcol24.R" class="external-link"><code>R/mammalcol24.R</code></a></small>
+    <small class="dont-index">Source: <a href="https://github.com/dlizcano/mammalcol/blob/HEAD/R/taxon.R" class="external-link"><code>R/taxon.R</code></a></small>
     <div class="hidden name"><code>taxon.Rd</code></div>
     </div>
 
@@ -92,7 +92,7 @@ variant of the taxon table from https://doi.org/10.15472/kl1whs</p>
 
     <div id="format">
     <h2>Format</h2>
-    <p>A tibble with 548 rows and 25 columns:</p><dl><dt>id</dt>
+    <p>A tibble with 548 rows and 19 columns:</p><dl><dt>id</dt>
 <dd><p>id from original taxon table.</p></dd>
 
 <dt>scientificName</dt>
@@ -174,77 +174,16 @@ the package's GitHub repository: <a href="https://github.com/dlizcano/mammalcol"
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Load the mammalcol package</span></span></span>
-<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlizcano/mamalcol" class="external-link">mammalcol</a></span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co"># Load the mammalcol package</span></span></span>
+<span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlizcano/mammalcol" class="external-link">mammalcol</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Access the mammalcol_tab dataset</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="st">"taxon"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Display the first few rows</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             scientificName  kingdom   phylum    class        order   family</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       Passalites murelia Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            Mazama rufina Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Passalites sanctaemartae Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            Mazama temama Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            Mazama zamora Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             Mazama zetta Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        genus specificEpithet taxonRank scientificNameAuthorship</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Passalites         murelia   Especie        J. A. Allen, 1915</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Mazama          rufina   Especie         (Pucheran, 1851)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Passalites   sanctaemartae   Especie      (J. A. Allen, 1915)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     Mazama          temama   Especie             (Kerr, 1792)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     Mazama          zamora   Especie        J. A. Allen, 1915</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     Mazama           zetta   Especie             Thomas, 1913</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               taxonRemarks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Elevación (m): 0-900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Elevación (m): 1500-4000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Elevación (m): 0-900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Elevación (m): 0-68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  Elevación (m): 600-1200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Elevación (m): 1600-1950</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                    bibliographicCitation</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                 ALBERICO M, A CADENA, JI HERNÁNDEZ-CAMACHO y Y MUÑOZ-SABA. 2000b. Mamíferos (Synapsida: Theria) de Colombia. Biota Colombiana 1:43-75.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  GROVES C y P GRUBB. 1987. Relationships of living deer. Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   inMDD   Col_redlist</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     0          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     1 VU A2 cde\r\n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     0          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     1            DD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     0            DD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     0            DD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                              distribution</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                 Amazonas | Caquetá | Cauca | Meta | Vaupés | Vichada | Nariño | Putumayo | Cundinamarca</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Antioquia | Boyacá | Caldas | Cauca | Cesar | Cundinamarca | Huila | Nariño | Norte de Santander | Quindío | Risaralda | Santander | Tolima | Valle del Cauca | Caquetá</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                           Bolívar | Cesar | La Guajira | Magdalena | Atlántico | Córdoba | Cundinamarca</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                       Chocó | Magdalena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                          Amazonas | Caquetá | Meta | Putumayo | Vichada</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                          Antioquia | Caldas | Cauca | Nariño | Valle del Cauca | Tolima</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                         source</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                     Biota Colombiana 1:43-75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   endemic        english_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1      No                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2      No  Little Red Brocket</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3      No                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      No Mexican Red Brocket</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5      No                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6      No                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                    id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                             urn:lsid:organismnames.com:name:3484299</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 urn:lsid:catalogueoflife.org:taxon:4f16759f-5e17-11e7-8cee-bc764e092680:col20170824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                eol.org/pages/Mazama%20sanctaemartae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 urn:lsid:catalogueoflife.org:taxon:259114ac-5e17-11e7-8cee-bc764e092680:col20170824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                             urn:lsid:organismnames.com:name:3484302</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                             urn:lsid:organismnames.com:name:3535811</span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
