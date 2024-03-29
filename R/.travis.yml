@@ -1,5 +1,3 @@
-
 language: r
-
-latex: false
-
+sudo: false
+cache: packages
