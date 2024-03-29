@@ -24,8 +24,8 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item Baltazar GonzC!lez \email{baltazargch@gmail.com} (\href{https://orcid.org/0000-0001-5805-8107}{ORCID}) [contributor]
-  \item Alejandra Bonilla-SC!nchez \email{alejabonilla.sanchez@gmail.com} (\href{https://orcid.org/0000-0003-0803-5884}{ORCID}) [contributor]
+  \item Baltazar González \email{baltazargch@gmail.com} (\href{https://orcid.org/0000-0001-5805-8107}{ORCID}) [contributor]
+  \item Alejandra Bonilla-Sánchez \email{alejabonilla.sanchez@gmail.com} (\href{https://orcid.org/0000-0003-0803-5884}{ORCID}) [contributor]
 }
 
 }
