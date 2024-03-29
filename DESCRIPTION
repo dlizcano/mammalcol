@@ -30,6 +30,7 @@ Depends:
 Imports:
     ggplot2,
     magrittr,
+    sf,
 Suggests:
     dplyr,
     finch,
@@ -38,7 +39,6 @@ Suggests:
     readr,
     readxl,
     rmarkdown,
-    sf,
     stringr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

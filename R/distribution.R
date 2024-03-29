@@ -4,7 +4,8 @@
 #' regarding mammal species distribution documented in Colombia, sourced from the "List of the
 #' mammals of Colombia" compiled by Ramírez-Chaves 2021. It encompasses various
 #' details, including locality, source, threat status and appendix CITES of each species. 
-#' The table is a variant of the distribution table from: <doi:10.15472/kl1whs> 
+#' The table is a variant of the distribution table from \href{https://ipt.biodiversidad.co/sib/resource?r=mamiferos_col#anchor-citation}{SiB Colombia}
+#' 
 #'  
 #'
 #' @format A data frame with 548 rows and 8 columns:
@@ -20,6 +21,10 @@
 #'   }
 #'
 #'
+#' @examples
+#' library(mammalcol)
+#' head (distribution)
+#'
 #' @details This dataset is designed to provide users with comprehensive
 #' information about the mammal species found in each departamento of Colombia, 
 #' as documented by Ramírez-Chaves 2021. The data set is organized for easy 
@@ -30,12 +35,18 @@
 #' the package's GitHub repository: \url{https://github.com/dlizcano/mammalcol}
 #'
 #' @references
-#' The dataset is based on the "List of the Mammals of Colombia" by Ramírez-Chaves 2021.
-#'
+#' The dataset is based on the "List of the Mammals of Colombia" by:
+#' Ramírez-Chaves H E, Leuro Robles N G, Castaño Rivera A, Morales-Martínez D M, 
+#' Suárez Castro A F, Rodríguez-Posada M E, Zurc D, Concha Osbahr D C, Trujillo A, 
+#' Noguera Urbano E A, Pantoja Peña G E, González Maya J F, Pérez Torres J, 
+#' Mantilla Meluk H, López Castañeda C, Velásquez Valencia A, Zárrate Charry D (2024): 
+#' Mamíferos de Colombia. v1.14. Sociedad Colombiana de Mastozoología. Dataset/Checklist
+#' \href{https://ipt.biodiversidad.co/sib/resource?r=mamiferos_col#anchor-citation}{SiB Colombia}
+#' 
 #' @author
 #' Data compilation: Ramírez-Chaves 2021, Package implementation: Diego J. Lizcano
 #'
-#' @keywords internal
+#' @keywords 
 "distribution"
 
 

@@ -39,16 +39,18 @@ This dataset is designed to provide users of mammalcol package with a companion 
 plot the mammal distribution per departamento.
 }
 \examples{
-\dontrun{
+
 # Load the mammalcol package
 library(mammalcol)
+library (sf)
 
 # Access the mammalcol_tab dataset
-data("colmap")
+# data("colmap")
 
 # Display the first few rows
 head(colmap)
-}
+
+plot (colmap["NAME_1"])
 
 }
 \references{

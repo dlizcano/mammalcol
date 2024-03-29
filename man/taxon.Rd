@@ -34,19 +34,19 @@ taxon
 \description{
 The taxon dataset comprises a tibble containing information
 regarding mammal species documented in Colombia, sourced from the "List of the
-mammals of Colombia" compiled by Ramírez-Chaves 2021. It encompasses various
+mammals of Colombia" compiled by Ramírez-Chaves 2024. It encompasses various
 details, including scientific names, English names, Spanish names, order,
 family, threat status and distribution of each species. The table is a
-variant of the taxon table from https://doi.org/10.15472/kl1whs
+variant of the taxon table from \href{https://ipt.biodiversidad.co/sib/resource?r=mamiferos_col#anchor-citation}{SiB Colombia}
 }
 \details{
 This dataset is designed to provide users with comprehensive
 information about the mammal species found in Colombia, as documented
-by Ramírez-Chaves 2021. It is organized for easy access and utilization within
-the R environment.
+by Ramírez-Chaves, et al. 2024. It is organized for easy access and
+utilization within the R environment.
 }
 \examples{
-\dontrun{
+
 # Load the mammalcol package
 library(mammalcol)
 
@@ -55,11 +55,17 @@ data("taxon")
 
 # Display the first few rows
 head(taxon)
-}
+
 
 }
 \references{
-The dataset is based on the "List of the Mammals of Colombia" by Ramírez-Chaves 2021.
+The dataset is based on the "List of the Mammals of Colombia" by:
+Ramírez-Chaves H E, Leuro Robles N G, Castaño Rivera A, Morales-Martínez D M,
+Suárez Castro A F, Rodríguez-Posada M E, Zurc D, Concha Osbahr D C, Trujillo A,
+Noguera Urbano E A, Pantoja Peña G E, González Maya J F, Pérez Torres J,
+Mantilla Meluk H, López Castañeda C, Velásquez Valencia A, Zárrate Charry D (2024):
+Mamíferos de Colombia. v1.14. Sociedad Colombiana de Mastozoología. Dataset/Checklist
+\href{https://ipt.biodiversidad.co/sib/resource?r=mamiferos_col#anchor-citation}{SiB Colombia}
 }
 \seealso{
 For more information about the "mammalcol" package and the data sources, visit
@@ -68,4 +74,4 @@ the package's GitHub repository: \url{https://github.com/dlizcano/mammalcol}
 \author{
 Data compilation: Ramírez-Chaves 2021, Package implementation: Diego J. Lizcano
 }
-\keyword{internal}
+\keyword{datasets}

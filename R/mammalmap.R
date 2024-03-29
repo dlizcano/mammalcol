@@ -18,6 +18,7 @@
 #' @return A ggplot2 map for the species.
 #'
 #' @examples
+#' library(mammalcol)
 #' species <- "Tapirus pinchaque" 
 #' mammalmap(species, legend=FALSE)
 #'

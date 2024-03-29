@@ -12,7 +12,9 @@
 #' @return a data frame
 #' 
 #' @examples
-#' \dontrun{
+#' 
+#' library (mammalcol)
+#' 
 #' occ.any <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "any")
 #' occ.only <- sp_by_depto(c("Norte de Santander"), type = "only")
 #' occ.all <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "all")
@@ -22,7 +24,7 @@
 #' head(occ.only)
 #' head(occ.all)
 #' head(occ.taxa)
-#' }
+#' 
 #' 
 #' @export 
 sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {

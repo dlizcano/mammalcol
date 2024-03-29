@@ -15,7 +15,8 @@
 #' @return A data frame containing the retrieved information for each species.
 #'
 #' @examples
-#'
+#' library(mammalcol)
+#' 
 #' splist <- c("Tapirus bairdii", "Tapirus pinchaque", "Tapirus terrestris",
 #'             "Tapirus terrestris", "tapir terrestre", "Pudu mephistophiles")
 #'

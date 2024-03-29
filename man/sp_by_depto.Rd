@@ -23,7 +23,9 @@ a data frame
 Find the mammal species that occur in a given departamento of Colombia
 }
 \examples{
-\dontrun{
+
+library (mammalcol)
+
 occ.any <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "any")
 occ.only <- sp_by_depto(c("Norte de Santander"), type = "only")
 occ.all <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "all")
@@ -33,6 +35,6 @@ head(occ.any)
 head(occ.only)
 head(occ.all)
 head(occ.taxa)
-}
+
 
 }

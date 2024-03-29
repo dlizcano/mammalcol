@@ -25,6 +25,7 @@ The function allows fuzzy matching for species names with a maximum
 distance threshold to handle potential typos or variations in species names.
 }
 \examples{
+library(mammalcol)
 
 splist <- c("Tapirus bairdii", "Tapirus pinchaque", "Tapirus terrestris",
             "Tapirus terrestris", "tapir terrestre", "Pudu mephistophiles")

@@ -267,6 +267,14 @@ You can install the development version of mammalcol from [GitHub](https://githu
 devtools::install_github("dlizcano/mammalcol")
 ```
 
+## load library
+
+```{r}
+
+library(mammalcol)
+```
+
+
 ## Example
 
 ### Search database

@@ -26,6 +26,7 @@ The function does not allows fuzzy matching, so the specie name should be correc
 It is advised to run first the search_mammalcol function.
 }
 \examples{
+library(mammalcol)
 species <- "Tapirus pinchaque" 
 mammalmap(species, legend=FALSE)
 
