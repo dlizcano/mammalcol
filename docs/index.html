@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Access to the List of Mammals Species of Colombia • mammalcol</title>
+<title>Access to the List of Mammal Species of Colombia • mammalcol</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="apple-touch-icon.png">
@@ -17,11 +17,11 @@
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
-<script src="pkgdown.js"></script><meta property="og:title" content="Access to the List of Mammals Species of Colombia">
+<script src="pkgdown.js"></script><meta property="og:title" content="Access to the List of Mammal Species of Colombia">
 <meta property="og:description" content="Allows easy access to the data found in the species list featured
     in the renowned &quot;Ramírez-Chaves, et al. 2021. Checklist of the Mammals
     (Mammalia) of Colombia”. Mammalogy Notes 7(2),253.
-    &lt;https://doi.org/10.47603/mano.v7n2.253&gt;. This publication stands as
+    &lt;doi:10.47603/mano.v7n2.253&gt;. This publication stands as
     one of Colombia's most comprehensive reviews of mammal diversity. The
     dataset incorporates detailed species accounts and has been
     meticulously structured for effortless utilization within the R
@@ -47,7 +47,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">mammalcol</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.1</span>
       </span>
     </div>
 
@@ -114,7 +114,7 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of mammalcol from <a href="https://github.com/mammalcol" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of mammalcol from <a href="https://github.com/dlizcano/mammalcol" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dlizcano/mammalcol"</span><span class="op">)</span></span></code></pre></div>
@@ -244,11 +244,20 @@
 <code class="sourceCode R"><span><span class="co"># write a species name in the function to map it</span></span>
 <span><span class="fu"><a href="reference/mammalmap.html">mammalmap</a></span><span class="op">(</span><span class="st">"Tapirus pinchaque"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-example3-1.png" width="100%"></p>
+<div class="section level4">
+<h4 id="remove-the-legeng">Remove the legeng<a class="anchor" aria-label="anchor" href="#remove-the-legeng"></a>
+</h4>
+<p>Using the parameter legend=FALSE</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># write a species name in the function to map it</span></span>
+<span><span class="fu"><a href="reference/mammalmap.html">mammalmap</a></span><span class="op">(</span><span class="st">"Tapirus pinchaque"</span>, legend<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<p><img src="reference/figures/README-example3b-1.png" width="100%"></p>
+</div>
 </div>
 <div class="section level3">
 <h3 id="see-the-full-taxon-table">See the full taxon table<a class="anchor" aria-label="anchor" href="#see-the-full-taxon-table"></a>
 </h3>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             scientificName  kingdom   phylum    class        order   family</span></span>
@@ -319,7 +328,7 @@
 <h3 id="search-mammals-present-by-departamento">Search mammals present by departamento<a class="anchor" aria-label="anchor" href="#search-mammals-present-by-departamento"></a>
 </h3>
 <p>Use the departamento name or a vector of departamentos to know the mammals species present. The argument type = “any” retrieve mammals present in any of those departamentos.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">occ.any</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"any"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.any</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          scientificName         family        order</span></span>
@@ -337,13 +346,13 @@
 <span><span class="co">#&gt; 5 Amazonas | Caquetá | Casanare | Huila | Meta | Putumayo | Vaupés | Guaviare | Arauca | Guainía</span></span>
 <span><span class="co">#&gt; 6                Cundinamarca | Norte de Santander | Santander | Guania | Meta | Arauca | Tolima</span></span></code></pre></div>
 <p>The argument type = “only” retrieves species present only in that departamento and in no other departamento.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">occ.only</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"only"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.only</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    scientificName     family    order           locality</span></span>
 <span><span class="co">#&gt; 1 Chilomys fumeus Cricetidae Rodentia Norte de Santander</span></span></code></pre></div>
 <p>The argument all retrieves species present in both departamentos. The argument taxa limit the search to one order. occ.bats has the bats present in Arauca and Norte de Santander.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">occ.all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
 <span><span class="va">occ.bats</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"all"</span>, taxa <span class="op">=</span> <span class="st">"Chiroptera"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.bats</span><span class="op">)</span></span>
@@ -365,7 +374,7 @@
 <div class="section level3">
 <h3 id="sugested-citation">Sugested citation<a class="anchor" aria-label="anchor" href="#sugested-citation"></a>
 </h3>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"mammalcol"</span><span class="op">)</span></span></code></pre></div>
 <p>Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.1.0</p>
 </div>
@@ -402,6 +411,7 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>Diego J. Lizcano <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0002-9648-0576" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a> </li>
+<li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
 

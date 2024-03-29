@@ -9,6 +9,6 @@ bibentry(
   textVersion = paste(
 "Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.1.0"
   ),
-  footer = "To cite the mammalcol dataset, please use: Mammals of Colombia / Mamíferos de Colombia. SCMas: https://doi.org/10.15472/kl1whs"
+  footer = "To cite the mammalcol dataset, please use: Mammals of Colombia / Mamíferos de Colombia. SCMas: <doi:10.15472/kl1whs>"
 
 )

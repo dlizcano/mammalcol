@@ -8,8 +8,9 @@
 #'   occur only in all provided (no more, no less) \code{states} and \code{all} matches 
 #'   mammal species that occur at least in all \code{states} passed. See examples.
 #' @param taxa optional character vector to match against the departamentos. Use the order name
-#' @export
+#' 
 #' @return a data frame
+#' 
 #' @examples
 #' \dontrun{
 #' occ.any <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "any")
@@ -23,10 +24,12 @@
 #' head(occ.taxa)
 #' }
 #' 
+#' @export 
 sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
   if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
   type <- match.arg(type)
   states <- sort(states)
+  
   # states <- paste("BR-", states, sep = "")
   if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
   # res <- lapply(occurrences, match, states)

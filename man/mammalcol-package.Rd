@@ -4,16 +4,16 @@
 \name{mammalcol-package}
 \alias{mammalcol}
 \alias{mammalcol-package}
-\title{mammalcol: Access to the List of Mammals Species of Colombia}
+\title{mammalcol: Access to the List of Mammal Species of Colombia}
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Allows easy access to the data found in the species list featured in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals (Mammalia) of Colombia”. Mammalogy Notes 7(2),253. \url{https://doi.org/10.47603/mano.v7n2.253}. This publication stands as one of Colombia's most comprehensive reviews of mammal diversity. The dataset incorporates detailed species accounts and has been meticulously structured for effortless utilization within the R environment.
+Allows easy access to the data found in the species list featured in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals (Mammalia) of Colombia”. Mammalogy Notes 7(2),253. \doi{10.47603/mano.v7n2.253}. This publication stands as one of Colombia's most comprehensive reviews of mammal diversity. The dataset incorporates detailed species accounts and has been meticulously structured for effortless utilization within the R environment.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://github.com/dlizcano/mamalcol}
+  \item \url{https://github.com/dlizcano/mammalcol}
   \item \url{https://dlizcano.github.io/mammalcol/}
   \item Report bugs at \url{https://github.com/dlizcano/mammalcol/issues}
 }
@@ -21,6 +21,12 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Diego J. Lizcano \email{dj.lizcano@gmail.com} (\href{https://orcid.org/0000-0002-9648-0576}{ORCID})
+
+Other contributors:
+\itemize{
+  \item Baltazar GonzC!lez \email{baltazargch@gmail.com} (\href{https://orcid.org/0000-0001-5805-8107}{ORCID}) [contributor]
+  \item Alejandra Bonilla-SC!nchez \email{alejabonilla.sanchez@gmail.com} (\href{https://orcid.org/0000-0003-0803-5884}{ORCID}) [contributor]
+}
 
 }
 \keyword{internal}

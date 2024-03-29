@@ -200,7 +200,7 @@ The goal of mammalcol is to allow easy access to the List of Mammal Species of C
 
 ## Installation
 
-You can install the development version of mammalcol from [GitHub](https://github.com/mammalcol) with:
+You can install the development version of mammalcol from [GitHub](https://github.com/dlizcano/mammalcol) with:
 
 ``` r
 # install.packages("devtools")

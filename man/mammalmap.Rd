@@ -2,28 +2,31 @@
 % Please edit documentation in R/mammalmap.R
 \name{mammalmap}
 \alias{mammalmap}
-\title{Plot a map Data for one species of the List of the Mammals of Colombia}
+\title{Plot a map for one species of the List of the Mammals of Colombia}
 \usage{
-mammalmap(species)
+mammalmap(species, legend = TRUE)
 }
 \arguments{
-\item{species}{A character string containing the name of the species to plot the map.}
+\item{species}{A character string containing the name of one species present in
+Colombia to plot a map of presence by departamento.}
+
+\item{legend}{A logical (TRUE or FALSE) to get the legend in the map when is TRUE,
+or not if it is FALSE.}
 }
 \value{
-A map for the species.
+A ggplot2 map for the species.
 }
 \description{
 This function retrieve the locality data for one species in
-the MammalCol pacakage dataset, and returns a map of Departamentos
-where the species has been recorded.
+the mammalcol pacakage dataset, and returns a map using ggplot2 of the
+departamentos where the species has been recorded.
 }
 \details{
 The function does not allows fuzzy matching, so the specie name should be correct.
 It is advised to run first the search_mammalcol function.
 }
 \examples{
-
 species <- "Tapirus pinchaque" 
-mammalmap(species)
+mammalmap(species, legend=FALSE)
 
 }

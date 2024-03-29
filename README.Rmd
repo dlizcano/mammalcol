@@ -144,12 +144,24 @@ find_duplicates <- function(vector) {
 
 
 ################
-mammalmap <- function(species){
+mammalmap <- function(species, legend=TRUE){
 
   if (!requireNamespace("ggplot2", quietly = TRUE))
     install.packages("ggplot2")
   if (!requireNamespace("sf", quietly = TRUE))
     install.packages("sf")
+  
+  if (missing(species)) {
+    stop("Argument species was not included")
+  }
+  
+  if (!is.character(species)) {
+    stop(paste0("Argument species must be a character, not ", class(species)))
+  }
+  
+  if (!is.logical(legend)) {
+    stop(paste0("Argument legend must be logical, not ", class(legend)))
+  }
   
   # require("ggplot2")
   # require("sf")
@@ -157,11 +169,14 @@ mammalmap <- function(species){
   #load("data/colmap.rda")
   #load("data/taxon.rda")
   
+  #data(mammalcol::taxon)
+  #data(mammalcol::colmap)
+  
   distribution_list <-
     strsplit(taxon$distribution, "\\|") # trimws () removes spaces
   
-  deptos <- as.data.frame( cbind(Depto=unique(colmap$NAME_1), fill="white"))
-  sp_id <- which(taxon$scientificName==species)
+  deptos <- as.data.frame(cbind(Depto=unique(colmap$NAME_1), fill="white"))
+  sp_id <- which(taxon$scientificName == species)
   unos <- trimws(distribution_list[[ sp_id ]]) # species number
   
   # nested loop to get deptos
@@ -172,18 +187,30 @@ mammalmap <- function(species){
   }
   
   # make the map
-  ggplot2::ggplot(colmap) +
-    ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
-    ggplot2::scale_fill_manual(values = deptos$fill) +
-    # ggtitle(taxon$scientificName[25]) + #species name number
-    ggplot2::labs(subtitle = taxon$scientificName[sp_id])+
-    ggplot2::theme(legend.position="right", # locatio legend
-            legend.title = ggplot2::element_blank(),#element_text(size=7),#,
-            legend.text = ggplot2::element_text(size=7,), # text depto size
-            plot.subtitle = ggplot2::element_text(face = "italic") # italica
-    )#,
-}
-
+  # if legend true 
+  if(legend==TRUE) {
+    mapa <-   ggplot2::ggplot(colmap) +
+      ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
+      ggplot2::scale_fill_manual(values = deptos$fill) +
+      # ggtitle(taxon$scientificName[25]) + #species name number
+      ggplot2::labs(subtitle = taxon$scientificName[sp_id])+
+      ggplot2::theme(legend.position="right", # location legend
+                     legend.title = ggplot2::element_blank(),#element_text(size=7),#,
+                     legend.text = ggplot2::element_text(size=8,), # text depto size
+                     plot.subtitle = ggplot2::element_text(face = "italic") # italica
+      )
+  }else{ # if legend false
+    mapa <-   ggplot2::ggplot(colmap) +
+      ggplot2::geom_sf(ggplot2::aes(fill = NAME_1), show.legend = FALSE) + # removes legend
+      ggplot2::scale_fill_manual(values = deptos$fill) +
+      # ggtitle(taxon$scientificName[25]) + #species name number
+      ggplot2::labs(subtitle = taxon$scientificName[sp_id]) +
+      ggplot2::theme(plot.subtitle = ggplot2::element_text(face = "italic")
+                      )# italica
+  }
+  
+return(mapa)
+} # end mammalmap
 ##################
 
 sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
@@ -233,7 +260,7 @@ The goal of mammalcol is to allow easy access to the List of Mammal Species of C
 
 ## Installation
 
-You can install the development version of mammalcol from [GitHub](https://github.com/mammalcol) with:
+You can install the development version of mammalcol from [GitHub](https://github.com/dlizcano/mammalcol) with:
 
 ``` r
 # install.packages("devtools")
@@ -277,6 +304,15 @@ The function mammalmap produces basic a map of distribution at the "Departamento
 ```{r example3, eval=TRUE, echo=TRUE}
 # write a species name in the function to map it
 mammalmap("Tapirus pinchaque")
+```
+
+#### Remove the legeng
+
+Using the parameter legend=FALSE
+
+```{r example3b, eval=TRUE, echo=TRUE}
+# write a species name in the function to map it
+mammalmap("Tapirus pinchaque", legend=FALSE)
 ```
 
 ### See the full taxon table

@@ -18,7 +18,7 @@ Species of Colombia.
 ## Installation
 
 You can install the development version of mammalcol from
-[GitHub](https://github.com/mammalcol) with:
+[GitHub](https://github.com/dlizcano/mammalcol) with:
 
 ``` r
 # install.packages("devtools")
@@ -161,6 +161,17 @@ mammalmap("Tapirus pinchaque")
 ```
 
 <img src="man/figures/README-example3-1.png" width="100%" />
+
+#### Remove the legeng
+
+Using the parameter legend=FALSE
+
+``` r
+# write a species name in the function to map it
+mammalmap("Tapirus pinchaque", legend=FALSE)
+```
+
+<img src="man/figures/README-example3b-1.png" width="100%" />
 
 ### See the full taxon table
 

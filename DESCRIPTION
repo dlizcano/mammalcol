@@ -1,28 +1,35 @@
 Package: mammalcol
-Title: Access to the List of Mammals Species of Colombia
-Version: 0.1.0
+Title: Access to the List of Mammal Species of Colombia
+Version: 0.2.1
 Authors@R: 
+    c(
     person("Diego J.", "Lizcano", , "dj.lizcano@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0002-9648-0576"))
-Date: 2024
+           comment = c(ORCID = "0000-0002-9648-0576")),
+    person("Baltazar", "González", , "baltazargch@gmail.com", role = c("ctb"),
+           comment = c(ORCID = "0000-0001-5805-8107")),
+    person("Alejandra", "Bonilla-Sánchez", , "alejabonilla.sanchez@gmail.com", role = c("ctb"),
+           comment = c(ORCID = "0000-0003-0803-5884"))
+           )
+Date: 2024-03-28
 Maintainer: Diego J. Lizcano <dj.lizcano@gmail.com>
 Description: Allows easy access to the data found in the species list featured
     in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals
     (Mammalia) of Colombia”. Mammalogy Notes 7(2),253.
-    <https://doi.org/10.47603/mano.v7n2.253>. This publication stands as
+    <doi:10.47603/mano.v7n2.253>. This publication stands as
     one of Colombia's most comprehensive reviews of mammal diversity. The
     dataset incorporates detailed species accounts and has been
     meticulously structured for effortless utilization within the R
     environment.
 License: MIT + file LICENSE
-URL: https://github.com/dlizcano/mamalcol,
+URL: 
+    https://github.com/dlizcano/mammalcol,
     https://dlizcano.github.io/mammalcol/
 BugReports: https://github.com/dlizcano/mammalcol/issues
 Depends: 
     R (>= 2.10)
 Imports:
     ggplot2,
-    magrittr
+    magrittr,
 Suggests:
     dplyr,
     finch,

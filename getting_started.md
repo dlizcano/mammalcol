@@ -18,7 +18,7 @@ Species of Colombia.
 ## Installation
 
 You can install the development version of mammalcol from
-[GitHub](https://github.com/mammalcol) with:
+[GitHub](https://github.com/dlizcano/mammalcol) with:
 
 ``` r
 # install.packages("devtools")

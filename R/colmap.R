@@ -1,9 +1,12 @@
 #' colmap Dataset
 #'
-#' The colmap dataset Simple feature collection with 33 features and 11 fields. This version 
-#' was obtained from: GDAM using: 
+#' The colmap dataset is a simple feature collection with 33 features and 11 fields. This version 
+#' was obtained from: GDAM using the sf package.
+#' 
 #' colmap <- sf::st_as_sf(gadm(country="COL", level=1, path=tempdir()))
-#' al later apply st_simplify with a tolerance of 1km:
+#' 
+#' and later apply a polygon simplify using st_simplify with a tolerance of 1km:
+#' 
 #' colmap <- st_simplify(colmap, preserveTopology = FALSE, dTolerance = 1000)
 #'
 #' @format Simple feature collection with 33 features and 11 fields:
@@ -23,10 +26,11 @@
 #'   }
 #'
 #'
-#' @details This dataset is designed to provide users with a companion map to
-#' plot the mammal distribution per departamento
+#' @details This dataset is designed to provide users of mammalcol package with a companion map to
+#' plot the mammal distribution per departamento.
 #'
 #' @examples
+#' \dontrun{
 #' # Load the mammalcol package
 #' library(mammalcol)
 #'
@@ -35,6 +39,7 @@
 #'
 #' # Display the first few rows
 #' head(colmap)
+#'}
 #'
 #' @seealso
 #' For more information about the "mammalcol" package and the data sources, visit
@@ -46,5 +51,5 @@
 #' @author
 #' Data compilation: Ramírez-Chaves 2021, Package implementation: Diego J. Lizcano
 #'
-#' @keywords dataset
+#' @keywords internal
 "colmap"

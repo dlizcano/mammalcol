@@ -38,7 +38,7 @@ colmap <- st_simplify(colmap, preserveTopology = FALSE, dTolerance = 1000)
 # distribution <- read_delim("C:/Users/usuario/Downloads/mammal_col_2024/distribution.csv",
 #                    delim = "\t", escape_double = FALSE)
 
-
+# mammal global database
 MDD <-  read_csv("C:/Users/usuario/Downloads/mammal_col_2024/MDD_v1.12.1_6718species.csv")
 #vernacularname <- read_delim("C:/Users/usuario/Downloads/mammal_col_2024/vernacularname.csv",
 #                             delim = "\t", escape_double = FALSE,
@@ -48,9 +48,11 @@ MDD <-  read_csv("C:/Users/usuario/Downloads/mammal_col_2024/MDD_v1.12.1_6718spe
 redlist <- read_excel("C:/Users/usuario/Downloads/mammal_col_2024/Mamíferos_Evaluados_2021-2022.xlsx")
 names(redlist) <- c("scientificName", "Año de evaluación", "redlist", "Taller")
 
+
+
 ####################
-
-
+# table operations
+####################
 
 MDD$scientificName <-  stringr::str_replace(MDD$sciName, "_", " ")
 
@@ -77,8 +79,8 @@ taxon$english_name <- MamCol_MDD$mainCommonName
 #taxon$spanish_name <- MamCol_vernacular$vernacularName
 #taxon$name_language <- MamCol_vernacular$language
 
-
-
+###################
+# encoding problem
 ###################
 fix.encoding <- function(df, originalEncoding = "UTF-8") {
   numCols <- ncol(df)
@@ -95,12 +97,13 @@ fix.encoding <- function(df, originalEncoding = "UTF-8") {
   }
   return(as.data.frame(df))
 }
-#################
-# remove cols
+
+
+#######################
+# remove noisy columns
 taxon <- taxon[,-c(1,2,3,5,15,17,18)]
+#######################
 # mammal_colombia_2024 <- fix.encoding(taxon) # rename
-
-
 
 #save as RDS
 save (taxon, file="C:/CodigoR/Mammal_Col/mammalcol/data/taxon.rda")
@@ -109,8 +112,9 @@ save (colmap, file="C:/CodigoR/Mammal_Col/MammalCol/data/colmap.rda")
 
 
 
-#######################
-# hex package logo
+##############################
+# hex package to make the logo
+##############################
 
 library(showtext)
 ## Loading Google fonts (http://www.google.com/fonts)
@@ -135,8 +139,11 @@ sticker(img.n, package="mammalcol", p_size=20, s_x=1, s_y=.85,
         filename="inst/figures/mammalcol_hex.png")
 
 
-###############
+
+
+#####################
 # ocurrence by Depto
+#####################
 
 occurrence <- function(states, type = c("any", "only", "all"), taxa = NULL) {
   if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
@@ -176,33 +183,58 @@ distribution_list <-
 
 # trimws(distribution_list[[55]])
 
-mammalmap <- function(species){
-
-  deptos <- as.data.frame( cbind(Depto=unique(colmap$NAME_1), fill="white"))
-  sp_id <- which(taxon$scientificName==species)
+mammalmap <- function(species, legend=TRUE){
+  
+  if (missing(species)) {
+    stop("Argument species was not included")
+  }
+  
+  if (!is.character(species)) {
+    stop(paste0("Argument species must be a character, not ", class(species)))
+  }
+  
+  if (!is.logical(legend)) {
+    stop(paste0("Argument legend must be logical, not ", class(legend)))
+  }
+  
+  distribution_list <-
+    strsplit(taxon$distribution, "\\|") # trimws () removes spaces
+  
+  deptos <- as.data.frame(cbind(Depto=unique(colmap$NAME_1), fill="white"))
+  sp_id <- which(taxon$scientificName == species)
   unos <- trimws(distribution_list[[ sp_id ]]) # species number
-
+  
   # nested loop to get deptos
   for (i in 1:length(deptos[,1])){
     for (j in 1:length(unos)){
-         if(deptos$Depto[i]==unos[j]){deptos$fill[i] <- "blue"}
+      if(deptos$Depto[i]==unos[j]){deptos$fill[i] <- "blue"}
     }
   }
-
+  
   # make the map
-  ggplot(colmap) +
-    geom_sf(aes(fill = NAME_1)) +
-    scale_fill_manual(values = deptos$fill) +
-    # ggtitle(taxon$scientificName[25]) + #species name number
-    labs(subtitle = taxon$scientificName[sp_id])+
-    theme(legend.position="right", # locatio legend
-          legend.title = element_blank(),#element_text(size=7),#,
-          legend.text = element_text(size=7,), # text depto size
-          plot.subtitle = element_text(face = "italic") # italica
-                    )#,
-}
-
-
-
+  # if legend true 
+  if(legend==TRUE) {
+    mapa <-   ggplot2::ggplot(colmap) +
+      ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
+      ggplot2::scale_fill_manual(values = deptos$fill) +
+      # ggtitle(taxon$scientificName[25]) + #species name number
+      ggplot2::labs(subtitle = taxon$scientificName[sp_id])+
+      ggplot2::theme(legend.position="right", # location legend
+                     legend.title = ggplot2::element_blank(),#element_text(size=7),#,
+                     legend.text = ggplot2::element_text(size=8,), # text depto size
+                     plot.subtitle = ggplot2::element_text(face = "italic") # italica
+      )
+  }else{ # if legend false
+    mapa <-   ggplot2::ggplot(colmap) +
+      ggplot2::geom_sf(ggplot2::aes(fill = NAME_1), show.legend = FALSE) + # removes legend
+      ggplot2::scale_fill_manual(values = deptos$fill) +
+      # ggtitle(taxon$scientificName[25]) + #species name number
+      ggplot2::labs(subtitle = taxon$scientificName[sp_id]) +
+      ggplot2::theme(plot.subtitle = ggplot2::element_text(face = "italic")
+      )# italica
+  }
+  
+  return(mapa)
+} # end mammalmap function
 
 
