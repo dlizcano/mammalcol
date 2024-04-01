@@ -147,41 +147,16 @@ the package's GitHub repository: <a href="https://github.com/dlizcano/mammalcol"
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlizcano/mammalcol" class="external-link">mammalcol</a></span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">distribution</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                    id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                             urn:lsid:organismnames.com:name:3484299</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 urn:lsid:catalogueoflife.org:taxon:4f16759f-5e17-11e7-8cee-bc764e092680:col20170824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                eol.org/pages/Mazama%20sanctaemartae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 urn:lsid:catalogueoflife.org:taxon:259114ac-5e17-11e7-8cee-bc764e092680:col20170824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                             urn:lsid:organismnames.com:name:3484302</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                             urn:lsid:organismnames.com:name:3535811</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                  locality</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                 Amazonas | Caquetá | Cauca | Meta | Vaupés | Vichada | Nariño | Putumayo | Cundinamarca</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Antioquia | Boyacá | Caldas | Cauca | Cesar | Cundinamarca | Huila | Nariño | Norte de Santander | Quindío | Risaralda | Santander | Tolima | Valle del Cauca | Caquetá</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                           Bolívar | Cesar | La Guajira | Magdalena | Atlántico | Córdoba | Cundinamarca</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                                                       Chocó | Magdalena</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                                          Amazonas | Caquetá | Meta | Putumayo | Vichada</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                          Antioquia | Caldas | Cauca | Nariño | Valle del Cauca | Tolima</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   countryCode establishmentMeans threatStatus appendixCITES</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1          CO               &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2          CO               &lt;NA&gt;           VU          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3          CO               &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          CO               &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5          CO               &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6          CO               &lt;NA&gt;         &lt;NA&gt;          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                         source</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                     Biota Colombiana 1:43-75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                Bulletin of the American Museum of Natural History 35:191-238</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                occurrenceRemarks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                           Amazonía | Orinoquía</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2        Andina | Orinoquia | Serranía de Perijá</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Andina | Caribe | Sierra Nevada de Santa Marta</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                       Pacífica</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                             Sureste | Amazonia</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                            Valles Interandinos</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 6 × 8</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   id          locality countryCode establishmentMeans threatStatus appendixCITES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>              <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">1</span> urn:lsid:o… Amazona… CO          <span style="color: #BB0000;">NA</span>                 <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">2</span> urn:lsid:c… Antioqu… CO          <span style="color: #BB0000;">NA</span>                 VU           <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">3</span> eol.org/pa… Bolívar… CO          <span style="color: #BB0000;">NA</span>                 <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">4</span> urn:lsid:c… Chocó |… CO          <span style="color: #BB0000;">NA</span>                 <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">5</span> urn:lsid:o… Amazona… CO          <span style="color: #BB0000;">NA</span>                 <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">6</span> urn:lsid:o… Antioqu… CO          <span style="color: #BB0000;">NA</span>                 <span style="color: #BB0000;">NA</span>           <span style="color: #BB0000;">NA</span>           </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 2 more variables: source &lt;chr&gt;, occurrenceRemarks &lt;chr&gt;</span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
     </div>
