@@ -360,7 +360,7 @@ head(occ.bats)
 
 ### Sugested citation
   
-```{r eval=FALSE}
+```{r eval=TRUE}
 citation("mammalcol")
 
 ```
