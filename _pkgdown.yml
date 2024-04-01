@@ -19,9 +19,9 @@ navbar:
       -  text: "1. Getting started with mammalcol"
          href: getting_started.html
       -  text: "2. Selecting and filtering species"
-         href: selecting_species.html
+         href: searching_species.html
       -  text: "3. Using mammalcol to map mammals"
-         href: Spatialize_florabr.html
+         href: map_species.html
       -  text: "4. Getting a Presence-Absence Matrix"
          href: getting_pam.html
   components:

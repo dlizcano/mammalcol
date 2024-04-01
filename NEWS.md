@@ -1,8 +1,13 @@
+# mammalcol 0.2.2
+
+* Several typos corrected in distribution table.  
+* Added Baltazar González as author and Andres F. Suárez-Castro as contributor.
+
 # mammalcol 0.2.1
 
-* Added a new option to function mammalmap() to retrieve the ggplot object and select if you want the legend or not, as suggested by Baltazar González.
+* Added a new option to the function mammalmap() to retrieve the ggplot object and select if you want the legend or not, as suggested by Baltazar González.
 * Some typos corrected.
-* Contributors Baltazar González y Alejandra Bonilla-Sánchez added.
+* Contributors Baltazar González and Alejandra Bonilla-Sánchez added.
 
 
 # mammalcol 0.2.0
