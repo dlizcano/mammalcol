@@ -1,6 +1,10 @@
+# mammalcol 0.2.3
+
+* fix bug in data loading
+
 # mammalcol 0.2.2
 
-* Several typos corrected in distribution table.  
+* Several typos were corrected in the distribution table.    
 * Added Baltazar González as author and Andres F. Suárez-Castro as contributor.
 
 # mammalcol 0.2.1

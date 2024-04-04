@@ -22,10 +22,16 @@ Useful links:
 \author{
 \strong{Maintainer}: Diego J. Lizcano \email{dj.lizcano@gmail.com} (\href{https://orcid.org/0000-0002-9648-0576}{ORCID})
 
-Other contributors:
+Authors:
 \itemize{
   \item Baltazar González \email{baltazargch@gmail.com} (\href{https://orcid.org/0000-0001-5805-8107}{ORCID}) [contributor]
+}
+
+Other contributors:
+\itemize{
   \item Alejandra Bonilla-Sánchez \email{alejabonilla.sanchez@gmail.com} (\href{https://orcid.org/0000-0003-0803-5884}{ORCID}) [contributor]
+  \item Andres F. Suárez-Castro \email{alejabonilla.sanchez@gmail.com} (\href{https://orcid.org/0000-0002-6621-3821}{ORCID}) [contributor]
+  \item Camilo A. Calderón-Acevedo \email{calderon.mammalogy@gmail.com} (\href{https://orcid.org/0000-0002-1468-3565}{ORCID}) [contributor]
 }
 
 }

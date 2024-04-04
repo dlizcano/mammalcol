@@ -3,8 +3,9 @@ require(readr)
 require(geodata)
 require(finch)
 library(stringr)
-library(dplyr)
+library(tidyverse)
 library(readxl)
+library(sf)
 
 
 ###########
@@ -35,8 +36,18 @@ colmap <- st_simplify(colmap, preserveTopology = FALSE, dTolerance = 1000)
 # taxon <- read_delim("C:/Users/usuario/Downloads/mammal_col_2024/taxon.csv",
 #                    delim = "\t", escape_double = FALSE)
 
-# distribution <- read_delim("C:/Users/usuario/Downloads/mammal_col_2024/distribution.csv",
-#                    delim = "\t", escape_double = FALSE)
+# fixed several typos from ipt file
+distribution <- read_delim("C:/Users/usuario/Downloads/mammal_col_2024/distribution.csv",
+                    delim = "\t", escape_double = FALSE)
+
+
+# load('data/distribution.rda') # Baltazar code to check
+distribution %>% select(id, locality) %>% nest_by(id) %>%
+  mutate(dept = map(data, ~.x %>% str_split('\\|') %>% unlist %>%
+                      str_squish)) %>%
+  unnest(cols=dept) %>% ungroup() %>% select(dept) %>% table() %>% View()
+# notice must be 33 departamentos
+
 
 # mammal global database
 MDD <-  read_csv("C:/Users/usuario/Downloads/mammal_col_2024/MDD_v1.12.1_6718species.csv")
@@ -79,36 +90,39 @@ taxon$english_name <- MamCol_MDD$mainCommonName
 #taxon$spanish_name <- MamCol_vernacular$vernacularName
 #taxon$name_language <- MamCol_vernacular$language
 
-###################
-# encoding problem
-###################
-fix.encoding <- function(df, originalEncoding = "UTF-8") {
-  numCols <- ncol(df)
-  df <- data.frame(df)
-  for (col in 1:numCols)
-  {
-    if(class(df[, col]) == "character"){
-      Encoding(df[, col]) <- originalEncoding
-    }
-
-    if(class(df[, col]) == "factor"){
-      Encoding(levels(df[, col])) <- originalEncoding
-    }
-  }
-  return(as.data.frame(df))
-}
-
 
 #######################
 # remove noisy columns
 taxon <- taxon[,-c(1,2,3,5,15,17,18)]
 #######################
+
+###################
+# encoding problem
+###################
+# fix.encoding <- function(df, originalEncoding = "UTF-8") {
+#   numCols <- ncol(df)
+#   df <- data.frame(df)
+#   for (col in 1:numCols)
+#   {
+#     if(class(df[, col]) == "character"){
+#       Encoding(df[, col]) <- originalEncoding
+#     }
+# 
+#     if(class(df[, col]) == "factor"){
+#       Encoding(levels(df[, col])) <- originalEncoding
+#     }
+#   }
+#   return(as.data.frame(df))
+# }
+
+
 # mammal_colombia_2024 <- fix.encoding(taxon) # rename
 
 #save as RDS
 save (taxon, file="C:/CodigoR/Mammal_Col/mammalcol/data/taxon.rda")
 # load(file="C:/CodigoR/Mammal_Col/MammalCol/data/taxon.rda")#, encoding = "UTF-8")
-save (colmap, file="C:/CodigoR/Mammal_Col/MammalCol/data/colmap.rda")
+save (colmap, file="C:/CodigoR/Mammal_Col/mammalcol/data/colmap.rda")
+save (distribution, file="C:/CodigoR/Mammal_Col/mammalcol/data/distribution.rda")
 
 
 
@@ -236,5 +250,19 @@ mammalmap <- function(species, legend=TRUE){
   
   return(mapa)
 } # end mammalmap function
+
+
+
+### package flow
+# 0. load pakgdown, usethis
+# 1 load data objects
+# 2 put in /R/sysdata.rda using: usethis::use_data(colmap, distribution, taxon, internal = TRUE, overwrite = TRUE)
+# 3 check()
+# 4 build_site()
+# 5 update version in Description
+# 6 add change to NEWS.MD
+# 7 build new version using build()
+# 8 upload (pull) to github
+# 9 upload to cran using devtools::submit_cran()
 
 

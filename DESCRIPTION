@@ -1,6 +1,6 @@
 Package: mammalcol
 Title: Access to the List of Mammal Species of Colombia
-Version: 0.2.2
+Version: 0.2.3
 Authors@R: 
     c(
     person("Diego J.", "Lizcano", , "dj.lizcano@gmail.com", role = c("aut", "cre"),
@@ -14,7 +14,7 @@ Authors@R:
     person("Camilo A.", "Calderón-Acevedo", , "calderon.mammalogy@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0002-1468-3565"))
            )
-Date: 2024-03-28
+Date: 2024-04-04
 Maintainer: Diego J. Lizcano <dj.lizcano@gmail.com>
 Description: Allows easy access to the data found in the species list featured
     in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals
@@ -30,7 +30,7 @@ URL:
     https://dlizcano.github.io/mammalcol/
 BugReports: https://github.com/dlizcano/mammalcol/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5.0)
 Imports:
     ggplot2,
     magrittr,
