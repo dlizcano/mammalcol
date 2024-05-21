@@ -10,10 +10,23 @@
 coverage](https://codecov.io/gh/dlizcano/mammalcol/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dlizcano/mammalcol?branch=main)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mammalcol)](https://CRAN.R-project.org/package=mammalcol)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![size](https://img.shields.io/github/languages/code-size/dlizcano/mammalcol.svg)](https://github.com/dlizcano/mammalcol)
 <!-- badges: end -->
 
 The goal of mammalcol is to allow easy access to the List of Mammal
 Species of Colombia.
+
+Researchers can explore Colombia’s amazing variety of mammals using the
+mammalcol R package. This package includes information on 548 mammal
+species, making Colombia one of the world leaders in mammal diversity.
+The data comes from the latest “Checklist of the mammals (Mammalia) of
+Colombia” by [Ramírez-Chaves et al
+(2021)](https://doi.org/10.47603/mano.v7n2.253). But It’s important to
+remember that how scientists classify mammals keeps changing constantly,
+so the information in this package has been updated with the checklist
+[Mamíferos de Colombia](https://doi.org/10.15472/kl1whs), which is
+published and updated regularly by the Colombian Mammal Society.
 
 ## Installation
 
@@ -23,6 +36,19 @@ You can install the development version of mammalcol from
 ``` r
 # install.packages("devtools")
 devtools::install_github("dlizcano/mammalcol")
+```
+
+## load library
+
+``` r
+
+library(mammalcol)
+#> This is mammalcol 0.2.3
+#> 
+#> Attaching package: 'mammalcol'
+#> The following objects are masked _by_ '.GlobalEnv':
+#> 
+#>     mammalmap, search_mammalcol, sp_by_depto
 ```
 
 ## Example
@@ -68,7 +94,7 @@ search_mammalcol(splist)
 #>                                                                                                                                                                           distribution
 #> 1                                                                                                                                                          Antioquia | Chocó | Córdoba
 #> 2                                              Antioquia | Cauca | Cundinamarca | Huila | Meta | Nariño | Quindío | Risaralda | Tolima | Valle del Cauca | Caldas | Caquetá | Putumayo
-#> 3 Antioquia | Amazonas | Arauca | Caquetá | Cauca | Cesar | Córdoba | Guainia | La Guajira | Meta | Magdalena | Vaupés | Vichada | Guaviare | Casanare | Norte de Santander | Putumayo
+#> 3 Antioquia | Amazonas | Arauca | Caquetá | Cauca | Cesar | Córdoba | Guainía | La Guajira | Meta | Magdalena | Vaupés | Vichada | Guaviare | Casanare | Norte de Santander | Putumayo
 #> 4                                                                                                              Cauca | Huila | Nariño | Risaralda | Quindío | Tolima | Valle del Cauca
 #>                                                         source endemic
 #> 1 Proceedings of the United States National Museum 103:465-496      No
@@ -129,7 +155,7 @@ search_mammalcol(splist)
 #> 2     1       EN A2cd B1ab (i; ii; iii; iv; v) \r\n
 #> 3     1 EN A2cd+ B1ab (i,ii,iii)+ B2ab (i, ii, iii)
 #>                                                                                                                                                                           distribution
-#> 1 Antioquia | Amazonas | Arauca | Caquetá | Cauca | Cesar | Córdoba | Guainia | La Guajira | Meta | Magdalena | Vaupés | Vichada | Guaviare | Casanare | Norte de Santander | Putumayo
+#> 1 Antioquia | Amazonas | Arauca | Caquetá | Cauca | Cesar | Córdoba | Guainía | La Guajira | Meta | Magdalena | Vaupés | Vichada | Guaviare | Casanare | Norte de Santander | Putumayo
 #> 2                                                                                                              Cauca | Huila | Nariño | Risaralda | Quindío | Tolima | Valle del Cauca
 #> 3                                                                                                                                                          Antioquia | Chocó | Córdoba
 #>                                                         source endemic
@@ -265,7 +291,7 @@ head(occ.any)
 #> 3                                                                             Norte de Santander
 #> 4                                                                 Magdalena | Norte de Santander
 #> 5 Amazonas | Caquetá | Casanare | Huila | Meta | Putumayo | Vaupés | Guaviare | Arauca | Guainía
-#> 6                Cundinamarca | Norte de Santander | Santander | Guania | Meta | Arauca | Tolima
+#> 6               Cundinamarca | Norte de Santander | Santander | Guainía | Meta | Arauca | Tolima
 ```
 
 The argument type = “only” retrieves species present only in that
@@ -298,14 +324,32 @@ head(occ.bats)
 #> 2                                                                                             Arauca | Caldas | Norte de Santander | Tolima | Putumayo | Guaviare | Amazonas | Antioquia | Atlántico | Caquetá | Casanare | Guainía | Meta | Vichada
 #> 3                                                                                                                  Amazonas | Arauca | Boyacá | Casanare | Meta | Vichada | Caquetá | Cundinamarca | Norte de Santander | Putumayo | Guainía | Sucre
 #> 4 Caldas | Cauca | Quindío | Risaralda | Amazonas | Caquetá | Guaviare | Meta | Putumayo | Antioquia | Arauca | Casanare | Chocó | Córdoba | Guainía | Magdalena | Nariño | Norte de Santander | Sucre | Tolima | Valle del Cauca | Vaupés | Vichada
-#> 5              Caldas | Cauca | Cundinamarca | Quindío | Risaralda | Amazonas | Caqueta | Putumayo | Antioquia | Arauca | Casanare | Cesar | Chocó | Guainía | Huila | Magdalena | Nariño | Norte de Santander | Putumayo | Tolima | Valle del Cauca
-#> 6                                                                                                             Cundinamarca | Magdalena | Amazonas | Caquetá | Guaviare | Arauca | Casanare | Chocó | Cordoba | Guainia | Norte de Santander | Tolima
+#> 5              Caldas | Cauca | Cundinamarca | Quindío | Risaralda | Amazonas | Caquetá | Putumayo | Antioquia | Arauca | Casanare | Cesar | Chocó | Guainía | Huila | Magdalena | Nariño | Norte de Santander | Putumayo | Tolima | Valle del Cauca
+#> 6                                                                                                             Cundinamarca | Magdalena | Amazonas | Caquetá | Guaviare | Arauca | Casanare | Chocó | Córdoba | Guainía | Norte de Santander | Tolima
 ```
 
 ### Sugested citation
 
 ``` r
 citation("mammalcol")
+#> To cite mammalcol package in publications use:
+#> 
+#>   Lizcano, DJ. et al., (2024). mammalcol: Access to the List of Mammal
+#>   Species of Colombia. R package version 0.2.2
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {mammalcol: Access to the List of Mammal Species of Colombia},
+#>     author = {Diego J. Lizcano and Baltazar González and Alejandra Bonilla-Sánchez and Andres F. Suárez-Castro and Camilo A. Calderón-Acevedo},
+#>     year = {2024},
+#>     note = {R data package version 0.2.2},
+#>     url = {https://dlizcano.github.io/mammalcol/},
+#>   }
+#> 
+#> To cite just the original mammalcol dataset, please use: Mammals of
+#> Colombia / Mamíferos de Colombia. SCMas: <doi:10.15472/kl1whs>, but
+#> keep in mind taxonomy is dinamic and have changed.
 ```
 
 Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of

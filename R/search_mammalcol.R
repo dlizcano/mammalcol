@@ -27,6 +27,10 @@
 #' @export
 search_mammalcol <- function(splist, max_distance = 0.2) {
   # Defensive function here, check for user input errors
+  if (missing(splist)) {
+    stop("Argument splist was not defined")
+  }
+  
   if (is.factor(splist)) {
     splist <- as.character(splist)
   }

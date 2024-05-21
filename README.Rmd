@@ -254,9 +254,13 @@ sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
 [![R-CMD-check](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml)
 [![Codecov test coverage](https://codecov.io/gh/dlizcano/mammalcol/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dlizcano/mammalcol?branch=main)
 [![CRAN status](https://www.r-pkg.org/badges/version/mammalcol)](https://CRAN.R-project.org/package=mammalcol)
+[![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
+[![size](https://img.shields.io/github/languages/code-size/dlizcano/mammalcol.svg)](https://github.com/dlizcano/mammalcol)
 <!-- badges: end -->
 
 The goal of mammalcol is to allow easy access to the List of Mammal Species of Colombia.
+
+Researchers can explore Colombia's amazing variety of mammals using the mammalcol R package. This package includes information on 548 mammal species, making Colombia one of the world leaders in mammal diversity. The data comes from the latest "Checklist of the mammals (Mammalia) of Colombia" by [Ramírez-Chaves et al (2021)](https://doi.org/10.47603/mano.v7n2.253). But It's important to remember that how scientists classify mammals keeps changing constantly, so the information in this package has been updated with the checklist [Mamíferos de Colombia](https://doi.org/10.15472/kl1whs), which is published and updated regularly by the Colombian Mammal Society. 
 
 ## Installation
 
