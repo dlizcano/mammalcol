@@ -18,9 +18,9 @@
 #' @return A ggplot2 map for the species.
 #'
 #' @examples
-#' library(mammalcol)
-#' species <- "Tapirus pinchaque" 
-#' mammalmap(species, legend=FALSE)
+#' library (mammalcol)
+#' species <- "Tapirus pinchaque"
+#' mammalmap (species, legend = FALSE)
 #'
 #' @importFrom mammalcol taxon
 #' @importFrom mammalcol colmap
@@ -59,6 +59,10 @@ mammalmap <- function(species, legend = TRUE) {
 
   deptos <- as.data.frame(cbind(Depto = unique(colmap$NAME_1), fill = "white"))
   sp_id <- which(taxon$scientificName == species)
+  # if species is not in the table and is integer(0)
+  if (length(sp_id) == 0) {
+    stop(paste0("The species should be in the list. Make sure you use the function search_mammalcol first. ", species, " is not a species present in Colombia"))
+  }
   unos <- trimws(distribution_list[[sp_id]]) # species number
 
   # nested loop to get deptos
