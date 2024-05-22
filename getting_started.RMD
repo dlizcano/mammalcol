@@ -13,8 +13,8 @@ knitr::opts_chunk$set(
 )
 
 #############
-load(file="C:/CodigoR/Mammal_Col/MammalCol/data/taxon.rda")#, taxon
-load(file="C:/CodigoR/Mammal_Col/MammalCol/data/colmap.rda")#, colmap
+load(file = "C:/CodigoR/Mammal_Col/MammalCol/data/taxon.rda") # , taxon
+load(file = "C:/CodigoR/Mammal_Col/MammalCol/data/colmap.rda") # , colmap
 ############
 
 search_mammalcol <- function(splist, max_distance = 0.2) {
@@ -26,18 +26,22 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
   splist_st <- standardize_names(splist)
   dupes_splist_st <- find_duplicates(splist_st)
 
-  if(length(dupes_splist_st) != 0 ){
-    message("The following names are repeated in the 'splist': ",
-            paste(dupes_splist_st, collapse = ", "))
+  if (length(dupes_splist_st) != 0) {
+    message(
+      "The following names are repeated in the 'splist': ",
+      paste(dupes_splist_st, collapse = ", ")
+    )
   }
   splist_std <- unique(splist_st)
 
   # create an output data container
   output_matrix <- matrix(nrow = length(splist_std), ncol = 20) # two more
-  colnames(output_matrix) <- c("name_submitted",
-                               names(taxon), 
-                               "Distance")
-  
+  colnames(output_matrix) <- c(
+    "name_submitted",
+    names(taxon),
+    "Distance"
+  )
+
   # loop code to find the matching string
 
   for (i in seq_along(splist_std)) {
@@ -50,32 +54,31 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
 
     # fuzzy and exact match
     matches <- agrep(splist_std[i],
-                     taxon$scientificName, # base data column
-                     max.distance = max_distance_fixed,
-                     value = TRUE)
+      taxon$scientificName, # base data column
+      max.distance = max_distance_fixed,
+      value = TRUE
+    )
 
     # check non matching result
     if (length(matches) == 0) {
       row_data <- rep("nill", 18) # number of columns
-    }
-    else if (length(matches) != 0){ # match result
+    } else if (length(matches) != 0) { # match result
       dis_value <- as.numeric(utils::adist(splist_std[i], matches))
       matches1 <- matches[dis_value <= max_distance_fixed]
       dis_val_1 <- dis_value[dis_value <= max_distance_fixed]
 
-      if (length(matches1) == 0){
+      if (length(matches1) == 0) {
         row_data <- rep("nill", 18) # number of columns
-      }
-      else if (length(matches1) != 0){
-        row_data <- as.matrix(taxon[taxon$scientificName %in% matches1,])
+      } else if (length(matches1) != 0) {
+        row_data <- as.matrix(taxon[taxon$scientificName %in% matches1, ])
       }
     }
 
     # distance value
-    if(is.null(nrow(row_data))){
+    if (is.null(nrow(row_data))) {
       dis_value_1 <- "nill"
-    } else{
-      dis_value_1 <- utils::adist(splist_std[i], row_data[,2])
+    } else {
+      dis_value_1 <- utils::adist(splist_std[i], row_data[, 2])
     }
 
     output_matrix[i, ] <-
@@ -85,8 +88,8 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
   # Output
   output <- as.data.frame(output_matrix)
   # rownames(output) <- NULL
-  output <- output[,-2]# delete the id column
-  return(output[output$scientificName != "nill",])
+  output <- output[, -2] # delete the id column
+  return(output[output$scientificName != "nill", ])
 }
 
 
@@ -104,10 +107,14 @@ standardize_names <- function(splist) {
   hybrids <- fixed5 == fixed6
   if (!all(hybrids)) {
     sp_hybrids <- splist[!hybrids]
-    warning(paste("The 'x' sign indicating hybrids have been removed in the",
-                  "following names before search:",
-                  paste(paste0("'", sp_hybrids, "'"), collapse = ", ")),
-            immediate. = TRUE, call. = FALSE)
+    warning(
+      paste(
+        "The 'x' sign indicating hybrids have been removed in the",
+        "following names before search:",
+        paste(paste0("'", sp_hybrids, "'"), collapse = ", ")
+      ),
+      immediate. = TRUE, call. = FALSE
+    )
   }
   # Merge multiple spaces
   fixed7 <- gsub("(?<=[\\s])\\s*|^\\s+|\\s+$", "", fixed6, perl = TRUE)
@@ -143,46 +150,49 @@ find_duplicates <- function(vector) {
 
 
 ################
-mammalmap <- function(species){
-
-  if (!requireNamespace("ggplot2", quietly = TRUE))
+mammalmap <- function(species) {
+  if (!requireNamespace("ggplot2", quietly = TRUE)) {
     install.packages("ggplot2")
-  if (!requireNamespace("sf", quietly = TRUE))
+  }
+  if (!requireNamespace("sf", quietly = TRUE)) {
     install.packages("sf")
-  
+  }
+
   # require("ggplot2")
   # require("sf")
-  
-  #load("data/colmap.rda")
-  #load("data/taxon.rda")
-  
+
+  # load("data/colmap.rda")
+  # load("data/taxon.rda")
+
   distribution_list <-
     strsplit(taxon$distribution, "\\|") # trimws () removes spaces
-  
-  deptos <- as.data.frame( cbind(Depto=unique(colmap$NAME_1), fill="white"))
-  sp_id <- which(taxon$scientificName==species)
-  unos <- trimws(distribution_list[[ sp_id ]]) # species number
-  
+
+  deptos <- as.data.frame(cbind(Depto = unique(colmap$NAME_1), fill = "white"))
+  sp_id <- which(taxon$scientificName == species)
+  unos <- trimws(distribution_list[[sp_id]]) # species number
+
   # nested loop to get deptos
-  for (i in 1:length(deptos[,1])){
-    for (j in 1:length(unos)){
-      if(deptos$Depto[i]==unos[j]){deptos$fill[i] <- "blue"}
+  for (i in 1:length(deptos[, 1])) {
+    for (j in 1:length(unos)) {
+      if (deptos$Depto[i] == unos[j]) {
+        deptos$fill[i] <- "blue"
+      }
     }
   }
-  
+
   # make the map
   ggplot2::ggplot(colmap) +
     ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
     ggplot2::scale_fill_manual(values = deptos$fill) +
     # ggtitle(taxon$scientificName[25]) + #species name number
-    ggplot2::labs(subtitle = taxon$scientificName[sp_id])+
-    ggplot2::theme(legend.position="right", # locatio legend
-            legend.title = ggplot2::element_blank(),#element_text(size=7),#,
-            legend.text = ggplot2::element_text(size=7,), # text depto size
-            plot.subtitle = ggplot2::element_text(face = "italic") # italica
-    )#,
+    ggplot2::labs(subtitle = taxon$scientificName[sp_id]) +
+    ggplot2::theme(
+      legend.position = "right", # locatio legend
+      legend.title = ggplot2::element_blank(), # element_text(size=7),#,
+      legend.text = ggplot2::element_text(size = 7, ), # text depto size
+      plot.subtitle = ggplot2::element_text(face = "italic") # italica
+    ) # ,
 }
-
 
 
 ```

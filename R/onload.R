@@ -1,10 +1,9 @@
-
 .onAttach <- function(lib, pkg) {
   packageStartupMessage("This is mammalcol ",
-                        utils::packageDescription("mammalcol",
-                                                  fields = "Version"
-                        ),
-                        appendLF = TRUE
+    utils::packageDescription("mammalcol",
+      fields = "Version"
+    ),
+    appendLF = TRUE
   )
 }
 
@@ -20,7 +19,7 @@ show_progress <- function() {
 
 .onLoad <- function(libname, pkgname) {
   opt <- options()
-  opt_mammalcol<- list(
+  opt_mammalcol <- list(
     mammalcol.show_progress = TRUE
   )
   to_set <- !(names(opt_mammalcol) %in% names(opt))

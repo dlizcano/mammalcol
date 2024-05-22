@@ -31,12 +31,12 @@ sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
   if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
   type <- match.arg(type)
   states <- sort(states)
-  
+
   # states <- paste("BR-", states, sep = "")
   if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
   # res <- lapply(occurrences, match, states)
   if (type == "any") {
-    #res <- lapply(res, function(x) any(!is.na(x)))
+    # res <- lapply(res, function(x) any(!is.na(x)))
     res <- subset(distribution, grepl(paste(states, collapse = "|"), locality))
   }
   if (type == "only") {
@@ -50,10 +50,10 @@ sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
     return(NA)
   }
   if (is.null(taxa)) {
-    merge(taxon[, c("scientificName", "family", "order",  "id")], res[, c("id", "locality")], by = "id")[,-1]
+    merge(taxon[, c("scientificName", "family", "order", "id")], res[, c("id", "locality")], by = "id")[, -1]
     # removes id
   } else {
-    merge(taxon[taxon$order %in% taxa, c("scientificName", "family", "order",  "id" )], res[, c("id", "locality")], by = "id")[,-1]
+    merge(taxon[taxon$order %in% taxa, c("scientificName", "family", "order", "id")], res[, c("id", "locality")], by = "id")[, -1]
     # removes id
   }
 }
