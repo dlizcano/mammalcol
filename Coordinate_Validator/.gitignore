@@ -1,0 +1,11 @@
+
+# data to test:
+test_data_coordiantes.csv
+# code test
+coordiante.r
+# Ignore macOS system files
+.DS_Store
+
+# Ignore temporary files or directories
+temp/
+cache/
