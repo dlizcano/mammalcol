@@ -3,6 +3,7 @@
 test_data_coordiantes.csv
 # code test
 coordiante.r
+draft.R
 # Ignore macOS system files
 .DS_Store
 
