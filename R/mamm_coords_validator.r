@@ -68,7 +68,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   # Set default ocean map and administrative boundary name for ocean if not provided
   if (is.null(oceanmap)) {
     #load('data/colombian_sea.rda')
-    oceanmap <- mammalcol::colombian_sea
+    oceanmap <- mammalcol::Colombian_sea
   }  else {
     oceanmap <- sf::st_as_sf(oceanmap)
   }
