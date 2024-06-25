@@ -28,7 +28,6 @@
 #' no match. Additional details are provided in the returned data frame.
 #'
 #' @examples
-#' #' data('test_data_coordiantes.rda')
 #' validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
 #'
 #' @export
