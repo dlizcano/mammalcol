@@ -131,7 +131,8 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     
     
     # Handle cases where records are not fully evaluated
-    if (nrow(vect.spp.i) != nrow(vect.spp.i.t)) {
+    if (nrow(vect.spp.i) > nrow(vect.spp.i.t) ) {
+      
       vect.spp.i.novali <- vect.spp.i[!(vect.spp.i$IDVal %in% vect.spp.i.t$IDVal), ]
       vect.spp.i.novali2 <- terra::intersect(terra::vect(ocenamap), vect.spp.i.novali)
       
