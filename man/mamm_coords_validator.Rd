@@ -2,9 +2,7 @@
 % Please edit documentation in R/mamm_coords_validator.R
 \name{mamm_coords_validator}
 \alias{mamm_coords_validator}
-\title{Validate mammal species distribution data based on geographic coordinates.
-Elaborated by Cristian A. Cruz Rodríguez
-Last upload: June 2024}
+\title{Validate mammal species distribution data based on geographic coordinates.}
 \usage{
 mamm_coords_validator(
   df,
