@@ -12,29 +12,29 @@
 #' @param taxon A data frame with distribution information, including 'scientificName' and 'distribution'.
 #'              The scientificName must be in binomial form, and the distribution should contain names separated by |.
 #'              By default, the function uses the checklist available at https://www.gbif.org/dataset/e8b9ed9b-f715-4eac-ae24-772fbf40d7ae.
-#' @param colmap A spatial object in vector format representing the geographic area to validate against.
+#' @param colmap_igac A spatial object in vector format representing the geographic area to validate against.
 #'               By default, the function uses the Colombia Administrative Boundaries.
 #' @param lon Name of the column containing longitude values in df. Default is 'decimalLongitude'.
 #' @param lat Name of the column containing latitude values in df. Default is 'decimalLatitude'.
 #' @param adm_names Name of the column in colmap representing administrative boundaries. Default is 'NAME_1'.
-#' @param ocenamap A spatial object representing the ocean area to validate against.
-#' @param oce_adm_names Name of the column in ocenamap representing administrative boundaries for ocean areas. Default is 'ocean'.
+#' @param oceanmap A spatial object representing the ocean area to validate against.
+#' @param oce_adm_names Name of the column in oceanmap representing administrative boundaries for ocean areas. Default is 'ocean'.
 #' @return A data frame with validated species records and validation results.
 
 #' @details
 #' This function validates species distribution data by checking species names against a
-#' known list and verifying geographic coordinates against specified maps ('colmap' and 'ocenamap').
+#' known list and verifying geographic coordinates against specified maps ('colmap' and 'oceanmap').
 #' It assigns a validation result ('validation_result') where 1 means coincidence and 0 means
 #' no match. Additional details are provided in the returned data frame.
 #'
 #' @examples
 #' df <- read.csv("test_data_coordinates.csv")
 #' taxon <- read.csv("taxon.csv")
-#' colmap <- read_sf("colmap.shp")
+#' colmap_igac <- read_sf("colmap_igac.shp")
 #' validated_data <- mamm_coords_validator(df, sp_names = "species", taxon = taxon, colmap = colmap)
 #'
 #' @export
-mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, ocenamap = NULL, oce_adm_names = NULL) {
+mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
   # Initialize function
   
   # Validate input and set defaults if necessary
@@ -56,7 +56,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   }
   
   if (is.null(colmap)) {
-    colmap <- mammalcol::colmap
+   load('data/colmap_igac.rda')
     colmap[[adm_names]] <- tolower(colmap[[adm_names]])
   } else {
     colmap <- sf::st_as_sf(colmap)
@@ -70,17 +70,16 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   } 
   
   # Set default ocean map and administrative boundary name for ocean if not provided
-  if (is.null(ocenamap)) {
-    ocenamap <-  sf::st_as_sf(Colombian_sea)
-    #ocenamap <- Colombian_sea
+  if (is.null(oceanmap)) {
+    load('data/colombian_sea.rda')
   }  else {
-    ocenamap <- sf::st_as_sf(ocenamap)
+    oceanmap <- sf::st_as_sf(oceanmap)
   }
   
   if (is.null(oce_adm_names)) {
-    ocenamap[[adm_names]] <- 'ocean'
+    oceanmap[[adm_names]] <- 'ocean'
   } else {
-    ocenamap[[adm_names]] <- oce_adm_names
+    oceanmap[[adm_names]] <- oce_adm_names
   }
 
   ## Start the data process
@@ -134,7 +133,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     if (nrow(vect.spp.i) > nrow(vect.spp.i.t) ) {
       
       vect.spp.i.novali <- vect.spp.i[!(vect.spp.i$IDVal %in% vect.spp.i.t$IDVal), ]
-      vect.spp.i.novali2 <- terra::intersect(terra::vect(ocenamap), vect.spp.i.novali)
+      vect.spp.i.novali2 <- terra::intersect(terra::vect(oceanmap), vect.spp.i.novali)
       
       if (nrow(vect.spp.i.novali2) == 0) {
         vect.spp.i.novali <- as.data.frame(vect.spp.i.novali, geom = 'XY')

@@ -35,6 +35,7 @@ Imports:
     ggplot2,
     magrittr,
     sf,
+    terra,
 Suggests:
     dplyr,
     finch,
