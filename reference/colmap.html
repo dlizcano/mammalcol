@@ -157,18 +157,32 @@ the package's GitHub repository: <a href="https://github.com/dlizcano/mammalcol"
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Display the first few rows</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">colmap</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 6 features and 2 fields</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: POLYGON</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Simple feature collection with 6 features and 11 fields</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Geometry type: MULTIPOLYGON</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Dimension:     XY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: -77.12783 ymin: -4.23285 xmax: -69.3955 ymax: 11.10537</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> Bounding box:  xmin: -77.1342 ymin: -4.225097 xmax: -69.3931 ymax: 11.06403</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> Geodetic CRS:  WGS 84</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   DEPARTAMEN    NAME_1                       geometry</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   AMAZONAS  amazonas POLYGON ((-71.14469 0.05571...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  ANTIOQUIA antioquia POLYGON ((-76.41356 8.74765...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     ARAUCA    arauca POLYGON ((-70.68038 7.09393...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  ATLÁNTICO atlántico POLYGON ((-74.84946 11.0977...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5    BOLÍVAR   bolívar POLYGON ((-75.25555 10.7996...</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     BOYACÁ    boyacá POLYGON ((-72.17368 7.05307...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     GID_1 GID_0  COUNTRY      NAME_1                  VARNAME_1 NL_NAME_1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 COL.1_2   COL Colombia    Amazonas                       &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 COL.2_2   COL Colombia   Antioquia                       &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 COL.3_2   COL Colombia      Arauca                       &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 COL.4_2   COL Colombia   Atlántico                       &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 COL.5_2   COL Colombia Bogotá D.C. Distrito Capital de Bogotá      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 COL.6_2   COL Colombia     Bolívar                       &lt;NA&gt;      &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             TYPE_1        ENGTYPE_1 CC_1 HASC_1  ISO_1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1        Comisaría      Commissiary &lt;NA&gt;  CO.AM CO-AMA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Departamento       Department &lt;NA&gt;  CO.AN CO-ANT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      Intendencia       Intendancy &lt;NA&gt;  CO.AR CO-ARA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     Departamento       Department &lt;NA&gt;  CO.AT   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Distrito Capital Capital District &lt;NA&gt;  CO.DC   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     Departamento       Department &lt;NA&gt;  CO.BL   &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         geometry</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 MULTIPOLYGON (((-69.93615 -...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 MULTIPOLYGON (((-75.59808 5...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 MULTIPOLYGON (((-69.42688 6...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 MULTIPOLYGON (((-74.90938 1...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 MULTIPOLYGON (((-74.24476 4...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 MULTIPOLYGON (((-75.55547 1...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span> <span class="op">(</span><span class="va">colmap</span><span class="op">[</span><span class="st">"NAME_1"</span><span class="op">]</span><span class="op">)</span></span></span>
 <span class="r-plt img"><img src="colmap-1.png" alt="" width="700" height="433"></span>
