@@ -1,7 +1,5 @@
 #' Validate mammal species distribution data based on geographic coordinates.
-#' Elaborated by Cristian A. Cruz Rodríguez
-#' Last upload: June 2024
-#'
+#' 
 #' This function validates species distribution data provided in a data frame
 #' against known mammal species lists and geographic coordinates. It outputs
 #' a data frame with validation results and additional information.
@@ -53,7 +51,8 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   }
   
   if (is.null(colmap)) {
-   load('data/colmap_igac.rda')
+    #load('data/colmap_igac.rda')
+    colmap <- mammalcol::colmap_igac
     colmap[[adm_names]] <- tolower(colmap[[adm_names]])
   } else {
     colmap <- sf::st_as_sf(colmap)
@@ -68,7 +67,8 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   
   # Set default ocean map and administrative boundary name for ocean if not provided
   if (is.null(oceanmap)) {
-    load('data/colombian_sea.rda')
+    #load('data/colombian_sea.rda')
+    oceanmap <- mammalcol::colombian_sea
   }  else {
     oceanmap <- sf::st_as_sf(oceanmap)
   }
