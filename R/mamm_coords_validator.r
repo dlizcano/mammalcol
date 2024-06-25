@@ -12,7 +12,7 @@
 #' @param taxon A data frame with distribution information, including 'scientificName' and 'distribution'.
 #'              The scientificName must be in binomial form, and the distribution should contain names separated by |.
 #'              By default, the function uses the checklist available at https://www.gbif.org/dataset/e8b9ed9b-f715-4eac-ae24-772fbf40d7ae.
-#' @param colmap_igac A spatial object in vector format representing the geographic area to validate against.
+#' @param colmap A spatial object in vector format representing the geographic area to validate against.
 #'               By default, the function uses the Colombia Administrative Boundaries.
 #' @param lon Name of the column containing longitude values in df. Default is 'decimalLongitude'.
 #' @param lat Name of the column containing latitude values in df. Default is 'decimalLatitude'.
@@ -28,10 +28,8 @@
 #' no match. Additional details are provided in the returned data frame.
 #'
 #' @examples
-#' df <- read.csv("test_data_coordinates.csv")
-#' taxon <- read.csv("taxon.csv")
-#' colmap_igac <- read_sf("colmap_igac.shp")
-#' validated_data <- mamm_coords_validator(df, sp_names = "species", taxon = taxon, colmap = colmap)
+#' #' data('test_data_coordiantes.rda')
+#' validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
 #'
 #' @export
 mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
