@@ -11,7 +11,7 @@
 #'              The scientificName must be in binomial form, and the distribution should contain names separated by |.
 #'              By default, the function uses the checklist available at https://www.gbif.org/dataset/e8b9ed9b-f715-4eac-ae24-772fbf40d7ae.
 #' @param colmap A spatial object in vector format representing the geographic area to validate against.
-#'               By default, the function uses the Colombia Administrative Boundaries.
+#'               By default, the function uses the Colombia Administrative Boundaries available in the geodata package.
 #' @param lon Name of the column containing longitude values in df. Default is 'decimalLongitude'.
 #' @param lat Name of the column containing latitude values in df. Default is 'decimalLatitude'.
 #' @param adm_names Name of the column in colmap representing administrative boundaries. Default is 'NAME_1'.
@@ -30,6 +30,11 @@
 #'
 #' @export
 mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
+  
+  ## Info added
+  library(sf)
+  library(geodata)
+  
   # Initialize function
   
   # Validate input and set defaults if necessary
@@ -51,11 +56,13 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   }
   
   if (is.null(colmap)) {
+    
     #load('data/colmap_igac.rda')
-    colmap <- mammalcol::colmap_igac
+    library(geodata)
+    colmap <-st_as_sf(gadm('COL', level = 1,  path=tempdir()))
     colmap[[adm_names]] <- tolower(colmap[[adm_names]])
   } else {
-    colmap <- sf::st_as_sf(colmap)
+    colmap <- st_as_sf(colmap)
     colmap[[adm_names]] <- tolower(colmap[[adm_names]])
   }
   
@@ -78,7 +85,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   } else {
     oceanmap[[adm_names]] <- oce_adm_names
   }
-
+  
   ## Start the data process
   
   df$IDVal <- paste0('M', 1:nrow(df))
@@ -96,11 +103,6 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     cat(length(sppnms), "species found in the matrix and ", nrow(vlid_spp), "is/are valid.\n")
   }
   
-  # Separate species into validated and non-validated
-  notValispp <- df[!df[[sp_names]] %in% unique(vlid_spp$name_submitted), ]
-  notValispp$validation_result <- 4
-  notValispp$dup.areas.val <- NA
-  
   Valispp <- df[df[[sp_names]] %in% unique(vlid_spp$name_submitted), ]
   
   # Initialize placeholder for final validated results
@@ -110,15 +112,17 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   for (i in 1:nrow(vlid_spp)) {
     spp.i <- Valispp[Valispp[[sp_names]] %in% vlid_spp$name_submitted[i], ]
     
-    # Extract and intersect species distribution with administrative boundaries
-    vect.spp.i <- terra::vect(spp.i, geom = c(lon, lat), crs = "+proj=longlat +datum=WGS84")
-    vect.spp.i.t <- terra::intersect(terra::vect(colmap), vect.spp.i)
-   
-    # extract coordinates to the file
+    vect.spp.i <- st_as_sf(x = spp.i,                         
+             coords = c("decimalLongitude", "decimalLatitude"),
+             crs = "+proj=longlat +datum=WGS84")
+    vect.spp.i.t <- suppressWarnings(st_intersection(vect.spp.i, colmap))
+    
+    
     if (nrow(vect.spp.i.t) > 0) {
-      vect.spp.i.t2 <- as.data.frame(vect.spp.i.t, geom = 'XY')
-      colnames(vect.spp.i.t2)[colnames(vect.spp.i.t2) == c("x")]<- lon
-      colnames(vect.spp.i.t2)[colnames(vect.spp.i.t2) == c("y")]  <- lat
+      vect.spp.i.t2 <- as.data.frame(vect.spp.i.t)
+      coordinates <-as.data.frame(st_coordinates(vect.spp.i.t))
+      names(coordinates) <- c(lon, lat)
+      vect.spp.i.t2 <- cbind(vect.spp.i.t2, coordinates)
       spp.i.f <- vect.spp.i.t2[,names(spp.i)]
       spp.i.f$validDpto<- vect.spp.i.t2[[adm_names]]
     } else {
@@ -130,25 +134,30 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     if (nrow(vect.spp.i) > nrow(vect.spp.i.t) ) {
       
       vect.spp.i.novali <- vect.spp.i[!(vect.spp.i$IDVal %in% vect.spp.i.t$IDVal), ]
-      vect.spp.i.novali2 <- terra::intersect(terra::vect(oceanmap), vect.spp.i.novali)
+      vect.spp.i.novali2 <- suppressWarnings(st_intersection(vect.spp.i.novali, oceanmap))
       
       if (nrow(vect.spp.i.novali2) == 0) {
-        vect.spp.i.novali <- as.data.frame(vect.spp.i.novali, geom = 'XY')
-        colnames(vect.spp.i.novali)[colnames(vect.spp.i.novali) == c("x")] <- lon
-        colnames(vect.spp.i.novali)[colnames(vect.spp.i.novali) == c("y")]  <- lat
+        
+        coordinates.i <-as.data.frame(st_coordinates(vect.spp.i.novali))
+        names(coordinates.i) <- c(lon, lat)
+        vect.spp.i.novali <- as.data.frame(vect.spp.i.novali)
+        vect.spp.i.novali <- cbind(vect.spp.i.novali, coordinates.i)
         vect.spp.i.novali.f <- vect.spp.i.novali[, names(spp.i)]
         vect.spp.i.novali.f$validDpto <- 'Other'
         spp.i.f <- rbind(spp.i.f, vect.spp.i.novali.f)
       } else {
-        vect.spp.i.novali <- as.data.frame(vect.spp.i.novali2, geom = 'XY')
-        colnames(vect.spp.i.novali)[colnames(vect.spp.i.novali) == c("x")] <- lon
-        colnames(vect.spp.i.novali)[colnames(vect.spp.i.novali) == c("y")]  <- lat
+        
+        coordinates.i <-as.data.frame(st_coordinates(vect.spp.i.novali2))
+        names(coordinates.i) <- c(lon, lat)
+        vect.spp.i.novali <- as.data.frame(vect.spp.i.novali2)
+        vect.spp.i.novali <- cbind(vect.spp.i.novali, coordinates.i)
         vect.spp.i.novali.f <- vect.spp.i.novali[, names(spp.i)]
         vect.spp.i.novali.f$validDpto <- 'Ocean'
         spp.i.f <- rbind(spp.i.f, vect.spp.i.novali.f)
       }
     }
     
+  
     # Check for duplicate records and assign appropriate validation
     if (any(duplicated(spp.i.f$IDVal))) {
       dupspp <- spp.i.f[duplicated(spp.i.f$IDVal), ]
@@ -217,7 +226,17 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   }
   
   # Combine final validated and non-validated species data
-  finalVal <- rbind(tn.dupl, notValispp)
+  # Separate species into validated and non-validated
+  
+  notValispp <- df[!df[[sp_names]] %in% unique(vlid_spp$name_submitted), ]
+  
+  if (nrow(notValispp) > 0) {
+    notValispp$validation_result <- 4
+    notValispp$dup.areas.val <- NA
+     finalVal <- rbind(tn.dupl, notValispp)
+  } else {
+    finalVal <- tn.dupl
+  }
   
   # Return final validated data frame
   finalValT <- finalVal[, c(oriNames, 'validation_result')]
@@ -228,7 +247,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   cat('- 1 = Valid species and coordinates according to official publications.\n')
   cat('- 2 = Valid species and coordinates are registered in the ocean.\n')
   cat('- 3 = Valid species and coordinates are within the limits of the ocean administrative boundaries. We recommend reviewing the location manually.\n')
-  cat('- 4 = Not valid species and not validated.\n')
+  cat('- 4 = Not valid species that are not validated.\n')
   
   return(finalValT)
 }
