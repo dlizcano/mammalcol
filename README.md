@@ -44,13 +44,6 @@ devtools::install_github("dlizcano/mammalcol")
 ``` r
 
 library(mammalcol)
-#> This is mammalcol 0.2.3
-#> 
-#> Adjuntando el paquete: 'mammalcol'
-#> The following objects are masked _by_ '.GlobalEnv':
-#> 
-#>     colmap, distribution, mamm_coords_validator, mammalmap,
-#>     search_mammalcol, sp_by_depto, taxon
 ```
 
 ## Example
@@ -295,11 +288,133 @@ dataframe must contain at least the 3 columns:
 The data frame should contain many other columns. You should indicate
 the column containing the species names using the argument sp_names.
 
+For this example we are using a data frame with those columns and many
+more.
+
+``` r
+head (test_data_coordiantes)
+#>       gbifID                           datasetKey
+#> 1 4415797342 db01508a-6289-4796-b58c-17a3f154085e
+#> 2 4415797340 db01508a-6289-4796-b58c-17a3f154085e
+#> 3 4415797336 db01508a-6289-4796-b58c-17a3f154085e
+#> 4 3891619324 db01508a-6289-4796-b58c-17a3f154085e
+#> 5 3891619313 db01508a-6289-4796-b58c-17a3f154085e
+#> 6 3382034331 62b3e751-30d6-420b-8190-fa043d885df7
+#>                                                      occurrenceID  kingdom
+#> 1                               FH:Boyaca:HMP_AES:Fauna_Fase4:114 Animalia
+#> 2                               FH:Boyaca:HMP_AES:Fauna_Fase4:117 Animalia
+#> 3                               FH:Boyaca:HMP_AES:Fauna_Fase4:083 Animalia
+#> 4                                FH:Boyaca:HMP_AES:Fauna_2022:028 Animalia
+#> 5                                FH:Boyaca:HMP_AES:Fauna_2022:014 Animalia
+#> 6 IAvH:CBB:COLOMBIA:TREMARCTOSORNATUS:MUESTRA:I2D-BIO_2021_039:34 Animalia
+#>     phylum    class     order  family      genus            species
+#> 1 Chordata Mammalia Carnivora Ursidae Tremarctos Tremarctos ornatus
+#> 2 Chordata Mammalia Carnivora Ursidae Tremarctos Tremarctos ornatus
+#> 3 Chordata Mammalia Carnivora Ursidae Tremarctos Tremarctos ornatus
+#> 4 Chordata Mammalia Carnivora Ursidae Tremarctos Tremarctos ornatus
+#> 5 Chordata Mammalia Carnivora Ursidae Tremarctos Tremarctos ornatus
+#> 6 Chordata Mammalia Carnivora Ursidae Tremarctos Tremarctos ornatus
+#>   infraspecificEpithet taxonRank                        scientificName
+#> 1                   NA   SPECIES Tremarctos ornatus (F.G.Cuvier, 1825)
+#> 2                   NA   SPECIES Tremarctos ornatus (F.G.Cuvier, 1825)
+#> 3                   NA   SPECIES Tremarctos ornatus (F.G.Cuvier, 1825)
+#> 4                   NA   SPECIES Tremarctos ornatus (F.G.Cuvier, 1825)
+#> 5                   NA   SPECIES Tremarctos ornatus (F.G.Cuvier, 1825)
+#> 6                   NA   SPECIES Tremarctos ornatus (F.G.Cuvier, 1825)
+#>   verbatimScientificName verbatimScientificNameAuthorship countryCode
+#> 1     Tremarctos ornatus               (F.G.Cuvier, 1825)          CO
+#> 2     Tremarctos ornatus               (F.G.Cuvier, 1825)          CO
+#> 3     Tremarctos ornatus               (F.G.Cuvier, 1825)          CO
+#> 4     Tremarctos ornatus               (F.G.Cuvier, 1825)          CO
+#> 5     Tremarctos ornatus               (F.G.Cuvier, 1825)          CO
+#> 6     Tremarctos ornatus                     Cuvier, 1825          CO
+#>                                                  locality stateProvince
+#> 1                                   Vereda Gúanica Molino        Boyacá
+#> 2                                   Vereda Gúanica Molino        Boyacá
+#> 3                                   Vereda Gúanica Molino        Boyacá
+#> 4                                   Vereda Gúanica Molino        Boyacá
+#> 5                                     Vereda Zanja Arriba        Boyacá
+#> 6 Sendero desamparo Laguna Animas PNN Doña Juana Cascabel        Nariño
+#>   occurrenceStatus individualCount                     publishingOrgKey
+#> 1          PRESENT               1 85aae44a-2a4c-4a3f-92cc-a1a8d27b90fa
+#> 2          PRESENT               1 85aae44a-2a4c-4a3f-92cc-a1a8d27b90fa
+#> 3          PRESENT               1 85aae44a-2a4c-4a3f-92cc-a1a8d27b90fa
+#> 4          PRESENT               1 85aae44a-2a4c-4a3f-92cc-a1a8d27b90fa
+#> 5          PRESENT               1 85aae44a-2a4c-4a3f-92cc-a1a8d27b90fa
+#> 6          PRESENT              NA 2a7e3080-28a9-11dd-97cd-b8a03c50a862
+#>   decimalLatitude decimalLongitude coordinateUncertaintyInMeters
+#> 1        5.113852        -73.32513                            NA
+#> 2        5.112645        -73.32707                            NA
+#> 3        5.113852        -73.32513                            NA
+#> 4        5.113944        -73.32509                            NA
+#> 5        5.159837        -73.31094                            NA
+#> 6        1.582500        -76.88140                            NA
+#>   coordinatePrecision elevation elevationAccuracy depth depthAccuracy
+#> 1                  NA      2320                 0    NA            NA
+#> 2                  NA      2370                 0    NA            NA
+#> 3                  NA      2320                 0    NA            NA
+#> 4                  NA      2310                 0    NA            NA
+#> 5                  NA      2390                 0    NA            NA
+#> 6                  NA      3311                 0    NA            NA
+#>               eventDate day month year taxonKey speciesKey       basisOfRecord
+#> 1 2023-03-10/2023-05-03  NA    NA 2023  2433401    2433401 MACHINE_OBSERVATION
+#> 2 2023-02-14/2023-05-03  NA    NA 2023  2433401    2433401 MACHINE_OBSERVATION
+#> 3 2023-02-14/2023-03-10  NA    NA 2023  2433401    2433401 MACHINE_OBSERVATION
+#> 4            2022-02-27  27     2 2022  2433401    2433401 MACHINE_OBSERVATION
+#> 5            2022-02-10  10     2 2022  2433401    2433401 MACHINE_OBSERVATION
+#> 6            2019-09-19  19     9 2019  2433401    2433401     MATERIAL_SAMPLE
+#>                                                                   institutionCode
+#> 1                                           Fundación Humedales (Fund. Humedales)
+#> 2                                           Fundación Humedales (Fund. Humedales)
+#> 3                                           Fundación Humedales (Fund. Humedales)
+#> 4                                           Fundación Humedales (Fund. Humedales)
+#> 5                                           Fundación Humedales (Fund. Humedales)
+#> 6 Instituto de Investigación de Recursos Biológicos Alexander von Humboldt (IAvH)
+#>                                                                                                collectionCode
+#> 1                                                                                                            
+#> 2                                                                                                            
+#> 3                                                                                                            
+#> 4                                                                                                            
+#> 5                                                                                                            
+#> 6 Colección de Tejidos del Instituto de Investigación de Recursos Biológicos Alexander von Humboldt (IAvH-CT)
+#>                catalogNumber recordNumber                   identifiedBy
+#> 1                                                      Juan Camilo Muñoz
+#> 2                                                      Juan Camilo Muñoz
+#> 3                                                      Juan Camilo Muñoz
+#> 4                                                      Juan Camilo Muñoz
+#> 5                                                      Juan Camilo Muñoz
+#> 6 En proceso de catalogación      MNGC001 Mesias Nicodemo Guerrero Cerón
+#>        dateIdentified      license rightsHolder                     recordedBy
+#> 1 2023-05-08T00:00:00 CC_BY_NC_4_0                           Juan Camilo Muñoz
+#> 2 2023-05-08T00:00:00 CC_BY_NC_4_0                           Juan Camilo Muñoz
+#> 3 2023-03-13T00:00:00 CC_BY_NC_4_0                           Juan Camilo Muñoz
+#> 4 2022-05-22T00:00:00 CC_BY_NC_4_0                           Juan Camilo Muñoz
+#> 5 2022-05-22T00:00:00 CC_BY_NC_4_0                           Juan Camilo Muñoz
+#> 6 2019-09-19T00:00:00 CC_BY_NC_4_0              Mesias Nicodemo Guerrero Cerón
+#>   typeStatus establishmentMeans          lastInterpreted mediaType
+#> 1         NA                 NA 2024-01-25T01:06:42.265Z          
+#> 2         NA                 NA 2024-01-25T01:06:42.247Z          
+#> 3         NA                 NA 2024-01-25T01:06:43.123Z          
+#> 4         NA                 NA 2024-01-25T01:06:42.614Z          
+#> 5         NA                 NA 2024-01-25T01:06:43.207Z          
+#> 6         NA                 NA 2024-01-26T10:15:23.806Z          
+#>                                           issue
+#> 1                                              
+#> 2                                              
+#> 3                                              
+#> 4                                              
+#> 5                                              
+#> 6 MULTIMEDIA_URI_INVALID;INSTITUTION_MATCH_NONE
+```
+
+Remember to add the argument sp_names, indicating the column with the
+species names.
+
 ``` r
 validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
-#> 2 species found in the matrix and  1 is/are valid.
+#> 1 species found in the matrix and  1 is/are valid.
 #> Validation Finished.
-#> A total of 21 records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:
+#> A total of 20 records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:
 #> - 0 = Valid species but records not registered within the analyzed boundaries.
 #> - 1 = Valid species and coordinates according to official publications.
 #> - 2 = Valid species and coordinates are registered in the ocean.
@@ -317,16 +432,16 @@ distribution.
 citation("mammalcol")
 #> To cite mammalcol package in publications use:
 #> 
-#>   Lizcano, DJ. et al., (2024). mammalcol: Access to the List of Mammal
-#>   Species of Colombia. R package version 0.2.2
+#>   Lizcano, DJ. et al., (2025). mammalcol: Access to the List of Mammal
+#>   Species of Colombia. R package version 0.2.4
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {mammalcol: Access to the List of Mammal Species of Colombia},
-#>     author = {Diego J. Lizcano and Baltazar González and Alejandra Bonilla-Sánchez and Andres F. Suárez-Castro and Camilo A. Calderón-Acevedo},
-#>     year = {2024},
-#>     note = {R data package version 0.2.2},
+#>     author = {Diego J. Lizcano and Cristian A. Cruz-Rodríguez and Andres F. Suárez-Castro and Baltazar González and Alejandra Bonilla-Sánchez and Camilo A. Calderón-Acevedo},
+#>     year = {2025},
+#>     note = {R data package version 0.2.4},
 #>     url = {https://dlizcano.github.io/mammalcol/},
 #>   }
 #> 

@@ -13,9 +13,12 @@ knitr::opts_chunk$set(
 )
 
 #############
-load(file = "C:/CodigoR/Mammal_Col/MammalCol/data/taxon.rda") # , taxon
-load(file = "C:/CodigoR/Mammal_Col/MammalCol/data/colmap.rda") # , colmap
-load(file = "C:/CodigoR/Mammal_Col/MammalCol/data/distribution.rda") # , disribution
+load(file = "C:/github/mammalcol/data/taxon.rda") # , taxon
+load(file = "C:/github/mammalcol/data/colmap.rda") # , colmap
+load(file = "C:/github/mammalcol/data/distribution.rda") # , disribution
+load(file = "C:/github/mammalcol/data/colombian_sea.rda") #
+load(file = "C:/github/mammalcol/data/test_data_coordiantes.rda") # 
+
 ############
 
 search_mammalcol <- function(splist, max_distance = 0.2) {
@@ -534,7 +537,7 @@ devtools::install_github("dlizcano/mammalcol")
 
 ## Load library
 
-```{r}
+```{r eval=FALSE}
 
 library(mammalcol)
 ```
@@ -630,6 +633,13 @@ The function use a dataframe with species distribution data. The dataframe must 
 
 The data frame should contain many other columns. You should indicate the column containing the species names using the argument sp_names.
 
+For this example we are using a data frame with those columns and many more. 
+
+```{r}
+head (test_data_coordiantes)
+```
+
+Remember to add the argument sp_names, indicating the column with the species names.
 
 ```{r}
 validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
