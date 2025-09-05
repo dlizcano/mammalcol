@@ -22,8 +22,6 @@
 #' species <- "Tapirus pinchaque"
 #' mammalmap (species, legend = FALSE)
 #'
-#' @importFrom mammalcol taxon
-#' @importFrom mammalcol colmap
 #' @export
 mammalmap <- function(species, legend = TRUE) {
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
@@ -55,10 +53,10 @@ mammalmap <- function(species, legend = TRUE) {
   # data(mammalcol::colmap)
 
   distribution_list <-
-    strsplit(taxon$distribution, "\\|") # trimws () removes spaces
+    strsplit(mammalcol::taxon$distribution, "\\|") # trimws () removes spaces
 
   deptos <- as.data.frame(cbind(Depto = unique(colmap$NAME_1), fill = "white"))
-  sp_id <- which(taxon$scientificName == species)
+  sp_id <- which(mammalcol::taxon$scientificName == species)
   # if species is not in the table and is integer(0)
   if (length(sp_id) == 0) {
     stop(paste0("The species should be in the list. Make sure you use the function search_mammalcol first. ", species, " is not a species present in Colombia"))
@@ -81,7 +79,7 @@ mammalmap <- function(species, legend = TRUE) {
       ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
       ggplot2::scale_fill_manual(values = deptos$fill) +
       # ggtitle(taxon$scientificName[25]) + #species name number
-      ggplot2::labs(subtitle = taxon$scientificName[sp_id]) +
+      ggplot2::labs(subtitle = mammalcol::taxon$scientificName[sp_id]) +
       ggplot2::theme(
         legend.position = "right", # location legend
         legend.title = ggplot2::element_blank(), # element_text(size=7),#,
@@ -93,7 +91,7 @@ mammalmap <- function(species, legend = TRUE) {
       ggplot2::geom_sf(ggplot2::aes(fill = NAME_1), show.legend = FALSE) + # removes legend
       ggplot2::scale_fill_manual(values = deptos$fill) +
       # ggtitle(taxon$scientificName[25]) + #species name number
-      ggplot2::labs(subtitle = taxon$scientificName[sp_id]) +
+      ggplot2::labs(subtitle = mammalcol::taxon$scientificName[sp_id]) +
       ggplot2::theme(plot.subtitle = ggplot2::element_text(face = "italic")) # italica
   }
 

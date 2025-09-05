@@ -46,7 +46,6 @@
 #' @author
 #' Data compilation: Ramírez-Chaves 2021, Package implementation: Diego J. Lizcano
 #'
-#' @keywords 
 "distribution"
 
 

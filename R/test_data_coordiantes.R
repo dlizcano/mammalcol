@@ -1,14 +1,17 @@
 #' test_data_coordiantes Dataset
 #'
-#' In progress
+#' A test data set for the function `mamm_coords_validator`
 #'
-#' @format A tibble with 548 rows and 19 columns:
+#' @format A tibble with 20 rows and 50 columns:
 #'   \describe{
-#'     \item{id}{id from original taxon table.}
+#'     \item{species}{scientific name in binomial form}
+#'     \item{decimalLatitude}{latitude}
+#'     \item{decimalLongitude}{longitude}
 #'   }
 #'
 #'
-#' @details XXXXX
+#' @details 
+#' This data set provides a sample from GBIF to test the function mamm_coords_validator
 #'
 #' @examples
 #' 
@@ -36,7 +39,6 @@
 #' \href{https://ipt.biodiversidad.co/sib/resource?r=mamiferos_col#anchor-citation}{SiB Colombia}
 #' 
 #' @author
-#' Data compilation: Ramírez-Chaves 2021, Package implementation: Cristian A. Cruz-R.
+#' Data compilation: Ramírez-Chaves 2021, Function implementation: Cristian A. Cruz-R.
 #'
-#' @keywords
 "test_data_coordiantes"

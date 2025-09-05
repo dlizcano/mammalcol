@@ -24,15 +24,15 @@ Useful links:
 
 Authors:
 \itemize{
-  \item Cristian A. Cruz-RodrC-guez \email{cristian.alexander.cruz.rodriguez@umontreal.ca} (\href{https://orcid.org/0000-0002-8319-4706}{ORCID}) [contributor]
-  \item Andres F. SuC!rez-Castro \email{a.suarezcastro@griffith.edu.au} (\href{https://orcid.org/0000-0002-6621-3821}{ORCID}) [contributor]
-  \item Baltazar GonzC!lez \email{baltazargch@gmail.com} (\href{https://orcid.org/0000-0001-5805-8107}{ORCID}) [contributor]
+  \item Cristian A. Cruz-Rodríguez \email{cristian.alexander.cruz.rodriguez@umontreal.ca} (\href{https://orcid.org/0000-0002-8319-4706}{ORCID}) [contributor]
+  \item Andres F. Suárez-Castro \email{a.suarezcastro@griffith.edu.au} (\href{https://orcid.org/0000-0002-6621-3821}{ORCID}) [contributor]
+  \item Baltazar González \email{baltazargch@gmail.com} (\href{https://orcid.org/0000-0001-5805-8107}{ORCID}) [contributor]
 }
 
 Other contributors:
 \itemize{
-  \item Alejandra Bonilla-SC!nchez \email{alejabonilla.sanchez@gmail.com} (\href{https://orcid.org/0000-0003-0803-5884}{ORCID}) [contributor]
-  \item Camilo A. CalderC3n-Acevedo \email{calderon.mammalogy@gmail.com} (\href{https://orcid.org/0000-0002-1468-3565}{ORCID}) [contributor]
+  \item Alejandra Bonilla-Sánchez \email{alejabonilla.sanchez@gmail.com} (\href{https://orcid.org/0000-0003-0803-5884}{ORCID}) [contributor]
+  \item Camilo A. Calderón-Acevedo \email{calderon.mammalogy@gmail.com} (\href{https://orcid.org/0000-0002-1468-3565}{ORCID}) [contributor]
 }
 
 }

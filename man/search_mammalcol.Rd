@@ -32,4 +32,5 @@ splist <- c("Tapirus bairdii", "Tapirus pinchaque", "Tapirus terrestris",
 
 search_mammalcol(splist)
 
+
 }

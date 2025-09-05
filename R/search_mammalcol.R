@@ -22,7 +22,6 @@
 #'
 #' search_mammalcol(splist)
 #'
-#' @importFrom mammalcol taxon
 #' 
 #' @export
 search_mammalcol <- function(splist, max_distance = 0.2) {

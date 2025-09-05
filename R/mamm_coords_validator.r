@@ -32,8 +32,8 @@
 mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
   
   ## Info added
-  require(sf)
-  require(geodata)
+  # require(sf)
+  # require(geodata)
   
   # Initialize function
   
@@ -57,8 +57,8 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   
   if (is.null(colmap)) {
     
-    #load('data/colmap_igac.rda')
-    require(geodata)
+    # load('data/colmap_igac.rda')
+    # require(geodata)
     colmap <-sf::st_as_sf(geodata::gadm('COL', level = 1,  path=tempdir()))
     colmap[[adm_names]] <- tolower(colmap[[adm_names]])
   } else {

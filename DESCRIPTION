@@ -37,10 +37,10 @@ Imports:
     ggplot2,
     magrittr,
     sf,
+    geodata,
 Suggests:
     dplyr,
     finch,
-    geodata,
     knitr,
     readr,
     readxl,
@@ -52,5 +52,5 @@ Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 VignetteBuilder: knitr

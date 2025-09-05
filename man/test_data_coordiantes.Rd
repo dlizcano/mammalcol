@@ -5,19 +5,21 @@
 \alias{test_data_coordiantes}
 \title{test_data_coordiantes Dataset}
 \format{
-A tibble with 548 rows and 19 columns:
+A tibble with 20 rows and 50 columns:
 \describe{
-\item{id}{id from original taxon table.}
+\item{species}{scientific name in binomial form}
+\item{decimalLatitude}{latitude}
+\item{decimalLongitude}{longitude}
 }
 }
 \usage{
 test_data_coordiantes
 }
 \description{
-In progress
+A test data set for the function \code{mamm_coords_validator}
 }
 \details{
-XXXXX
+This data set provides a sample from GBIF to test the function mamm_coords_validator
 }
 \examples{
 
@@ -46,6 +48,6 @@ For more information about the "mammalcol" package and the data sources, visit
 the package's GitHub repository: \url{https://github.com/dlizcano/mammalcol}
 }
 \author{
-Data compilation: Ramírez-Chaves 2021, Package implementation: Cristian A. Cruz-R.
+Data compilation: Ramírez-Chaves 2021, Function implementation: Cristian A. Cruz-R.
 }
 \keyword{datasets}

@@ -189,27 +189,62 @@ the package's GitHub repository: <a href="https://github.com/dlizcano/mammalcol"
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># Display the first few rows</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             scientificName  kingdom   phylum    class        order   family</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1       Passalites murelia Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2            Mazama rufina Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Passalites sanctaemartae Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4            Mazama temama Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5            Mazama zamora Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6             Mazama zetta Animalia Chordata Mammalia Artiodactyla Cervidae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>        genus specificEpithet taxonRank scientificNameAuthorship</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Passalites         murelia   Especie        J. A. Allen, 1915</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     Mazama          rufina   Especie         (Pucheran, 1851)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Passalites   sanctaemartae   Especie      (J. A. Allen, 1915)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     Mazama          temama   Especie             (Kerr, 1792)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     Mazama          zamora   Especie        J. A. Allen, 1915</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     Mazama           zetta   Especie             Thomas, 1913</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               taxonRemarks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     Elevación (m): 0-900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Elevación (m): 1500-4000</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     Elevación (m): 0-900</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Elevación (m): 0-68</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  Elevación (m): 600-1200</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Elevación (m): 1600-1950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                    id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                             urn:lsid:organismnames.com:name:3484299</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 urn:lsid:catalogueoflife.org:taxon:4f16759f-5e17-11e7-8cee-bc764e092680:col20170824</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                eol.org/pages/Mazama%20sanctaemartae</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 urn:lsid:catalogueoflife.org:taxon:259114ac-5e17-11e7-8cee-bc764e092680:col20170824</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                             urn:lsid:organismnames.com:name:3484302</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                             urn:lsid:organismnames.com:name:3535811</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                               taxonID</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                             urn:lsid:organismnames.com:name:3484299</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 urn:lsid:catalogueoflife.org:taxon:4f16759f-5e17-11e7-8cee-bc764e092680:col20170824</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                eol.org/pages/Mazama%20sanctaemartae</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 urn:lsid:catalogueoflife.org:taxon:259114ac-5e17-11e7-8cee-bc764e092680:col20170824</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                             urn:lsid:organismnames.com:name:3484302</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                             urn:lsid:organismnames.com:name:3535811</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                       scientificNameID</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898446</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625072</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898449</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898202</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898440</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                 https://www.gbif.org/species/8872400</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>             scientificName</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       Passalites murelia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2            Mazama rufina</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Passalites sanctaemartae</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4            Mazama temama</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5            Mazama zamora</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6             Mazama zetta</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   nameAccordingTo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                                                                                                                                                                                                                                            Mazama zetta Thomas, 1913 in GBIF Secretariat (2017). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2019-08-01.</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    kingdom   phylum    class        order   family      genus specificEpithet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Animalia Chordata Mammalia Artiodactyla Cervidae Passalites         murelia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama          rufina</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 Animalia Chordata Mammalia Artiodactyla Cervidae Passalites   sanctaemartae</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama          temama</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama          zamora</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama           zetta</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   taxonRank scientificNameAuthorship taxonomicStatus             taxonRemarks</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   Especie        J. A. Allen, 1915          Válido     Elevación (m): 0-900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   Especie         (Pucheran, 1851)          Válido Elevación (m): 1500-4000</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   Especie      (J. A. Allen, 1915)          Válido     Elevación (m): 0-900</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Especie             (Kerr, 1792)          Válido      Elevación (m): 0-68</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Especie        J. A. Allen, 1915          Válido  Elevación (m): 600-1200</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   Especie             Thomas, 1913          Válido Elevación (m): 1600-1950</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   language                         rightsHolder</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       es Sociedad Colombiana de Mastozoología</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       es Sociedad Colombiana de Mastozoología</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3       es Sociedad Colombiana de Mastozoología</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4       es Sociedad Colombiana de Mastozoología</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5       es Sociedad Colombiana de Mastozoología</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6       es Sociedad Colombiana de Mastozoología</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                                    bibliographicCitation</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                 ALBERICO M, A CADENA, JI HERNÁNDEZ-CAMACHO y Y MUÑOZ-SABA. 2000b. Mamíferos (Synapsida: Theria) de Colombia. Biota Colombiana 1:43-75.</span>
@@ -217,13 +252,13 @@ the package's GitHub repository: <a href="https://github.com/dlizcano/mammalcol"
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4  GROVES C y P GRUBB. 1987. Relationships of living deer. Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   inMDD   Col_redlist</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1     0          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2     1 VU A2 cde\r\n</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3     0          &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4     1            DD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5     0            DD</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6     0            DD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   inMDD Col_redlist</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     0        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     1 VU A2 cde\n</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     0        &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     1          DD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     0          DD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     0          DD</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                                                              distribution</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                 Amazonas | Caquetá | Cauca | Meta | Vaupés | Vichada | Nariño | Putumayo | Cundinamarca</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2 Antioquia | Boyacá | Caldas | Cauca | Cesar | Cundinamarca | Huila | Nariño | Norte de Santander | Quindío | Risaralda | Santander | Tolima | Valle del Cauca | Caquetá</span>
@@ -245,13 +280,6 @@ the package's GitHub repository: <a href="https://github.com/dlizcano/mammalcol"
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4      No Mexican Red Brocket</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5      No                &lt;NA&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6      No                &lt;NA&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                    id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                             urn:lsid:organismnames.com:name:3484299</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 urn:lsid:catalogueoflife.org:taxon:4f16759f-5e17-11e7-8cee-bc764e092680:col20170824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                eol.org/pages/Mazama%20sanctaemartae</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 urn:lsid:catalogueoflife.org:taxon:259114ac-5e17-11e7-8cee-bc764e092680:col20170824</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                             urn:lsid:organismnames.com:name:3484302</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                             urn:lsid:organismnames.com:name:3535811</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
