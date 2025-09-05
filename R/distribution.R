@@ -8,21 +8,20 @@
 #' 
 #'  
 #'
-#' @format A data frame with 548 rows and 8 columns:
+#' @format A data frame with 553 rows and 7 columns:
 #'   \describe{
 #'     \item{id}{id from original taxon table.}
 #'     \item{locality}{Departamento were the mammal is present.}
 #'     \item{countryCode}{Code for Colombia.}
 #'     \item{establishmentMeans}{Is endemic?. Endémica=Yes}
 #'     \item{threatStatus}{categorization previous to 2021}
-#'     \item{appendixCITES}{Apendix form CITES}
-#'     \item{source}{reference for distribution}
+#'     \item{appendixCITES}{Apendix from CITES}
 #'     \item{occurrenceRemarks}{region were the species occurs.}
 #'   }
 #'
 #'
 #' @examples
-#' library(mammalcol)
+#' library (mammalcol)
 #' head (distribution)
 #'
 #' @details This dataset is designed to provide users with comprehensive

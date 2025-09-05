@@ -1,13 +1,13 @@
 #' colmap Dataset
 #'
-#' The colmap dataset is a simple feature collection with 33 features and 11 fields. This version 
-#' was obtained from: GDAM using the sf package.
+#' The colmap dataset is a simplified simple feature collection with 33 features and 11 fields. This version 
+#' was obtained from: GDAM using the sf package and later simplified as:
 #' 
 #' colmap <- sf::st_as_sf(gadm(country="COL", level=1, path=tempdir()))
 #' 
 #' and later apply a polygon simplify using st_simplify with a tolerance of 1km:
 #' 
-#' colmap <- st_simplify(colmap, preserveTopology = FALSE, dTolerance = 1000)
+#' colmap <- st_simplify(colmap, preserveTopology = TRUE, dTolerance = 1000)
 #'
 #' @format Simple feature collection with 33 features and 11 fields:
 #'   \describe{
@@ -32,14 +32,14 @@
 #' @examples
 #' 
 #' # Load the mammalcol package
-#' library(mammalcol)
+#' library (mammalcol)
 #' library (sf)
 #' 
 #' # Access the mammalcol_tab dataset
-#' # data("colmap")
+#' # data ("colmap")
 #'
 #' # Display the first few rows
-#' head(colmap)
+#' head (colmap)
 #'
 #' plot (colmap["NAME_1"])
 #' 

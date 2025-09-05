@@ -54,7 +54,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
   
   # create an output data container
   output_matrix <- matrix(nrow = length(splist_std), 
-                          ncol = 25+2) # two more
+                          ncol = 24+2) # dim(taxon) and two more
   colnames(output_matrix) <- c(
     "name_submitted",
     names(taxon),
@@ -80,14 +80,14 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
     
     # check non matching result
     if (length(matches) == 0) {
-      row_data <- rep("nill", 25) # number of columns in taxon
+      row_data <- rep("nill", 24) # number of columns in taxon
     } else if (length(matches) != 0) { # match result
       dis_value <- as.numeric(utils::adist(splist_std[i], matches))
       matches1 <- matches[dis_value <= max_distance_fixed]
       dis_val_1 <- dis_value[dis_value <= max_distance_fixed]
       
       if (length(matches1) == 0) {
-        row_data <- rep("nill", 25) # number of columns in taxon
+        row_data <- rep("nill", 24) # number of columns in taxon
       } else if (length(matches1) != 0) {
         row_data <- as.matrix(taxon[taxon$scientificName %in% matches1, ])
       }

@@ -1,7 +1,7 @@
 #' Validate mammal species distribution data based on geographic coordinates.
 #' 
 #' This function validates species distribution data provided in a data frame
-#' against known mammal species lists and geographic coordinates. It outputs
+#' against the known mammal species lists and a departamentos map. It outputs
 #' a data frame with validation results and additional information.
 #'
 #' @param df A data frame containing species distribution data with columns 'species',
@@ -10,7 +10,7 @@
 #' @param taxon A data frame with distribution information, including 'scientificName' and 'distribution'.
 #'              The scientificName must be in binomial form, and the distribution should contain names separated by |.
 #'              By default, the function uses the checklist available at https://www.gbif.org/dataset/e8b9ed9b-f715-4eac-ae24-772fbf40d7ae.
-#' @param colmap A spatial object in vector format representing the geographic area to validate against.
+#' @param colmap_d A spatial object in vector format representing the geographic area to validate against.
 #'               By default, the function uses the Colombia Administrative Boundaries available in the geodata package.
 #' @param lon Name of the column containing longitude values in df. Default is 'decimalLongitude'.
 #' @param lat Name of the column containing latitude values in df. Default is 'decimalLatitude'.
@@ -21,7 +21,8 @@
 
 #' @details
 #' This function validates species distribution data by checking species names against a
-#' known list and verifying geographic coordinates against specified maps ('colmap' and 'oceanmap').
+#' known list and verifying geographic coordinates against political maps ('colmap_d' and 'oceanmap').
+#' 'colmap_d' is downloaded internally using the geodata package.
 #' It assigns a validation result ('validation_result') where 1 means coincidence and 0 means
 #' no match. Additional details are provided in the returned data frame.
 #'
@@ -29,7 +30,7 @@
 #' validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
 #'
 #' @export
-mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
+mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap_d = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
   
   ## Info added
   # require(sf)
@@ -46,7 +47,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     stop("You must specify the name of the column containing species names (sp_names) using binomial structure (Genus + specifiepithet).")
   }
   
-  # Validation: Check if taxon, colmap, and column names are provided
+  # Validation: Check if taxon, colmap_d, and column names are provided
   if (is.null(taxon))  {
     taxon <- mammalcol::taxon
   }
@@ -55,15 +56,15 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     adm_names = 'NAME_1'
   }
   
-  if (is.null(colmap)) {
+  if (is.null(colmap_d)) {
     
     # load('data/colmap_igac.rda')
     # require(geodata)
-    colmap <-sf::st_as_sf(geodata::gadm('COL', level = 1,  path=tempdir()))
-    colmap[[adm_names]] <- tolower(colmap[[adm_names]])
+    colmap_d <-sf::st_as_sf(geodata::gadm('COL', level = 1,  path=tempdir()))
+    colmap_d[[adm_names]] <- tolower(colmap_d[[adm_names]])
   } else {
-    colmap <- sf::st_as_sf(colmap)
-    colmap[[adm_names]] <- tolower(colmap[[adm_names]])
+    colmap_d <- sf::st_as_sf(colmap_d)
+    colmap_d[[adm_names]] <- tolower(colmap_d[[adm_names]])
   }
   
   # Set default column names for longitude and latitude if not provided
@@ -94,7 +95,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   sppnms <- unique(df[[sp_names]])
   
   # Validate species names against known species list
-  vlid_spp <- search_mammalcol(sppnms, max_distance = 0.1)
+  vlid_spp <- search_mammalcol(sppnms, max_distance = 0)
   
   # Display summary of species validation
   if (length(vlid_spp$name_submitted) == 0) {
@@ -115,7 +116,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     vect.spp.i <- sf::st_as_sf(x = spp.i,                         
              coords = c("decimalLongitude", "decimalLatitude"),
              crs = "+proj=longlat +datum=WGS84")
-    vect.spp.i.t <- suppressWarnings(sf::st_intersection(vect.spp.i, colmap))
+    vect.spp.i.t <- suppressWarnings(sf::st_intersection(vect.spp.i, colmap_d))
     
     
     if (nrow(vect.spp.i.t) > 0) {
@@ -246,8 +247,8 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   cat('- 0 = Valid species but records not registered within the analyzed boundaries.\n')
   cat('- 1 = Valid species and coordinates according to official publications.\n')
   cat('- 2 = Valid species and coordinates are registered in the ocean.\n')
-  cat('- 3 = Valid species and coordinates are within the limits of the ocean administrative boundaries. We recommend reviewing the location manually.\n')
-  cat('- 4 = Not valid species that are not validated.\n')
+  cat('- 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.\n')
+  cat('- 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.\n')
   
   return(finalValT)
 }

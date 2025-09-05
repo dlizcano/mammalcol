@@ -1,9 +1,9 @@
 #' Colombian_sea Dataset
 #'
-#' The colmap dataset is a simple feature collection with 33 features and 6 fields. This version 
+#' The colombian_sea dataset is a simple feature collection with 6 features and 5 fields. This version 
 #' was obtained from marine regions page: "https://www.marineregions.org/stats_downloads.php"
 #' 
-#' @format Simple feature collection with 33 features and 11 fields:
+#' @format Simple feature collection with 6 features and 5 fields:
 #'   \describe{
 #'    \item{MRGID}{id from original GDAM}
 #'     \item{GEONAME}{id from original GDAM}
@@ -20,16 +20,16 @@
 #' @examples
 #' 
 #' # Load the mammalcol package
-#' library(mammalcol)
+#' library (mammalcol)
 #' library (sf)
 #' 
-#' # Access the mammalcol_tab dataset
-#' # data("colmap")
+#' # Access the Colombian_sea dataset
+#' # data ("colombian_sea")
 #'
 #' # Display the first few rows
-#' head(colmap)
+#' head (Colombian_sea)
 #'
-#' plot (colmap["NAME_1"])
+#' plot (Colombian_sea["NAME_1"])
 #' 
 #' @seealso
 #' For more information about the "mammalcol" package and the data sources, visit
@@ -39,7 +39,7 @@
 #' The dataset is based on the "List of the Mammals of Colombia" by Ramírez-Chaves 2021.
 #'
 #' @author
-#' Data compilation: Ramírez-Chaves 2021, Package implementation: Cristian A. Cruz-R.
+#' Data compilation: Ramírez-Chaves 2021, Function implementation: Cristian A. Cruz-R.
 #'
 #' @keywords internal
 "Colombian_sea"

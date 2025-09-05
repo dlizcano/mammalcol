@@ -48,7 +48,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
   
   # create an output data container
   output_matrix <- matrix(nrow = length(splist_std), 
-                          ncol = 25+2) # two more
+                          ncol = 24+2) # dim(taxon) and two more
   colnames(output_matrix) <- c(
     "name_submitted",
     names(taxon),
@@ -74,14 +74,14 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
     
     # check non matching result
     if (length(matches) == 0) {
-      row_data <- rep("nill", 25) # number of columns in taxon
+      row_data <- rep("nill", 24) # number of columns in taxon
     } else if (length(matches) != 0) { # match result
       dis_value <- as.numeric(utils::adist(splist_std[i], matches))
       matches1 <- matches[dis_value <= max_distance_fixed]
       dis_val_1 <- dis_value[dis_value <= max_distance_fixed]
       
       if (length(matches1) == 0) {
-        row_data <- rep("nill", 25) # number of columns in taxon
+        row_data <- rep("nill", 24) # number of columns in taxon
       } else if (length(matches1) != 0) {
         row_data <- as.matrix(taxon[taxon$scientificName %in% matches1, ])
       }
@@ -105,7 +105,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
   return(output[output$scientificName != "nill", ])
 }
 
-
+############
 
 
 
@@ -165,6 +165,7 @@ find_duplicates <- function(vector) {
 
 
 ################
+
 mammalmap <- function(species, legend = TRUE) {
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
     install.packages("ggplot2")
@@ -185,7 +186,6 @@ mammalmap <- function(species, legend = TRUE) {
     stop(paste0("Argument legend must be logical, not ", class(legend)))
   }
 
-
   # require("ggplot2")
   # require("sf")
 
@@ -196,17 +196,15 @@ mammalmap <- function(species, legend = TRUE) {
   # data(mammalcol::colmap)
 
   distribution_list <-
-    strsplit(taxon$distribution, "\\|") # trimws () removes spaces
+    strsplit(mammalcol::taxon$distribution, "\\|") # trimws () removes spaces
 
   deptos <- as.data.frame(cbind(Depto = unique(colmap$NAME_1), fill = "white"))
-  sp_id <- which(taxon$scientificName == species)
-  
+  sp_id <- which(mammalcol::taxon$scientificName == species)
   # if species is not in the table and is integer(0)
   if (length(sp_id) == 0) {
     stop(paste0("The species should be in the list. Make sure you use the function search_mammalcol first. ", species, " is not a species present in Colombia"))
   }
-  
-  unos <- trimws(distribution_list[[sp_id]]) # get species number
+  unos <- trimws(distribution_list[[sp_id]]) # species number
 
   # nested loop to get deptos
   for (i in 1:length(deptos[, 1])) {
@@ -224,7 +222,7 @@ mammalmap <- function(species, legend = TRUE) {
       ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
       ggplot2::scale_fill_manual(values = deptos$fill) +
       # ggtitle(taxon$scientificName[25]) + #species name number
-      ggplot2::labs(subtitle = taxon$scientificName[sp_id]) +
+      ggplot2::labs(subtitle = mammalcol::taxon$scientificName[sp_id]) +
       ggplot2::theme(
         legend.position = "right", # location legend
         legend.title = ggplot2::element_blank(), # element_text(size=7),#,
@@ -236,12 +234,14 @@ mammalmap <- function(species, legend = TRUE) {
       ggplot2::geom_sf(ggplot2::aes(fill = NAME_1), show.legend = FALSE) + # removes legend
       ggplot2::scale_fill_manual(values = deptos$fill) +
       # ggtitle(taxon$scientificName[25]) + #species name number
-      ggplot2::labs(subtitle = taxon$scientificName[sp_id]) +
+      ggplot2::labs(subtitle = mammalcol::taxon$scientificName[sp_id]) +
       ggplot2::theme(plot.subtitle = ggplot2::element_text(face = "italic")) # italica
   }
 
   return(mapa)
-} # end mammalmap
+} # end function
+
+
 ##################
 
 sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
@@ -277,11 +277,11 @@ sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
 
 #######################
 
-mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
+mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap_d = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
   
   ## Info added
-  library(sf)
-  library(geodata)
+  # require(sf)
+  # require(geodata)
   
   # Initialize function
   
@@ -294,7 +294,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     stop("You must specify the name of the column containing species names (sp_names) using binomial structure (Genus + specifiepithet).")
   }
   
-  # Validation: Check if taxon, colmap, and column names are provided
+  # Validation: Check if taxon, colmap_d, and column names are provided
   if (is.null(taxon))  {
     taxon <- mammalcol::taxon
   }
@@ -303,15 +303,15 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     adm_names = 'NAME_1'
   }
   
-  if (is.null(colmap)) {
+  if (is.null(colmap_d)) {
     
-    #load('data/colmap_igac.rda')
-    library(geodata)
-    colmap <-sf::st_as_sf(geodata::gadm('COL', level = 1,  path=tempdir()))
-    colmap[[adm_names]] <- tolower(colmap[[adm_names]])
+    # load('data/colmap_igac.rda')
+    # require(geodata)
+    colmap_d <-sf::st_as_sf(geodata::gadm('COL', level = 1,  path=tempdir()))
+    colmap_d[[adm_names]] <- tolower(colmap_d[[adm_names]])
   } else {
-    colmap <- sf::st_as_sf(colmap)
-    colmap[[adm_names]] <- tolower(colmap[[adm_names]])
+    colmap_d <- sf::st_as_sf(colmap_d)
+    colmap_d[[adm_names]] <- tolower(colmap_d[[adm_names]])
   }
   
   # Set default column names for longitude and latitude if not provided
@@ -342,7 +342,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   sppnms <- unique(df[[sp_names]])
   
   # Validate species names against known species list
-  vlid_spp <- search_mammalcol(sppnms, max_distance = 0.0)
+  vlid_spp <- search_mammalcol(sppnms, max_distance = 0)
   
   # Display summary of species validation
   if (length(vlid_spp$name_submitted) == 0) {
@@ -363,7 +363,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     vect.spp.i <- sf::st_as_sf(x = spp.i,                         
              coords = c("decimalLongitude", "decimalLatitude"),
              crs = "+proj=longlat +datum=WGS84")
-    vect.spp.i.t <- suppressWarnings(sf::st_intersection(vect.spp.i, colmap))
+    vect.spp.i.t <- suppressWarnings(sf::st_intersection(vect.spp.i, colmap_d))
     
     
     if (nrow(vect.spp.i.t) > 0) {
@@ -494,12 +494,11 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   cat('- 0 = Valid species but records not registered within the analyzed boundaries.\n')
   cat('- 1 = Valid species and coordinates according to official publications.\n')
   cat('- 2 = Valid species and coordinates are registered in the ocean.\n')
-  cat('- 3 = Valid species and coordinates are within the limits of the ocean administrative boundaries. We recommend reviewing the location manually.\n')
-  cat('- 4 = Not valid species that are not validated.\n')
+  cat('- 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.\n')
+  cat('- 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.\n')
   
   return(finalValT)
 }
-
 
 ##################
 
@@ -522,7 +521,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
 
 The goal of mammalcol is to allow easy access to the List of Mammal Species of Colombia.
 
-Researchers can explore Colombia's amazing variety of mammals using the mammalcol R package. This package includes information on 548 mammal species, making Colombia one of the world leaders in mammal diversity. The data comes from the latest "Checklist of the mammals (Mammalia) of Colombia" by [Ramírez-Chaves et al (2021)](https://doi.org/10.47603/mano.v7n2.253). But It's important to remember that how scientists classify mammals keeps changing constantly, so the information in this package has been updated with the checklist [Mamíferos de Colombia](https://doi.org/10.15472/kl1whs), which is published and updated regularly by the Colombian Mammal Society. 
+Researchers can explore Colombia's amazing variety of mammals using the mammalcol R package. This package includes information on 553 mammal species, making Colombia one of the world leaders in mammal diversity. The data comes from the latest "Checklist of the mammals (Mammalia) of Colombia" by [Ramírez-Chaves et al (2021)](https://doi.org/10.47603/mano.v7n2.253). But It's important to remember that the way scientists classify mammals keeps changing constantly, so the information in this package has been updated with the last checklist [Mamíferos de Colombia](https://doi.org/10.15472/kl1whs), which is published and updated regularly by the [Colombian Mammal Society](https://www.mamiferoscolombia.org/). 
 
 ## Installation
 
@@ -533,7 +532,7 @@ You can install the development version of mammalcol from [GitHub](https://githu
 devtools::install_github("dlizcano/mammalcol")
 ```
 
-## load library
+## Load library
 
 ```{r}
 
@@ -591,17 +590,10 @@ Using the parameter legend=FALSE
 mammalmap("Tapirus pinchaque", legend=FALSE)
 ```
 
-### See the full taxon table
-  
-```{r example4}
-
-head(taxon)
-
-```
 
 ### Search mammals present by departamento
 
-Use the departamento name or a vector of departamentos to know the mammals species present. The argument type = "any"  retrieve mammals present in any of those departamentos. 
+Use the departamento name or a vector of departamentos to get the mammal species present. The argument type = "any"  retrieve mammals present in any of those departamentos. 
 
 ```{r}
 occ.any <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "any")
@@ -626,18 +618,24 @@ head(occ.bats)
 ```
 
 
-### Validate mammal species distribution data based on geographic coordinates
+### Validate mammal species data based on geographic coordinates
 
 Use the function `mamm_coords_validator` to validate if your record is valid according to the Checklist of the mammals (Mammalia) of Colombia. 
 
-Use a dataframe with species distribution data. The dataframe must contain at least the 3 columns: 'species', 'decimalLongitude', and 'decimalLatitude'. The data frame can contain many other columns. 
+The function use a dataframe with species distribution data. The dataframe must contain at least the 3 columns: 
 
-If it is not validated perhaps can be a new record. After double check, please consider to write a small note to Mammalogy Notes updating the distribution.  
+- species as: Genus species
+- decimalLongitude
+- decimalLatitude
+
+The data frame should contain many other columns. You should indicate the column containing the species names using the argument sp_names.
 
 
 ```{r}
 validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
 ```
+
+If you find a species in a new department please consider writing a note for [Mammalogy Notes](https://mammalogynotes.org) extending the distribution.
 
 
 ### Sugested citation

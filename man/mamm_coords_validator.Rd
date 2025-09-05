@@ -8,7 +8,7 @@ mamm_coords_validator(
   df,
   sp_names,
   taxon = NULL,
-  colmap = NULL,
+  colmap_d = NULL,
   lon = NULL,
   lat = NULL,
   adm_names = NULL,
@@ -26,7 +26,7 @@ mamm_coords_validator(
 The scientificName must be in binomial form, and the distribution should contain names separated by |.
 By default, the function uses the checklist available at https://www.gbif.org/dataset/e8b9ed9b-f715-4eac-ae24-772fbf40d7ae.}
 
-\item{colmap}{A spatial object in vector format representing the geographic area to validate against.
+\item{colmap_d}{A spatial object in vector format representing the geographic area to validate against.
 By default, the function uses the Colombia Administrative Boundaries available in the geodata package.}
 
 \item{lon}{Name of the column containing longitude values in df. Default is 'decimalLongitude'.}
@@ -44,12 +44,13 @@ A data frame with validated species records and validation results.
 }
 \description{
 This function validates species distribution data provided in a data frame
-against known mammal species lists and geographic coordinates. It outputs
+against the known mammal species lists and a departamentos map. It outputs
 a data frame with validation results and additional information.
 }
 \details{
 This function validates species distribution data by checking species names against a
-known list and verifying geographic coordinates against specified maps ('colmap' and 'oceanmap').
+known list and verifying geographic coordinates against political maps ('colmap_d' and 'oceanmap').
+'colmap_d' is downloaded internally using the geodata package.
 It assigns a validation result ('validation_result') where 1 means coincidence and 0 means
 no match. Additional details are provided in the returned data frame.
 }

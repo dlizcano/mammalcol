@@ -33,7 +33,7 @@
 #'
 #' @details This dataset is designed to provide users with comprehensive
 #' information about the mammal species found in Colombia, as documented
-#' by Ramírez-Chaves, et al. 2024. It is organized for easy access and 
+#' by Ramírez-Chaves, et al. 2025. It is organized for easy access and 
 #' utilization within the R environment.
 #'
 #' @examples
@@ -62,6 +62,6 @@
 #' \href{https://ipt.biodiversidad.co/sib/resource?r=mamiferos_col#anchor-citation}{SiB Colombia}
 #' 
 #' @author
-#' Data compilation: Ramírez-Chaves 2021, Package implementation: Diego J. Lizcano
+#' Data compilation: Ramírez-Chaves 2021, Function and Package implementation: Diego J. Lizcano
 #'
 "taxon"

@@ -103,7 +103,7 @@
 <!-- badges: start -->
 
 <p>The goal of mammalcol is to allow easy access to the List of Mammal Species of Colombia.</p>
-<p>Researchers can explore Colombia’s amazing variety of mammals using the mammalcol R package. This package includes information on 548 mammal species, making Colombia one of the world leaders in mammal diversity. The data comes from the latest “Checklist of the mammals (Mammalia) of Colombia” by <a href="https://doi.org/10.47603/mano.v7n2.253" class="external-link">Ramírez-Chaves et al (2021)</a>. But It’s important to remember that how scientists classify mammals keeps changing constantly, so the information in this package has been updated with the checklist <a href="https://doi.org/10.15472/kl1whs" class="external-link">Mamíferos de Colombia</a>, which is published and updated regularly by the Colombian Mammal Society.</p>
+<p>Researchers can explore Colombia’s amazing variety of mammals using the mammalcol R package. This package includes information on 553 mammal species, making Colombia one of the world leaders in mammal diversity. The data comes from the latest “Checklist of the mammals (Mammalia) of Colombia” by <a href="https://doi.org/10.47603/mano.v7n2.253" class="external-link">Ramírez-Chaves et al (2021)</a>. But It’s important to remember that the way scientists classify mammals keeps changing constantly, so the information in this package has been updated with the last checklist <a href="https://doi.org/10.15472/kl1whs" class="external-link">Mamíferos de Colombia</a>, which is published and updated regularly by the <a href="https://www.mamiferoscolombia.org/" class="external-link">Colombian Mammal Society</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -113,12 +113,18 @@
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dlizcano/mammalcol"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="load-library">load library<a class="anchor" aria-label="anchor" href="#load-library"></a>
+<h2 id="load-library">Load library<a class="anchor" aria-label="anchor" href="#load-library"></a>
 </h2>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dlizcano/mammalcol" class="external-link">mammalcol</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; This is mammalcol 0.2.4</span></span></code></pre></div>
+<span><span class="co">#&gt; This is mammalcol 0.2.3</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Adjuntando el paquete: 'mammalcol'</span></span>
+<span><span class="co">#&gt; The following objects are masked _by_ '.GlobalEnv':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     colmap, distribution, mamm_coords_validator, mammalmap,</span></span>
+<span><span class="co">#&gt;     search_mammalcol, sp_by_depto, taxon</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -152,21 +158,21 @@
 <span><span class="co">#&gt; 2 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=624999</span></span>
 <span><span class="co">#&gt; 3 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625000</span></span>
 <span><span class="co">#&gt; 4 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625074</span></span>
-<span><span class="co">#&gt;        scientificName</span></span>
-<span><span class="co">#&gt; 1     Tapirus bairdii</span></span>
-<span><span class="co">#&gt; 2   Tapirus pinchaque</span></span>
-<span><span class="co">#&gt; 3  Tapirus terrestris</span></span>
-<span><span class="co">#&gt; 4 Pudu mephistophiles</span></span>
+<span><span class="co">#&gt;           scientificName</span></span>
+<span><span class="co">#&gt; 1        Tapirus bairdii</span></span>
+<span><span class="co">#&gt; 2      Tapirus pinchaque</span></span>
+<span><span class="co">#&gt; 3     Tapirus terrestris</span></span>
+<span><span class="co">#&gt; 4 Pudella mephistophiles</span></span>
 <span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   nameAccordingTo</span></span>
 <span><span class="co">#&gt; 1                                                                                                                                                                                                                                                                                                                         Tapirus bairdii (Gill, 1865) in GBIF Secretariat (2017). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2019-08-01.</span></span>
 <span><span class="co">#&gt; 2 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
 <span><span class="co">#&gt; 3 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
-<span><span class="co">#&gt; 4 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
+<span><span class="co">#&gt; 4                                                                                                                                                                                                                                                                                           Barrio, J., Gutiérrez, E.E. and D'Elía, G. 2024-03-01. The first living cervid species described in the 21st century and revalidation of Pudella (Artiodactyla). Journal of Mammalogy 105(3):577-588.</span></span>
 <span><span class="co">#&gt;    kingdom   phylum    class          order    family   genus specificEpithet</span></span>
 <span><span class="co">#&gt; 1 Animalia Chordata Mammalia Perissodactyla Tapiridae Tapirus         bairdii</span></span>
 <span><span class="co">#&gt; 2 Animalia Chordata Mammalia Perissodactyla Tapiridae Tapirus       pinchaque</span></span>
 <span><span class="co">#&gt; 3 Animalia Chordata Mammalia Perissodactyla Tapiridae Tapirus      terrestris</span></span>
-<span><span class="co">#&gt; 4 Animalia Chordata Mammalia   Artiodactyla  Cervidae    Pudu  mephistophiles</span></span>
+<span><span class="co">#&gt; 4 Animalia Chordata Mammalia   Artiodactyla  Cervidae Pudella  mephistophiles</span></span>
 <span><span class="co">#&gt;   taxonRank scientificNameAuthorship taxonomicStatus             taxonRemarks</span></span>
 <span><span class="co">#&gt; 1   Especie             (Gill, 1865)          Válido    Elevación (m): 0-1000</span></span>
 <span><span class="co">#&gt; 2   Especie           (Roulin, 1829)          Válido Elevación (m): 1400-4000</span></span>
@@ -186,22 +192,17 @@
 <span><span class="co">#&gt; 1     1 EN A2cd+ B1ab (i,ii,iii)+ B2ab (i, ii, iii)</span></span>
 <span><span class="co">#&gt; 2     1                                     EN A4cd</span></span>
 <span><span class="co">#&gt; 3     1                                     VU A4cd</span></span>
-<span><span class="co">#&gt; 4     1         EN A2cd B1ab (i; ii; iii; iv; v) \n</span></span>
+<span><span class="co">#&gt; 4     0                                        &lt;NA&gt;</span></span>
 <span><span class="co">#&gt;                                                                                                                                                                           distribution</span></span>
 <span><span class="co">#&gt; 1                                                                                                                                                          Antioquia | Chocó | Córdoba</span></span>
 <span><span class="co">#&gt; 2                                              Antioquia | Cauca | Cundinamarca | Huila | Meta | Nariño | Quindío | Risaralda | Tolima | Valle del Cauca | Caldas | Caquetá | Putumayo</span></span>
 <span><span class="co">#&gt; 3 Antioquia | Amazonas | Arauca | Caquetá | Cauca | Cesar | Córdoba | Guainía | La Guajira | Meta | Magdalena | Vaupés | Vichada | Guaviare | Casanare | Norte de Santander | Putumayo</span></span>
 <span><span class="co">#&gt; 4                                                                                                              Cauca | Huila | Nariño | Risaralda | Quindío | Tolima | Valle del Cauca</span></span>
-<span><span class="co">#&gt;                                                         source endemic</span></span>
-<span><span class="co">#&gt; 1 Proceedings of the United States National Museum 103:465-496      No</span></span>
-<span><span class="co">#&gt; 2                         Mastozoología Neotropical 17:111-116      No</span></span>
-<span><span class="co">#&gt; 3                           Mastozoología Neotropical 16:19-25      No</span></span>
-<span><span class="co">#&gt; 4                                     Biota Colombiana 1:43-75      No</span></span>
-<span><span class="co">#&gt;             english_name Distance</span></span>
-<span><span class="co">#&gt; 1 Central American Tapir       21</span></span>
-<span><span class="co">#&gt; 2         Mountain Tapir       77</span></span>
-<span><span class="co">#&gt; 3          Lowland Tapir       78</span></span>
-<span><span class="co">#&gt; 4          Northern Pudu       77</span></span></code></pre></div>
+<span><span class="co">#&gt;   endemic           english_name Distance</span></span>
+<span><span class="co">#&gt; 1      No Central American Tapir       21</span></span>
+<span><span class="co">#&gt; 2      No         Mountain Tapir       77</span></span>
+<span><span class="co">#&gt; 3      No          Lowland Tapir       78</span></span>
+<span><span class="co">#&gt; 4      No                   &lt;NA&gt;       77</span></span></code></pre></div>
 <div class="section level4">
 <h4 id="search-database-with-typos">Search database with typos<a class="anchor" aria-label="anchor" href="#search-database-with-typos"></a>
 </h4>
@@ -224,17 +225,17 @@
 <span><span class="co">#&gt; 1 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625000</span></span>
 <span><span class="co">#&gt; 2 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625074</span></span>
 <span><span class="co">#&gt; 3                                                 https://www.gbif.org/species/2440897</span></span>
-<span><span class="co">#&gt;        scientificName</span></span>
-<span><span class="co">#&gt; 1  Tapirus terrestris</span></span>
-<span><span class="co">#&gt; 2 Pudu mephistophiles</span></span>
-<span><span class="co">#&gt; 3     Tapirus bairdii</span></span>
+<span><span class="co">#&gt;           scientificName</span></span>
+<span><span class="co">#&gt; 1     Tapirus terrestris</span></span>
+<span><span class="co">#&gt; 2 Pudella mephistophiles</span></span>
+<span><span class="co">#&gt; 3        Tapirus bairdii</span></span>
 <span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   nameAccordingTo</span></span>
 <span><span class="co">#&gt; 1 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
-<span><span class="co">#&gt; 2 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
+<span><span class="co">#&gt; 2                                                                                                                                                                                                                                                                                           Barrio, J., Gutiérrez, E.E. and D'Elía, G. 2024-03-01. The first living cervid species described in the 21st century and revalidation of Pudella (Artiodactyla). Journal of Mammalogy 105(3):577-588.</span></span>
 <span><span class="co">#&gt; 3                                                                                                                                                                                                                                                                                                                         Tapirus bairdii (Gill, 1865) in GBIF Secretariat (2017). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2019-08-01.</span></span>
 <span><span class="co">#&gt;    kingdom   phylum    class          order    family   genus specificEpithet</span></span>
 <span><span class="co">#&gt; 1 Animalia Chordata Mammalia Perissodactyla Tapiridae Tapirus      terrestris</span></span>
-<span><span class="co">#&gt; 2 Animalia Chordata Mammalia   Artiodactyla  Cervidae    Pudu  mephistophiles</span></span>
+<span><span class="co">#&gt; 2 Animalia Chordata Mammalia   Artiodactyla  Cervidae Pudella  mephistophiles</span></span>
 <span><span class="co">#&gt; 3 Animalia Chordata Mammalia Perissodactyla Tapiridae Tapirus         bairdii</span></span>
 <span><span class="co">#&gt;   taxonRank scientificNameAuthorship taxonomicStatus             taxonRemarks</span></span>
 <span><span class="co">#&gt; 1   Especie         (Linnaeus, 1758)          Válido    Elevación (m): 0-2400</span></span>
@@ -250,20 +251,16 @@
 <span><span class="co">#&gt; 3                                                              HERSHKOVITZ P. 1954. Mammals of northern Colombia. Preliminary report No. 7: Tapirs (genus Tapirus), with a systematic review of American species. Proceedings of the United States National Museum 103:465-496.</span></span>
 <span><span class="co">#&gt;   inMDD                                 Col_redlist</span></span>
 <span><span class="co">#&gt; 1     1                                     VU A4cd</span></span>
-<span><span class="co">#&gt; 2     1         EN A2cd B1ab (i; ii; iii; iv; v) \n</span></span>
+<span><span class="co">#&gt; 2     0                                        &lt;NA&gt;</span></span>
 <span><span class="co">#&gt; 3     1 EN A2cd+ B1ab (i,ii,iii)+ B2ab (i, ii, iii)</span></span>
 <span><span class="co">#&gt;                                                                                                                                                                           distribution</span></span>
 <span><span class="co">#&gt; 1 Antioquia | Amazonas | Arauca | Caquetá | Cauca | Cesar | Córdoba | Guainía | La Guajira | Meta | Magdalena | Vaupés | Vichada | Guaviare | Casanare | Norte de Santander | Putumayo</span></span>
 <span><span class="co">#&gt; 2                                                                                                              Cauca | Huila | Nariño | Risaralda | Quindío | Tolima | Valle del Cauca</span></span>
 <span><span class="co">#&gt; 3                                                                                                                                                          Antioquia | Chocó | Córdoba</span></span>
-<span><span class="co">#&gt;                                                         source endemic</span></span>
-<span><span class="co">#&gt; 1                           Mastozoología Neotropical 16:19-25      No</span></span>
-<span><span class="co">#&gt; 2                                     Biota Colombiana 1:43-75      No</span></span>
-<span><span class="co">#&gt; 3 Proceedings of the United States National Museum 103:465-496      No</span></span>
-<span><span class="co">#&gt;             english_name Distance</span></span>
-<span><span class="co">#&gt; 1          Lowland Tapir       76</span></span>
-<span><span class="co">#&gt; 2          Northern Pudu       77</span></span>
-<span><span class="co">#&gt; 3 Central American Tapir       21</span></span></code></pre></div>
+<span><span class="co">#&gt;   endemic           english_name Distance</span></span>
+<span><span class="co">#&gt; 1      No          Lowland Tapir       76</span></span>
+<span><span class="co">#&gt; 2      No                   &lt;NA&gt;       77</span></span>
+<span><span class="co">#&gt; 3      No Central American Tapir       21</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
@@ -285,132 +282,34 @@
 </div>
 </div>
 <div class="section level3">
-<h3 id="see-the-full-taxon-table">See the full taxon table<a class="anchor" aria-label="anchor" href="#see-the-full-taxon-table"></a>
-</h3>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">taxon</span><span class="op">)</span></span>
-<span><span class="co">#&gt;                                                                                    id</span></span>
-<span><span class="co">#&gt; 1                                             urn:lsid:organismnames.com:name:3484299</span></span>
-<span><span class="co">#&gt; 2 urn:lsid:catalogueoflife.org:taxon:4f16759f-5e17-11e7-8cee-bc764e092680:col20170824</span></span>
-<span><span class="co">#&gt; 3                                                eol.org/pages/Mazama%20sanctaemartae</span></span>
-<span><span class="co">#&gt; 4 urn:lsid:catalogueoflife.org:taxon:259114ac-5e17-11e7-8cee-bc764e092680:col20170824</span></span>
-<span><span class="co">#&gt; 5                                             urn:lsid:organismnames.com:name:3484302</span></span>
-<span><span class="co">#&gt; 6                                             urn:lsid:organismnames.com:name:3535811</span></span>
-<span><span class="co">#&gt;                                                                               taxonID</span></span>
-<span><span class="co">#&gt; 1                                             urn:lsid:organismnames.com:name:3484299</span></span>
-<span><span class="co">#&gt; 2 urn:lsid:catalogueoflife.org:taxon:4f16759f-5e17-11e7-8cee-bc764e092680:col20170824</span></span>
-<span><span class="co">#&gt; 3                                                eol.org/pages/Mazama%20sanctaemartae</span></span>
-<span><span class="co">#&gt; 4 urn:lsid:catalogueoflife.org:taxon:259114ac-5e17-11e7-8cee-bc764e092680:col20170824</span></span>
-<span><span class="co">#&gt; 5                                             urn:lsid:organismnames.com:name:3484302</span></span>
-<span><span class="co">#&gt; 6                                             urn:lsid:organismnames.com:name:3535811</span></span>
-<span><span class="co">#&gt;                                                                       scientificNameID</span></span>
-<span><span class="co">#&gt; 1 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898446</span></span>
-<span><span class="co">#&gt; 2 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=625072</span></span>
-<span><span class="co">#&gt; 3 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898449</span></span>
-<span><span class="co">#&gt; 4 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898202</span></span>
-<span><span class="co">#&gt; 5 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=898440</span></span>
-<span><span class="co">#&gt; 6                                                 https://www.gbif.org/species/8872400</span></span>
-<span><span class="co">#&gt;             scientificName</span></span>
-<span><span class="co">#&gt; 1       Passalites murelia</span></span>
-<span><span class="co">#&gt; 2            Mazama rufina</span></span>
-<span><span class="co">#&gt; 3 Passalites sanctaemartae</span></span>
-<span><span class="co">#&gt; 4            Mazama temama</span></span>
-<span><span class="co">#&gt; 5            Mazama zamora</span></span>
-<span><span class="co">#&gt; 6             Mazama zetta</span></span>
-<span><span class="co">#&gt;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   nameAccordingTo</span></span>
-<span><span class="co">#&gt; 1 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
-<span><span class="co">#&gt; 2 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
-<span><span class="co">#&gt; 3 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
-<span><span class="co">#&gt; 4 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
-<span><span class="co">#&gt; 5 Tom Orrell (custodian), Dave Nicolson (ed). (2019). ITIS Global: The Integrated Taxonomic Information System (version Jun 2017). In: Species 2000 &amp; ITIS Catalogue of Life, 2019 Annual Checklist (Roskov Y., Ower G., Orrell T., Nicolson D., Bailly N., Kirk P.M., Bourgoin T., DeWalt R.E., Decock W., Nieukerken E. van, Zarucchi J., Penev L., eds.). Digital resource at www.catalogueoflife.org/annual-checklist/2019. Species 2000: Naturalis, Leiden, the Netherlands. ISSN 2405-884X.</span></span>
-<span><span class="co">#&gt; 6                                                                                                                                                                                                                                                                                                                            Mazama zetta Thomas, 1913 in GBIF Secretariat (2017). GBIF Backbone Taxonomy. Checklist dataset https://doi.org/10.15468/39omei accessed via GBIF.org on 2019-08-01.</span></span>
-<span><span class="co">#&gt;    kingdom   phylum    class        order   family      genus specificEpithet</span></span>
-<span><span class="co">#&gt; 1 Animalia Chordata Mammalia Artiodactyla Cervidae Passalites         murelia</span></span>
-<span><span class="co">#&gt; 2 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama          rufina</span></span>
-<span><span class="co">#&gt; 3 Animalia Chordata Mammalia Artiodactyla Cervidae Passalites   sanctaemartae</span></span>
-<span><span class="co">#&gt; 4 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama          temama</span></span>
-<span><span class="co">#&gt; 5 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama          zamora</span></span>
-<span><span class="co">#&gt; 6 Animalia Chordata Mammalia Artiodactyla Cervidae     Mazama           zetta</span></span>
-<span><span class="co">#&gt;   taxonRank scientificNameAuthorship taxonomicStatus             taxonRemarks</span></span>
-<span><span class="co">#&gt; 1   Especie        J. A. Allen, 1915          Válido     Elevación (m): 0-900</span></span>
-<span><span class="co">#&gt; 2   Especie         (Pucheran, 1851)          Válido Elevación (m): 1500-4000</span></span>
-<span><span class="co">#&gt; 3   Especie      (J. A. Allen, 1915)          Válido     Elevación (m): 0-900</span></span>
-<span><span class="co">#&gt; 4   Especie             (Kerr, 1792)          Válido      Elevación (m): 0-68</span></span>
-<span><span class="co">#&gt; 5   Especie        J. A. Allen, 1915          Válido  Elevación (m): 600-1200</span></span>
-<span><span class="co">#&gt; 6   Especie             Thomas, 1913          Válido Elevación (m): 1600-1950</span></span>
-<span><span class="co">#&gt;   language                         rightsHolder</span></span>
-<span><span class="co">#&gt; 1       es Sociedad Colombiana de Mastozoología</span></span>
-<span><span class="co">#&gt; 2       es Sociedad Colombiana de Mastozoología</span></span>
-<span><span class="co">#&gt; 3       es Sociedad Colombiana de Mastozoología</span></span>
-<span><span class="co">#&gt; 4       es Sociedad Colombiana de Mastozoología</span></span>
-<span><span class="co">#&gt; 5       es Sociedad Colombiana de Mastozoología</span></span>
-<span><span class="co">#&gt; 6       es Sociedad Colombiana de Mastozoología</span></span>
-<span><span class="co">#&gt;                                                                                                                                                                    bibliographicCitation</span></span>
-<span><span class="co">#&gt; 1 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span></span>
-<span><span class="co">#&gt; 2                                                 ALBERICO M, A CADENA, JI HERNÁNDEZ-CAMACHO y Y MUÑOZ-SABA. 2000b. Mamíferos (Synapsida: Theria) de Colombia. Biota Colombiana 1:43-75.</span></span>
-<span><span class="co">#&gt; 3 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span></span>
-<span><span class="co">#&gt; 4  GROVES C y P GRUBB. 1987. Relationships of living deer. Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA.</span></span>
-<span><span class="co">#&gt; 5 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span></span>
-<span><span class="co">#&gt; 6 ALLEN JA. 1916. List of mammals collected in Colombia by the American Museum of Natural History expeditions, 1910-1915. Bulletin of the American Museum of Natural History 35:191-238.</span></span>
-<span><span class="co">#&gt;   inMDD Col_redlist</span></span>
-<span><span class="co">#&gt; 1     0        &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 2     1 VU A2 cde\n</span></span>
-<span><span class="co">#&gt; 3     0        &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 4     1          DD</span></span>
-<span><span class="co">#&gt; 5     0          DD</span></span>
-<span><span class="co">#&gt; 6     0          DD</span></span>
-<span><span class="co">#&gt;                                                                                                                                                              distribution</span></span>
-<span><span class="co">#&gt; 1                                                                                 Amazonas | Caquetá | Cauca | Meta | Vaupés | Vichada | Nariño | Putumayo | Cundinamarca</span></span>
-<span><span class="co">#&gt; 2 Antioquia | Boyacá | Caldas | Cauca | Cesar | Cundinamarca | Huila | Nariño | Norte de Santander | Quindío | Risaralda | Santander | Tolima | Valle del Cauca | Caquetá</span></span>
-<span><span class="co">#&gt; 3                                                                                           Bolívar | Cesar | La Guajira | Magdalena | Atlántico | Córdoba | Cundinamarca</span></span>
-<span><span class="co">#&gt; 4                                                                                                                                                       Chocó | Magdalena</span></span>
-<span><span class="co">#&gt; 5                                                                                                                          Amazonas | Caquetá | Meta | Putumayo | Vichada</span></span>
-<span><span class="co">#&gt; 6                                                                                                          Antioquia | Caldas | Cauca | Nariño | Valle del Cauca | Tolima</span></span>
-<span><span class="co">#&gt;                                                                                                                         source</span></span>
-<span><span class="co">#&gt; 1                                                                Bulletin of the American Museum of Natural History 35:191-238</span></span>
-<span><span class="co">#&gt; 2                                                                                                     Biota Colombiana 1:43-75</span></span>
-<span><span class="co">#&gt; 3                                                                Bulletin of the American Museum of Natural History 35:191-238</span></span>
-<span><span class="co">#&gt; 4 Pp. 21-59, en: Biology and management of the Cervidae (CM Wemmer, ed.). Smithsonian Institution Press, Washington, D.C., USA</span></span>
-<span><span class="co">#&gt; 5                                                                Bulletin of the American Museum of Natural History 35:191-238</span></span>
-<span><span class="co">#&gt; 6                                                                Bulletin of the American Museum of Natural History 35:191-238</span></span>
-<span><span class="co">#&gt;   endemic        english_name</span></span>
-<span><span class="co">#&gt; 1      No                &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 2      No  Little Red Brocket</span></span>
-<span><span class="co">#&gt; 3      No                &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 4      No Mexican Red Brocket</span></span>
-<span><span class="co">#&gt; 5      No                &lt;NA&gt;</span></span>
-<span><span class="co">#&gt; 6      No                &lt;NA&gt;</span></span></code></pre></div>
-</div>
-<div class="section level3">
 <h3 id="search-mammals-present-by-departamento">Search mammals present by departamento<a class="anchor" aria-label="anchor" href="#search-mammals-present-by-departamento"></a>
 </h3>
-<p>Use the departamento name or a vector of departamentos to know the mammals species present. The argument type = “any” retrieve mammals present in any of those departamentos.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<p>Use the departamento name or a vector of departamentos to get the mammal species present. The argument type = “any” retrieve mammals present in any of those departamentos.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">occ.any</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"any"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.any</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          scientificName         family        order</span></span>
 <span><span class="co">#&gt; 1   Vampyressa voragine Phyllostomidae   Chiroptera</span></span>
 <span><span class="co">#&gt; 2   Odocoileus goudotii       Cervidae Artiodactyla</span></span>
-<span><span class="co">#&gt; 3       Chilomys fumeus     Cricetidae     Rodentia</span></span>
-<span><span class="co">#&gt; 4 Melanomys columbianus     Cricetidae     Rodentia</span></span>
-<span><span class="co">#&gt; 5        Tonatia maresi Phyllostomidae   Chiroptera</span></span>
-<span><span class="co">#&gt; 6     Coendou pruinosus Erethizontidae     Rodentia</span></span>
-<span><span class="co">#&gt;                                                                                         locality</span></span>
-<span><span class="co">#&gt; 1                                                                  Casanare | Norte de Santander</span></span>
-<span><span class="co">#&gt; 2                                         Boyacá | Cundinamarca | Santander | Norte de Santander</span></span>
-<span><span class="co">#&gt; 3                                                                             Norte de Santander</span></span>
-<span><span class="co">#&gt; 4                                                                 Magdalena | Norte de Santander</span></span>
-<span><span class="co">#&gt; 5 Amazonas | Caquetá | Casanare | Huila | Meta | Putumayo | Vaupés | Guaviare | Arauca | Guainía</span></span>
-<span><span class="co">#&gt; 6               Cundinamarca | Norte de Santander | Santander | Guainía | Meta | Arauca | Tolima</span></span></code></pre></div>
+<span><span class="co">#&gt; 3   Dasypus fenestratus    Dasypodidae    Cingulata</span></span>
+<span><span class="co">#&gt; 4 Leopardus pardinoides        Felidae    Carnivora</span></span>
+<span><span class="co">#&gt; 5       Chilomys fumeus     Cricetidae     Rodentia</span></span>
+<span><span class="co">#&gt; 6 Melanomys columbianus     Cricetidae     Rodentia</span></span>
+<span><span class="co">#&gt;                                                                                                                                                                                                            locality</span></span>
+<span><span class="co">#&gt; 1                                                                                                                                                                                     Casanare | Norte de Santander</span></span>
+<span><span class="co">#&gt; 2                                                                                                                                                            Boyacá | Cundinamarca | Santander | Norte de Santander</span></span>
+<span><span class="co">#&gt; 3 Antioquia | Atlántico | Bolívar | Boyacá | Caldas | Cauca |Chocó | Córdoba | Cundinamarca | Huila | Nariño | La Guajira | Norte de Santander | Quindío | Risaralda | Santander | Sucre | Tolima | Valle del Cauca</span></span>
+<span><span class="co">#&gt; 4                             Antioquia | Boyacá | Caldas | Cauca | Huila | Meta | Nariño | Putumayo | Quindío | Risaralda | Santander | Valle del Cauca | Caquetá | Amazonas | Arauca | Córdoba | Guainía | Tolima</span></span>
+<span><span class="co">#&gt; 5                                                                                                                                                                                                Norte de Santander</span></span>
+<span><span class="co">#&gt; 6                                                                                                                                                                                    Magdalena | Norte de Santander</span></span></code></pre></div>
 <p>The argument type = “only” retrieves species present only in that departamento and in no other departamento.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">occ.only</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"only"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.only</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    scientificName     family    order           locality</span></span>
 <span><span class="co">#&gt; 1 Chilomys fumeus Cricetidae Rodentia Norte de Santander</span></span></code></pre></div>
 <p>The argument all retrieves species present in both departamentos. The argument taxa limit the search to one order. occ.bats has the bats present in Arauca and Norte de Santander.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">occ.all</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
 <span><span class="va">occ.bats</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"all"</span>, taxa <span class="op">=</span> <span class="st">"Chiroptera"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.bats</span><span class="op">)</span></span>
@@ -430,45 +329,45 @@
 <span><span class="co">#&gt; 6                                                                                                             Cundinamarca | Magdalena | Amazonas | Caquetá | Guaviare | Arauca | Casanare | Chocó | Córdoba | Guainía | Norte de Santander | Tolima</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="validate-mammal-species-distribution-data-based-on-geographic-coordinates">Validate mammal species distribution data based on geographic coordinates<a class="anchor" aria-label="anchor" href="#validate-mammal-species-distribution-data-based-on-geographic-coordinates"></a>
+<h3 id="validate-mammal-species-data-based-on-geographic-coordinates">Validate mammal species data based on geographic coordinates<a class="anchor" aria-label="anchor" href="#validate-mammal-species-data-based-on-geographic-coordinates"></a>
 </h3>
 <p>Use the function <code>mamm_coords_validator</code> to validate if your record is valid according to the Checklist of the mammals (Mammalia) of Colombia.</p>
-<p>Use a dataframe with species distribution data. The dataframe must contain at least the 3 columns: ‘species’, ‘decimalLongitude’, and ‘decimalLatitude’. The data frame can contain many other columns.</p>
-<p>If it is not validated perhaps can be a new record. After double check, please consider to write a small note to Mammalogy Notes updating the distribution.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<p>The function use a dataframe with species distribution data. The dataframe must contain at least the 3 columns:</p>
+<ul>
+<li>species as: Genus species</li>
+<li>decimalLongitude</li>
+<li>decimalLatitude</li>
+</ul>
+<p>The data frame should contain many other columns. You should indicate the column containing the species names using the argument sp_names.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">validated_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/mamm_coords_validator.html">mamm_coords_validator</a></span><span class="op">(</span><span class="va">test_data_coordiantes</span>, sp_names <span class="op">=</span> <span class="st">"species"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: package 'sf' was built under R version 4.4.3</span></span>
-<span><span class="co">#&gt; Linking to GEOS 3.13.0, GDAL 3.10.1, PROJ 9.5.1; sf_use_s2() is TRUE</span></span>
-<span><span class="co">#&gt; Warning: package 'geodata' was built under R version 4.4.3</span></span>
-<span><span class="co">#&gt; Cargando paquete requerido: terra</span></span>
-<span><span class="co">#&gt; Warning: package 'terra' was built under R version 4.4.3</span></span>
-<span><span class="co">#&gt; terra 1.8.60</span></span>
-<span><span class="co">#&gt; 1 species found in the matrix and  1 is/are valid.</span></span>
+<span><span class="co">#&gt; 2 species found in the matrix and  1 is/are valid.</span></span>
 <span><span class="co">#&gt; Validation Finished.</span></span>
-<span><span class="co">#&gt; A total of 20 records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:</span></span>
+<span><span class="co">#&gt; A total of 21 records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:</span></span>
 <span><span class="co">#&gt; - 0 = Valid species but records not registered within the analyzed boundaries.</span></span>
 <span><span class="co">#&gt; - 1 = Valid species and coordinates according to official publications.</span></span>
 <span><span class="co">#&gt; - 2 = Valid species and coordinates are registered in the ocean.</span></span>
-<span><span class="co">#&gt; - 3 = Valid species and coordinates are within the limits of the ocean administrative boundaries. We recommend reviewing the location manually.</span></span>
-<span><span class="co">#&gt; - 4 = Not valid species that are not validated.</span></span></code></pre></div>
+<span><span class="co">#&gt; - 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.</span></span>
+<span><span class="co">#&gt; - 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.</span></span></code></pre></div>
+<p>If you find a species in a new department please consider writing a note for <a href="https://mammalogynotes.org" class="external-link">Mammalogy Notes</a> extending the distribution.</p>
 </div>
 <div class="section level3">
 <h3 id="sugested-citation">Sugested citation<a class="anchor" aria-label="anchor" href="#sugested-citation"></a>
 </h3>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"mammalcol"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; To cite mammalcol package in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Lizcano, DJ. et al., (2025). mammalcol: Access to the List of Mammal</span></span>
-<span><span class="co">#&gt;   Species of Colombia. R package version 0.2.4</span></span>
+<span><span class="co">#&gt;   Lizcano, DJ. et al., (2024). mammalcol: Access to the List of Mammal</span></span>
+<span><span class="co">#&gt;   Species of Colombia. R package version 0.2.2</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt;   @Manual{,</span></span>
 <span><span class="co">#&gt;     title = {mammalcol: Access to the List of Mammal Species of Colombia},</span></span>
-<span><span class="co">#&gt;     author = {Diego J. Lizcano and Cristian A. Cruz-Rodríguez and Andres F. Suárez-Castro and Baltazar González and Alejandra Bonilla-Sánchez and Camilo A. Calderón-Acevedo},</span></span>
-<span><span class="co">#&gt;     year = {2025},</span></span>
-<span><span class="co">#&gt;     note = {R data package version 0.2.4},</span></span>
+<span><span class="co">#&gt;     author = {Diego J. Lizcano and Baltazar González and Alejandra Bonilla-Sánchez and Andres F. Suárez-Castro and Camilo A. Calderón-Acevedo},</span></span>
+<span><span class="co">#&gt;     year = {2024},</span></span>
+<span><span class="co">#&gt;     note = {R data package version 0.2.2},</span></span>
 <span><span class="co">#&gt;     url = {https://dlizcano.github.io/mammalcol/},</span></span>
 <span><span class="co">#&gt;   }</span></span>
 <span><span class="co">#&gt; </span></span>

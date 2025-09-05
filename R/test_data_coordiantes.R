@@ -16,13 +16,13 @@
 #' @examples
 #' 
 #' # Load the mammalcol package
-#' library(mammalcol)
+#' library (mammalcol)
 #'
 #' # Access the mammalcol_tab dataset
-#' data("test_data_coordiantes")
+#' data ("test_data_coordiantes")
 #'
 #' # Display the first few rows
-#' head(test_data_coordiantes)
+#' head (test_data_coordiantes)
 #'
 #'
 #' @seealso

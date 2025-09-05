@@ -16,7 +16,7 @@
 
 require(readr)
 require(geodata)
-require(finch)
+require(finch) # load the ipt.files
 library(stringr)
 library(tidyverse)
 library(readxl)
@@ -28,8 +28,8 @@ library(sf)
 ##########
 
 ipt.files <-
-  dwca_read(
-    "https://ipt.biodiversidad.co/sib/archive.do?r=mamiferos_col",
+  finch::dwca_read(
+    "https://ipt.biodiversidad.co/sib/archive.do?r=mamiferos_col&v=1.18",
     read = T,
     na.strings = "",
     encoding = "UTF-8"
@@ -44,15 +44,15 @@ vernacularname <- ipt.files$data$vernacularname.txt
 # read from had disk
 ####################
 
-colmap <- sf::st_as_sf(gadm(country = "COL", level = 1, path = tempdir()))
+colmap <- sf::st_as_sf(geodata::gadm(country = "COL", level = 1, path = tempdir()))
 # Let’s apply st_simplify with a tolerance of 1km:
-colmap <- st_simplify(colmap, preserveTopology = FALSE, dTolerance = 1000)
+colmap <- st_simplify(colmap, preserveTopology = TRUE, dTolerance = 1000)
 
 # taxon <- read_delim("C:/Users/usuario/Downloads/mammal_col_2024/taxon.csv",
 #                    delim = "\t", escape_double = FALSE)
 
 # save to check and fix typos in distribution
-# write_csv(distribution, "C:/Users/usuario/Downloads/mammal_col_2024/distribution.csv")
+write_csv(distribution, "C:/Users/usuario/Downloads/mammal_col_2024/distribution.csv")
 
 # load after fixed several typos from ipt file
 distribution <- read_csv("C:/Users/usuario/Downloads/mammal_col_2024/distribution.csv")
@@ -127,21 +127,21 @@ taxon <- taxon[, -c(1, 2, 3, 5, 15, 17, 18)]
 ###################
 # encoding problem
 ###################
-# fix.encoding <- function(df, originalEncoding = "UTF-8") {
-#   numCols <- ncol(df)
-#   df <- data.frame(df)
-#   for (col in 1:numCols)
-#   {
-#     if(class(df[, col]) == "character"){
-#       Encoding(df[, col]) <- originalEncoding
-#     }
-#
-#     if(class(df[, col]) == "factor"){
-#       Encoding(levels(df[, col])) <- originalEncoding
-#     }
-#   }
-#   return(as.data.frame(df))
-# }
+fix.encoding <- function(df, originalEncoding = "UTF-8") {
+  numCols <- ncol(df)
+  df <- data.frame(df)
+  for (col in 1:numCols)
+  {
+    if(class(df[, col]) == "character"){
+      Encoding(df[, col]) <- originalEncoding
+    }
+
+    if(class(df[, col]) == "factor"){
+      Encoding(levels(df[, col])) <- originalEncoding
+    }
+  }
+  return(as.data.frame(df))
+}
 
 
 # mammal_colombia_2024 <- fix.encoding(taxon) # rename
