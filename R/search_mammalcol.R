@@ -27,35 +27,43 @@
 #' @export
 search_mammalcol <- function(splist, max_distance = 0.2) {
   # Defensive function here, check for user input errors
-  if (missing(splist)) {
-    stop("Argument splist was not defined")
-  }
-
   if (is.factor(splist)) {
     splist <- as.character(splist)
   }
   # Fix species name
   splist_st <- standardize_names(splist)
   dupes_splist_st <- find_duplicates(splist_st)
-
+  
+  
   if (length(dupes_splist_st) != 0) {
     message(
       "The following names are repeated in the 'splist': ",
       paste(dupes_splist_st, collapse = ", ")
     )
   }
+  
   splist_std <- unique(splist_st)
-
+  
+  # Check if there is coma 
+  # true_count <- sum(grepl("1", splist_std), na.rm = TRUE)
+  # 
+  # if (length(true_count) >= 1) {
+  #   message(
+  #     "Remove any date or author names in the 'splist': "
+  #   )
+  # }
+  
   # create an output data container
-  output_matrix <- matrix(nrow = length(splist_std), ncol = 21) # two more
+  output_matrix <- matrix(nrow = length(splist_std), 
+                          ncol = 25+2) # two more
   colnames(output_matrix) <- c(
     "name_submitted",
     names(taxon),
     "Distance"
   )
-
+  
   # loop code to find the matching string
-
+  
   for (i in seq_along(splist_std)) {
     # Standardise max distance value
     if (max_distance < 1 & max_distance > 0) {
@@ -63,40 +71,40 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
     } else {
       max_distance_fixed <- max_distance
     }
-
+    
     # fuzzy and exact match
     matches <- agrep(splist_std[i],
-      taxon$scientificName, # base data column
-      max.distance = max_distance_fixed,
-      value = TRUE
+                     taxon$scientificName, # base data column
+                     max.distance = max_distance_fixed,
+                     value = TRUE
     )
-
+    
     # check non matching result
     if (length(matches) == 0) {
-      row_data <- rep("nill", 19) # number of columns
+      row_data <- rep("nill", 25) # number of columns in taxon
     } else if (length(matches) != 0) { # match result
       dis_value <- as.numeric(utils::adist(splist_std[i], matches))
       matches1 <- matches[dis_value <= max_distance_fixed]
       dis_val_1 <- dis_value[dis_value <= max_distance_fixed]
-
+      
       if (length(matches1) == 0) {
-        row_data <- rep("nill", 19) # number of columns
+        row_data <- rep("nill", 25) # number of columns in taxon
       } else if (length(matches1) != 0) {
         row_data <- as.matrix(taxon[taxon$scientificName %in% matches1, ])
       }
     }
-
+    
     # distance value
     if (is.null(nrow(row_data))) {
       dis_value_1 <- "nill"
     } else {
       dis_value_1 <- utils::adist(splist_std[i], row_data[, 2])
     }
-
+    
     output_matrix[i, ] <-
       c(splist_std[i], row_data, dis_value_1)
   }
-
+  
   # Output
   output <- as.data.frame(output_matrix)
   # rownames(output) <- NULL

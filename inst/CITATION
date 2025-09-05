@@ -3,24 +3,27 @@ citHeader("To cite mammalcol package in publications use:")
 bibentry(
   bibtype  = "Manual",
   title    = "mammalcol: Access to the List of Mammal Species of Colombia",
-  author   = c(
+  author   =     c(
     person("Diego J.", "Lizcano", , "dj.lizcano@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9648-0576")),
+    person("Cristian A.", "Cruz-Rodríguez", , "cristian.alexander.cruz.rodriguez@umontreal.ca", role = c("ctb","aut"),
+           comment = c(ORCID = "0000-0002-8319-4706")),
+    person("Andres F.", "Suárez-Castro", , "a.suarezcastro@griffith.edu.au", role = c("ctb","aut"),
+           comment = c(ORCID = "0000-0002-6621-3821")),
     person("Baltazar", "González", , "baltazargch@gmail.com", role = c("ctb","aut"),
            comment = c(ORCID = "0000-0001-5805-8107")),
     person("Alejandra", "Bonilla-Sánchez", , "alejabonilla.sanchez@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0003-0803-5884")),
-    person("Andres F.", "Suárez-Castro", , "alejabonilla.sanchez@gmail.com", role = c("ctb"),
-           comment = c(ORCID = "0000-0002-6621-3821")),
     person("Camilo A.", "Calderón-Acevedo", , "calderon.mammalogy@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0002-1468-3565"))
            ),
-  year     = 2024,
-  note     = "R data package version 0.2.2",
+  year     = 2025,
+  note     = "R data package version 0.2.4",
   url = "https://dlizcano.github.io/mammalcol/",
   textVersion = paste(
-"Lizcano, DJ. et al., (2024). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.2.2"
+"Lizcano, DJ. et al., (2025). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.2.4"
   ),
   footer = "To cite just the original mammalcol dataset, please use: Mammals of Colombia / Mamíferos de Colombia. SCMas: <doi:10.15472/kl1whs>, but keep in mind taxonomy is dinamic and have changed."
 
 )
+

@@ -1,20 +1,22 @@
 Package: mammalcol
 Title: Access to the List of Mammal Species of Colombia
-Version: 0.2.3
+Version: 0.2.4
 Authors@R: 
     c(
     person("Diego J.", "Lizcano", , "dj.lizcano@gmail.com", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9648-0576")),
+    person("Cristian A.", "Cruz-Rodríguez", , "cristian.alexander.cruz.rodriguez@umontreal.ca", role = c("ctb","aut"),
+           comment = c(ORCID = "0000-0002-8319-4706")),
+    person("Andres F.", "Suárez-Castro", , "a.suarezcastro@griffith.edu.au", role = c("ctb","aut"),
+           comment = c(ORCID = "0000-0002-6621-3821")),
     person("Baltazar", "González", , "baltazargch@gmail.com", role = c("ctb","aut"),
            comment = c(ORCID = "0000-0001-5805-8107")),
     person("Alejandra", "Bonilla-Sánchez", , "alejabonilla.sanchez@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0003-0803-5884")),
-    person("Andres F.", "Suárez-Castro", , "alejabonilla.sanchez@gmail.com", role = c("ctb"),
-           comment = c(ORCID = "0000-0002-6621-3821")),
     person("Camilo A.", "Calderón-Acevedo", , "calderon.mammalogy@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0002-1468-3565"))
            )
-Date: 2024-04-04
+Date: 2025-06-04
 Maintainer: Diego J. Lizcano <dj.lizcano@gmail.com>
 Description: Allows easy access to the data found in the species list featured
     in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals
@@ -35,7 +37,6 @@ Imports:
     ggplot2,
     magrittr,
     sf,
-    terra,
 Suggests:
     dplyr,
     finch,
@@ -51,5 +52,5 @@ Encoding: UTF-8
 LazyData: true
 LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 VignetteBuilder: knitr

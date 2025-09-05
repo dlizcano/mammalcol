@@ -32,8 +32,8 @@
 mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
   
   ## Info added
-  library(sf)
-  library(geodata)
+  require(sf)
+  require(geodata)
   
   # Initialize function
   
@@ -58,11 +58,11 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   if (is.null(colmap)) {
     
     #load('data/colmap_igac.rda')
-    library(geodata)
-    colmap <-st_as_sf(gadm('COL', level = 1,  path=tempdir()))
+    require(geodata)
+    colmap <-sf::st_as_sf(geodata::gadm('COL', level = 1,  path=tempdir()))
     colmap[[adm_names]] <- tolower(colmap[[adm_names]])
   } else {
-    colmap <- st_as_sf(colmap)
+    colmap <- sf::st_as_sf(colmap)
     colmap[[adm_names]] <- tolower(colmap[[adm_names]])
   }
   
@@ -94,7 +94,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   sppnms <- unique(df[[sp_names]])
   
   # Validate species names against known species list
-  vlid_spp <- search_mammalcol(sppnms, max_distance = 0.0)
+  vlid_spp <- search_mammalcol(sppnms, max_distance = 0.1)
   
   # Display summary of species validation
   if (length(vlid_spp$name_submitted) == 0) {
@@ -112,15 +112,15 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
   for (i in 1:nrow(vlid_spp)) {
     spp.i <- Valispp[Valispp[[sp_names]] %in% vlid_spp$name_submitted[i], ]
     
-    vect.spp.i <- st_as_sf(x = spp.i,                         
+    vect.spp.i <- sf::st_as_sf(x = spp.i,                         
              coords = c("decimalLongitude", "decimalLatitude"),
              crs = "+proj=longlat +datum=WGS84")
-    vect.spp.i.t <- suppressWarnings(st_intersection(vect.spp.i, colmap))
+    vect.spp.i.t <- suppressWarnings(sf::st_intersection(vect.spp.i, colmap))
     
     
     if (nrow(vect.spp.i.t) > 0) {
       vect.spp.i.t2 <- as.data.frame(vect.spp.i.t)
-      coordinates <-as.data.frame(st_coordinates(vect.spp.i.t))
+      coordinates <-as.data.frame(sf::st_coordinates(vect.spp.i.t))
       names(coordinates) <- c(lon, lat)
       vect.spp.i.t2 <- cbind(vect.spp.i.t2, coordinates)
       spp.i.f <- vect.spp.i.t2[,names(spp.i)]
@@ -134,11 +134,11 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
     if (nrow(vect.spp.i) > nrow(vect.spp.i.t) ) {
       
       vect.spp.i.novali <- vect.spp.i[!(vect.spp.i$IDVal %in% vect.spp.i.t$IDVal), ]
-      vect.spp.i.novali2 <- suppressWarnings(st_intersection(vect.spp.i.novali, oceanmap))
+      vect.spp.i.novali2 <- suppressWarnings(sf::st_intersection(vect.spp.i.novali, oceanmap))
       
       if (nrow(vect.spp.i.novali2) == 0) {
         
-        coordinates.i <-as.data.frame(st_coordinates(vect.spp.i.novali))
+        coordinates.i <-as.data.frame(sf::st_coordinates(vect.spp.i.novali))
         names(coordinates.i) <- c(lon, lat)
         vect.spp.i.novali <- as.data.frame(vect.spp.i.novali)
         vect.spp.i.novali <- cbind(vect.spp.i.novali, coordinates.i)
@@ -147,7 +147,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap = NULL, lon
         spp.i.f <- rbind(spp.i.f, vect.spp.i.novali.f)
       } else {
         
-        coordinates.i <-as.data.frame(st_coordinates(vect.spp.i.novali2))
+        coordinates.i <-as.data.frame(sf::st_coordinates(vect.spp.i.novali2))
         names(coordinates.i) <- c(lon, lat)
         vect.spp.i.novali <- as.data.frame(vect.spp.i.novali2)
         vect.spp.i.novali <- cbind(vect.spp.i.novali, coordinates.i)

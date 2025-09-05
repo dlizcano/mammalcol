@@ -1,3 +1,7 @@
+# mammalcol 0.2.4
+
+* new functions to: Validate mammal species distribution data based on geographic coordinates.
+
 # mammalcol 0.2.3
 
 * fix bug in data loading
