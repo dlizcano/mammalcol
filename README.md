@@ -43,13 +43,7 @@ devtools::install_github("dlizcano/mammalcol")
 ``` r
 
 library(mammalcol)
-#> This is mammalcol 0.2.3
-#> 
-#> Adjuntando el paquete: 'mammalcol'
-#> The following objects are masked _by_ '.GlobalEnv':
-#> 
-#>     colmap, distribution, mamm_coords_validator, mammalmap,
-#>     search_mammalcol, sp_by_depto, taxon
+#> This is mammalcol 0.2.4
 ```
 
 ## Example
@@ -407,9 +401,9 @@ validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "speci
 #> Cargando paquete requerido: terra
 #> Warning: package 'terra' was built under R version 4.4.3
 #> terra 1.8.60
-#> 2 species found in the matrix and  1 is/are valid.
+#> 1 species found in the matrix and  1 is/are valid.
 #> Validation Finished.
-#> A total of 21 records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:
+#> A total of 20 records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:
 #> - 0 = Valid species but records not registered within the analyzed boundaries.
 #> - 1 = Valid species and coordinates according to official publications.
 #> - 2 = Valid species and coordinates are registered in the ocean.
@@ -423,16 +417,16 @@ validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "speci
 citation("mammalcol")
 #> To cite mammalcol package in publications use:
 #> 
-#>   Lizcano, DJ. et al., (2024). mammalcol: Access to the List of Mammal
-#>   Species of Colombia. R package version 0.2.2
+#>   Lizcano, DJ. et al., (2025). mammalcol: Access to the List of Mammal
+#>   Species of Colombia. R package version 0.2.4
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {mammalcol: Access to the List of Mammal Species of Colombia},
-#>     author = {Diego J. Lizcano and Baltazar González and Alejandra Bonilla-Sánchez and Andres F. Suárez-Castro and Camilo A. Calderón-Acevedo},
-#>     year = {2024},
-#>     note = {R data package version 0.2.2},
+#>     author = {Diego J. Lizcano and Cristian A. Cruz-Rodríguez and Andres F. Suárez-Castro and Baltazar González and Alejandra Bonilla-Sánchez and Camilo A. Calderón-Acevedo},
+#>     year = {2025},
+#>     note = {R data package version 0.2.4},
 #>     url = {https://dlizcano.github.io/mammalcol/},
 #>   }
 #> 
