@@ -463,5 +463,9 @@ citation("mammalcol")
 #> keep in mind taxonomy is dinamic and have changed.
 ```
 
+> To cite just the original mammalcol dataset, please use: Mammals of
+> Colombia / Mamíferos de Colombia. SCMas: <doi:10.15472/kl1whs>, but
+> keep in mind: taxonomy is dinamic and have changed.
+
 Lizcano, DJ. et al. (2025). mammalcol: Access to the List of Mammal
-Species of Colombia. R package version 0.2.4
+Species of Colombia. R package version 0.2.5

@@ -1,6 +1,6 @@
 Package: mammalcol
 Title: Access to the List of Mammal Species of Colombia
-Version: 0.2.4
+Version: 0.2.5
 Authors@R: 
     c(
     person("Diego J.", "Lizcano", , "dj.lizcano@gmail.com", role = c("aut", "cre"),
@@ -16,7 +16,7 @@ Authors@R:
     person("Camilo A.", "Calderón-Acevedo", , "calderon.mammalogy@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0002-1468-3565"))
            )
-Date: 2025-06-04
+Date: 2025-08-09
 Maintainer: Diego J. Lizcano <dj.lizcano@gmail.com>
 Description: Allows easy access to the data found in the species list featured
     in the renowned "Ramírez-Chaves, et al. 2021. Checklist of the Mammals

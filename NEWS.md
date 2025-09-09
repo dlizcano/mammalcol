@@ -1,3 +1,7 @@
+# mammalcol 0.2.5
+
+* Submission to CRAN
+
 # mammalcol 0.2.4
 
 * new functions to: Validate mammal species distribution data based on geographic coordinates.
