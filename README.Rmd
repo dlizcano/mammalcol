@@ -652,7 +652,7 @@ head (validated_data[,c("species", "validation_result")])
 ```
 
 
-If you find a species in a new department please consider writing a note for [Mammalogy Notes](https://mammalogynotes.org) extending the distribution.
+If you find a species in a new department please consider writing a note for [Mammalogy Notes](https://mammalogynotes.org/ojs/index.php/mn) extending the distribution.
 
 
 ### Sugested citation

@@ -1,7 +1,7 @@
 # procedure to generate taxon, distribution and vernacularname tables
 
 ### package flow
-# 0. load pkgdown, usethis
+# 0. load pkgdown, usethis, devtools
 # 1. load data objects
 # 2. fix typos in data objects (deptos)
 # 3. put in /R/sysdata.rda using: usethis::use_data(colmap, distribution, taxon, internal = TRUE, overwrite = TRUE)

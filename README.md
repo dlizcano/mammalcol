@@ -436,8 +436,8 @@ head (validated_data[,c("species", "validation_result")])
 ```
 
 If you find a species in a new department please consider writing a note
-for [Mammalogy Notes](https://mammalogynotes.org) extending the
-distribution.
+for [Mammalogy Notes](https://mammalogynotes.org/ojs/index.php/mn)
+extending the distribution.
 
 ### Sugested citation
 
@@ -446,7 +446,7 @@ citation("mammalcol")
 #> To cite mammalcol package in publications use:
 #> 
 #>   Lizcano, DJ. et al., (2025). mammalcol: Access to the List of Mammal
-#>   Species of Colombia. R package version 0.2.4
+#>   Species of Colombia. R package version 0.2.5
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -454,7 +454,7 @@ citation("mammalcol")
 #>     title = {mammalcol: Access to the List of Mammal Species of Colombia},
 #>     author = {Diego J. Lizcano and Cristian A. Cruz-Rodríguez and Andres F. Suárez-Castro and Baltazar González and Alejandra Bonilla-Sánchez and Camilo A. Calderón-Acevedo},
 #>     year = {2025},
-#>     note = {R data package version 0.2.4},
+#>     note = {R data package version 0.2.5},
 #>     url = {https://dlizcano.github.io/mammalcol/},
 #>   }
 #> 
