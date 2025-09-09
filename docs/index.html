@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="pkgdown.css" rel="stylesheet">
 <script src="pkgdown.js"></script><meta property="og:title" content="Access to the List of Mammal Species of Colombia">
-<meta property="og:description" content="Allows easy access to the data found in the species list featured in &quot;Ramírez-Chaves H, Morales-Martínez DM, Rodríguez-Posada ME, Suárez-Castro AF 2021. Checklist of the Mammals of Colombia”. Mammalogy Notes 7(2),253. &lt;doi:10.47603/mano.v7n2.253&gt;. This publication stands as one of Colombia's most comprehensive reviews of mammal diversity. The dataset incorporates detailed species accounts and has been meticulously structured for effortless utilization within the R environment.">
+<meta property="og:description" content="Allows easy access to the data found in the species list of the Mammals of Colombia”. Mammalogy Notes 7(2),253. &lt;doi:10.47603/mano.v7n2.253&gt;. This publication stands as one of Colombia's most comprehensive reviews of mammal diversity. The dataset incorporates detailed species accounts and has been meticulously structured for effortless utilization within the R environment.">
 <meta property="og:image" content="https://dlizcano.github.io/mammalcol/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -99,12 +99,12 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The goal of mammalcol is to allow easy access to the List of Mammal Species of Colombia.</p>
-<p>Researchers can explore Colombia’s amazing variety of mammals using the mammalcol R package. This package includes information on 553 mammal species, making Colombia one of the world leaders in mammal diversity. The data comes from the latest “Checklist of the mammals (Mammalia) of Colombia” by <a href="https://doi.org/10.47603/mano.v7n2.253" class="external-link">Ramírez-Chaves et al (2021)</a>. But It’s important to remember that the way scientists classify mammals keeps changing constantly, so the information in this package has been updated with the last checklist <a href="https://doi.org/10.15472/kl1whs" class="external-link">Mamíferos de Colombia</a>, which is published and updated regularly by the <a href="https://www.mamiferoscolombia.org/" class="external-link">Colombian Mammal Society</a>.</p>
+<p>The goal of <code>mammalcol</code> is to allow easy access to the List of Mammal Species of Colombia.</p>
+<p>Researchers can explore Colombia’s amazing variety of mammals using the <code>mammalcol</code> R package. This package includes information on 553 mammal species, making Colombia one of the world leaders in mammal diversity. The original data comes from the latest “Checklist of the mammals (Mammalia) of Colombia” by <a href="https://doi.org/10.47603/mano.v7n2.253" class="external-link">Ramírez-Chaves et al (2021)</a>. But It’s important to remember that the way scientists classify mammals keeps changing constantly, so the information in this package has been updated with the last checklist <a href="https://doi.org/10.15472/kl1whs" class="external-link">Mamíferos de Colombia</a>, which is published and updated regularly by the <a href="https://www.mamiferoscolombia.org/" class="external-link">Colombian Mammal Society</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of mammalcol from <a href="https://github.com/dlizcano/mammalcol" class="external-link">GitHub</a> with:</p>
+<p>You can install the development version of <code>mammalcol</code> from <a href="https://github.com/dlizcano/mammalcol" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"dlizcano/mammalcol"</span><span class="op">)</span></span></code></pre></div>
@@ -256,10 +256,10 @@
 <div class="section level3">
 <h3 id="produce-a-map">Produce a map<a class="anchor" aria-label="anchor" href="#produce-a-map"></a>
 </h3>
-<p>The function mammalmap produces basic a map of distribution at the “Departamento” level for a single species.</p>
+<p>The function <code>mammalmap</code> produces basic a map of distribution at the “Departamento” level for a single species.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># write a species name in the function to map it</span></span>
-<span><span class="fu"><a href="reference/mammalmap.html">mammalmap</a></span><span class="op">(</span><span class="st">"Tapirus pinchaque"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="reference/mammalmap.html">mammalmap</a></span> <span class="op">(</span><span class="st">"Tapirus pinchaque"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-example3-1.png" width="100%"></p>
 <div class="section level4">
 <h4 id="remove-the-legend">Remove the legend<a class="anchor" aria-label="anchor" href="#remove-the-legend"></a>
@@ -274,9 +274,9 @@
 <div class="section level3">
 <h3 id="search-mammals-present-by-departamento">Search mammals present by departamento<a class="anchor" aria-label="anchor" href="#search-mammals-present-by-departamento"></a>
 </h3>
-<p>Use the departamento name or a vector of departamentos to get the mammal species present. The argument type = “any” retrieve mammals present in any of those departamentos.</p>
+<p>Use the departamento name or a vector of departamentos to get the mammal species present with the function <code>sp_by_depto</code>. The argument type = “any” retrieve the mammals present in any of those departamentos.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">occ.any</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"any"</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">occ.any</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/sp_by_depto.html">sp_by_depto</a></span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"any"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.any</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          scientificName         family        order</span></span>
 <span><span class="co">#&gt; 1   Vampyressa voragine Phyllostomidae   Chiroptera</span></span>
@@ -321,15 +321,15 @@
 <div class="section level3">
 <h3 id="validate-mammal-species-data-based-on-geographic-coordinates">Validate mammal species data based on geographic coordinates<a class="anchor" aria-label="anchor" href="#validate-mammal-species-data-based-on-geographic-coordinates"></a>
 </h3>
-<p>Use the function <code>mamm_coords_validator</code> to validate if your record is valid according to the Checklist of the mammals (Mammalia) of Colombia.</p>
-<p>The function use a dataframe with species distribution data. The dataframe must contain at least the 3 columns:</p>
+<p>Use the function <code>mamm_coords_validator</code> to validate if your record is a valid species according to the Checklist of the mammals (Mammalia) of Colombia and if the coordinates are correct.</p>
+<p>The function uses as input a dataframe with species distribution data. The dataframe must contain at least the 3 columns:</p>
 <ul>
 <li>species as: Genus species</li>
 <li>decimalLongitude</li>
 <li>decimalLatitude</li>
 </ul>
-<p>The data frame should contain many other columns. You should indicate the column containing the species names using the argument sp_names.</p>
-<p>For this example we are using a data frame with those columns and many more.</p>
+<p>The data frame may contain many other columns. You should indicate the column containing the species names using the argument sp_names.</p>
+<p>For this example we are using a data frame with the required three columns, and many columns more.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span> <span class="op">(</span><span class="va">test_data_coordiantes</span><span class="op">)</span></span>
 <span><span class="co">#&gt;       gbifID                           datasetKey</span></span>

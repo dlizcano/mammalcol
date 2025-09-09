@@ -14,14 +14,14 @@ status](https://www.r-pkg.org/badges/version/mammalcol)](https://CRAN.R-project.
 [![size](https://img.shields.io/github/languages/code-size/dlizcano/mammalcol.svg)](https://github.com/dlizcano/mammalcol)
 <!-- badges: end -->
 
-The goal of mammalcol is to allow easy access to the List of Mammal
+The goal of `mammalcol` is to allow easy access to the List of Mammal
 Species of Colombia.
 
 Researchers can explore Colombia’s amazing variety of mammals using the
-mammalcol R package. This package includes information on 553 mammal
+`mammalcol` R package. This package includes information on 553 mammal
 species, making Colombia one of the world leaders in mammal diversity.
-The data comes from the latest “Checklist of the mammals (Mammalia) of
-Colombia” by [Ramírez-Chaves et al
+The original data comes from the latest “Checklist of the mammals
+(Mammalia) of Colombia” by [Ramírez-Chaves et al
 (2021)](https://doi.org/10.47603/mano.v7n2.253). But It’s important to
 remember that the way scientists classify mammals keeps changing
 constantly, so the information in this package has been updated with the
@@ -31,7 +31,7 @@ Society](https://www.mamiferoscolombia.org/).
 
 ## Installation
 
-You can install the development version of mammalcol from
+You can install the development version of `mammalcol` from
 [GitHub](https://github.com/dlizcano/mammalcol) with:
 
 ``` r
@@ -193,12 +193,12 @@ search_mammalcol(splist)
 
 ### Produce a map
 
-The function mammalmap produces basic a map of distribution at the
+The function `mammalmap` produces basic a map of distribution at the
 “Departamento” level for a single species.
 
 ``` r
 # write a species name in the function to map it
-mammalmap("Tapirus pinchaque")
+mammalmap ("Tapirus pinchaque")
 ```
 
 <img src="man/figures/README-example3-1.png" width="100%" />
@@ -217,11 +217,11 @@ mammalmap("Tapirus pinchaque", legend=FALSE)
 ### Search mammals present by departamento
 
 Use the departamento name or a vector of departamentos to get the mammal
-species present. The argument type = “any” retrieve mammals present in
-any of those departamentos.
+species present with the function `sp_by_depto`. The argument type =
+“any” retrieve the mammals present in any of those departamentos.
 
 ``` r
-occ.any <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "any")
+occ.any <- sp_by_depto (c("Arauca", "Norte de Santander"), type = "any")
 head(occ.any)
 #>          scientificName         family        order
 #> 1   Vampyressa voragine Phyllostomidae   Chiroptera
@@ -275,21 +275,22 @@ head(occ.bats)
 
 ### Validate mammal species data based on geographic coordinates
 
-Use the function `mamm_coords_validator` to validate if your record is
-valid according to the Checklist of the mammals (Mammalia) of Colombia.
+Use the function `mamm_coords_validator` to validate if your record is a
+valid species according to the Checklist of the mammals (Mammalia) of
+Colombia and if the coordinates are correct.
 
-The function use a dataframe with species distribution data. The
-dataframe must contain at least the 3 columns:
+The function uses as input a dataframe with species distribution data.
+The dataframe must contain at least the 3 columns:
 
 - species as: Genus species
 - decimalLongitude
 - decimalLatitude
 
-The data frame should contain many other columns. You should indicate
-the column containing the species names using the argument sp_names.
+The data frame may contain many other columns. You should indicate the
+column containing the species names using the argument sp_names.
 
-For this example we are using a data frame with those columns and many
-more.
+For this example we are using a data frame with the required three
+columns, and many columns more.
 
 ``` r
 head (test_data_coordiantes)

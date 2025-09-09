@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-Allows easy access to the data found in the species list featured in "Ramírez-Chaves H, Morales-Martínez DM, Rodríguez-Posada ME, Suárez-Castro AF 2021. Checklist of the Mammals of Colombia”. Mammalogy Notes 7(2),253. \doi{10.47603/mano.v7n2.253}. This publication stands as one of Colombia's most comprehensive reviews of mammal diversity. The dataset incorporates detailed species accounts and has been meticulously structured for effortless utilization within the R environment.
+Allows easy access to the data found in the species list of the Mammals of Colombia”. Mammalogy Notes 7(2),253. \doi{10.47603/mano.v7n2.253}. This publication stands as one of Colombia's most comprehensive reviews of mammal diversity. The dataset incorporates detailed species accounts and has been meticulously structured for effortless utilization within the R environment.
 }
 \seealso{
 Useful links:
