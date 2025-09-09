@@ -6,8 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml)
-[![Codecov test
-coverage](https://codecov.io/gh/dlizcano/mammalcol/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dlizcano/mammalcol?branch=main)
+[![CRAN
+downloads](http://cranlogs.r-pkg.org/badges/grand-total/mammalcol?color=blue)](https://cran.r-project.org/package=mammalcol)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/mammalcol)](https://CRAN.R-project.org/package=mammalcol)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
@@ -420,6 +420,19 @@ validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "speci
 #> - 2 = Valid species and coordinates are registered in the ocean.
 #> - 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.
 #> - 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.
+```
+
+#### See validation table
+
+``` r
+head (validated_data[,c("species", "validation_result")])
+#>                species validation_result
+#> 110 Tremarctos ornatus                 1
+#> 2   Tremarctos ornatus                 1
+#> 3   Tremarctos ornatus                 1
+#> 4   Tremarctos ornatus                 1
+#> 5   Tremarctos ornatus                 1
+#> 10  Tremarctos ornatus                 1
 ```
 
 If you find a species in a new department please consider writing a note

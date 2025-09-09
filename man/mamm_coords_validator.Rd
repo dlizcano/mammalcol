@@ -55,6 +55,6 @@ It assigns a validation result ('validation_result') where 1 means coincidence a
 no match. Additional details are provided in the returned data frame.
 }
 \examples{
-validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
+validated_data <- mamm_coords_validator(df = test_data_coordiantes, sp_names = "species")
 
 }

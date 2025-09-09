@@ -27,11 +27,12 @@
 #' no match. Additional details are provided in the returned data frame.
 #'
 #' @examples
-#' validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
+#' validated_data <- mamm_coords_validator(df = test_data_coordiantes, sp_names = "species")
 #'
 #' @export
 mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap_d = NULL, lon = NULL, lat = NULL, adm_names = NULL, oceanmap = NULL, oce_adm_names = NULL) {
   
+  validDpto <- NULL # Creates a local binding to pass check()
   ## Info added
   # require(sf)
   # require(geodata)

@@ -516,7 +516,7 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap_d = NULL, l
 # mammalcol <img src="man/figures/logo.png" align="right" height="139" alt="" />
 <!-- badges: start -->
 [![R-CMD-check](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/dlizcano/mammalcol/actions/workflows/R-CMD-check.yaml)
-[![Codecov test coverage](https://codecov.io/gh/dlizcano/mammalcol/branch/main/graph/badge.svg)](https://app.codecov.io/gh/dlizcano/mammalcol?branch=main)
+[![CRAN downloads](http://cranlogs.r-pkg.org/badges/grand-total/mammalcol?color=blue)](https://cran.r-project.org/package=mammalcol)
 [![CRAN status](https://www.r-pkg.org/badges/version/mammalcol)](https://CRAN.R-project.org/package=mammalcol)
 [![lifecycle](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![size](https://img.shields.io/github/languages/code-size/dlizcano/mammalcol.svg)](https://github.com/dlizcano/mammalcol)
@@ -644,6 +644,13 @@ Remember to add the argument sp_names, indicating the column with the species na
 ```{r}
 validated_data <- mamm_coords_validator(test_data_coordiantes, sp_names = "species")
 ```
+
+#### See validation table
+
+```{r}
+head (validated_data[,c("species", "validation_result")])
+```
+
 
 If you find a species in a new department please consider writing a note for [Mammalogy Notes](https://mammalogynotes.org) extending the distribution.
 

@@ -2,16 +2,16 @@
 
 ### package flow
 # 0. load pkgdown, usethis
-# 1 load data objects
-# 2 fix typos in data objects (deptos)
-# 3 put in /R/sysdata.rda using: usethis::use_data(colmap, distribution, taxon, internal = TRUE, overwrite = TRUE)
-# 4 check()
-# 5 build_site()
-# 6 update version in Description
-# 7 add change to NEWS.MD
-# 8 build new version using build()
-# 9 upload (pull) to github
-# 10 upload to cran using devtools::submit_cran()
+# 1. load data objects
+# 2. fix typos in data objects (deptos)
+# 3. put in /R/sysdata.rda using: usethis::use_data(colmap, distribution, taxon, internal = TRUE, overwrite = TRUE)
+# 4. check()
+# 5. build_site()
+# 6. update version in Description
+# 7. add change to NEWS.MD
+# 8. build new version using build()
+# 9. upload (pull) to github
+# 10. upload to cran using devtools::submit_cran()
 
 
 require(readr)
@@ -57,6 +57,8 @@ write_csv(distribution, "C:/Users/usuario/Downloads/mammal_col_2024/distribution
 # load after fixed several typos from ipt file
 distribution <- read_csv("C:/Users/usuario/Downloads/mammal_col_2024/distribution.csv")
 
+# municipios table
+mammal_by_municip <- read_csv("C:/CodigoR/Mammal_Col/mamm_mun_col_conf.csv")
 
 
 # load('data/distribution.rda') # Baltazar code to check typos in deptos name
@@ -151,6 +153,7 @@ save(taxon, file = "C:/CodigoR/Mammal_Col/mammalcol/data/taxon.rda")
 # load(file="C:/CodigoR/Mammal_Col/MammalCol/data/taxon.rda")#, encoding = "UTF-8")
 save(colmap, file = "C:/CodigoR/Mammal_Col/mammalcol/data/colmap.rda")
 save(distribution, file = "C:/CodigoR/Mammal_Col/mammalcol/data/distribution.rda")
+save(mammal_by_municip, file = "C:/CodigoR/Mammal_Col/mammalcol/data/mammalbymunicip.rda")
 
 
 

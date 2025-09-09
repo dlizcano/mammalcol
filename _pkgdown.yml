@@ -4,8 +4,12 @@ template:
   params:
     bootswatch: cosmo
 
-# configuracao geral da barra de navegacao
+# Navigation bar configuration
 navbar:
+  structure:
+    left:  [Functions, Examples,]
+    right: [search, github, lightswitch]
+
   rigth: 
     -  search:
   left:
@@ -14,7 +18,7 @@ navbar:
     - text: "Functions"
       href: reference/index.html
     - icon: fas fa-book
-      text: "Articles"
+      text: "Examples"
       menu:
       -  text: "1. Getting started with mammalcol"
          href: getting_started.html
@@ -22,8 +26,7 @@ navbar:
          href: searching_species.html
       -  text: "3. Using mammalcol to map mammals"
          href: map_species.html
-      -  text: "4. Getting a Presence-Absence Matrix"
-         href: getting_pam.html
   components:
     home: ~
     
+  

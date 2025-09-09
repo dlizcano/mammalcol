@@ -57,7 +57,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
                           ncol = 24+2) # dim(taxon) and two more
   colnames(output_matrix) <- c(
     "name_submitted",
-    names(taxon),
+    names(mammalcol::taxon),
     "Distance"
   )
   
@@ -73,7 +73,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
     
     # fuzzy and exact match
     matches <- agrep(splist_std[i],
-                     taxon$scientificName, # base data column
+                     mammalcol::taxon$scientificName, # base data column
                      max.distance = max_distance_fixed,
                      value = TRUE
     )
@@ -89,7 +89,7 @@ search_mammalcol <- function(splist, max_distance = 0.2) {
       if (length(matches1) == 0) {
         row_data <- rep("nill", 24) # number of columns in taxon
       } else if (length(matches1) != 0) {
-        row_data <- as.matrix(taxon[taxon$scientificName %in% matches1, ])
+        row_data <- as.matrix(mammalcol::taxon[mammalcol::taxon$scientificName %in% matches1, ])
       }
     }
     

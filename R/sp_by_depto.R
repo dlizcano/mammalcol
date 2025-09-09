@@ -28,6 +28,8 @@
 #' 
 #' @export 
 sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
+  locality <- NULL # Creates a local binding to pass check()
+  
   if (length(states) == 0) stop("Please provide at least one Colombian Departamento")
   type <- match.arg(type)
   states <- sort(states)
@@ -37,23 +39,23 @@ sp_by_depto <- function(states, type = c("any", "only", "all"), taxa = NULL) {
   # res <- lapply(occurrences, match, states)
   if (type == "any") {
     # res <- lapply(res, function(x) any(!is.na(x)))
-    res <- subset(distribution, grepl(paste(states, collapse = "|"), locality))
+    res <- subset(mammalcol::distribution, grepl(paste(states, collapse = "|"), locality))
   }
   if (type == "only") {
-    res <- subset(distribution, grepl(paste("^", paste(states, collapse = "\\|"), "$", sep = ""), locality))
+    res <- subset(mammalcol::distribution, grepl(paste("^", paste(states, collapse = "\\|"), "$", sep = ""), locality))
   }
   if (type == "all") {
-    res <- subset(distribution, grepl(paste(states, collapse = ".*"), locality))
+    res <- subset(mammalcol::distribution, grepl(paste(states, collapse = ".*"), locality))
   }
   # res <- distribution[unlist(res), ]
   if (nrow(res) == 0) {
     return(NA)
   }
   if (is.null(taxa)) {
-    merge(taxon[, c("scientificName", "family", "order", "id")], res[, c("id", "locality")], by = "id")[, -1]
+    merge(mammalcol::taxon[, c("scientificName", "family", "order", "id")], res[, c("id", "locality")], by = "id")[, -1]
     # removes id
   } else {
-    merge(taxon[taxon$order %in% taxa, c("scientificName", "family", "order", "id")], res[, c("id", "locality")], by = "id")[, -1]
+    merge(mammalcol::taxon[mammalcol::taxon$order %in% taxa, c("scientificName", "family", "order", "id")], res[, c("id", "locality")], by = "id")[, -1]
     # removes id
   }
 }

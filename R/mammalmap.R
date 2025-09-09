@@ -24,13 +24,26 @@
 #'
 #' @export
 mammalmap <- function(species, legend = TRUE) {
+  locality <- NULL # Creates a local binding to pass check()
+  NAME_1 <- NULL # Creates a local binding to pass check()
+  
   if (!requireNamespace("ggplot2", quietly = TRUE)) {
-    install.packages("ggplot2")
+    utils::install.packages("ggplot2")
   }
   if (!requireNamespace("sf", quietly = TRUE)) {
-    install.packages("sf")
+    utils::install.packages("sf")
   }
 
+  # check if is present in mammal_by_municip
+  # index_with_species <- grep(species, mammal_by_municip$Binomial)
+  
+  # if (index_with_species == 1) {
+  #   message(paste0("This species can be ploted by municipios. Use: plotmunicip('", 
+  #            species, "') to get the map" 
+  #            )
+  #            )
+  # }
+  
   if (missing(species)) {
     stop("Argument species was not included")
   }
@@ -55,11 +68,11 @@ mammalmap <- function(species, legend = TRUE) {
   distribution_list <-
     strsplit(mammalcol::taxon$distribution, "\\|") # trimws () removes spaces
 
-  deptos <- as.data.frame(cbind(Depto = unique(colmap$NAME_1), fill = "white"))
+  deptos <- as.data.frame(cbind(Depto = unique(mammalcol::colmap$NAME_1), fill = "white"))
   sp_id <- which(mammalcol::taxon$scientificName == species)
   # if species is not in the table and is integer(0)
   if (length(sp_id) == 0) {
-    stop(paste0("The species should be in the list. Make sure you use the function search_mammalcol first. ", species, " is not a species present in Colombia"))
+    stop(paste0("The species should be in the list. Make sure you used the function search_mammalcol first. ", species, " is not a species present in Colombia"))
   }
   unos <- trimws(distribution_list[[sp_id]]) # species number
 
@@ -75,7 +88,7 @@ mammalmap <- function(species, legend = TRUE) {
   # make the map
   # if legend true
   if (legend == TRUE) {
-    mapa <- ggplot2::ggplot(colmap) +
+    mapa <- ggplot2::ggplot(mammalcol::colmap) +
       ggplot2::geom_sf(ggplot2::aes(fill = NAME_1)) +
       ggplot2::scale_fill_manual(values = deptos$fill) +
       # ggtitle(taxon$scientificName[25]) + #species name number
@@ -87,7 +100,7 @@ mammalmap <- function(species, legend = TRUE) {
         plot.subtitle = ggplot2::element_text(face = "italic") # italica
       )
   } else { # if legend false
-    mapa <- ggplot2::ggplot(colmap) +
+    mapa <- ggplot2::ggplot(mammalcol::colmap) +
       ggplot2::geom_sf(ggplot2::aes(fill = NAME_1), show.legend = FALSE) + # removes legend
       ggplot2::scale_fill_manual(values = deptos$fill) +
       # ggtitle(taxon$scientificName[25]) + #species name number
