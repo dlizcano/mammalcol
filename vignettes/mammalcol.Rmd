@@ -49,7 +49,7 @@ search_mammalcol(splist)
 
 ## Produce a map
   
-The function mammalmap produces basic a map of distribution at the "Departamento" level for a single species.
+The function `mammalmap` produces basic a map of distribution at the "Departamento" level for a single species.
  
 
 ```{r example3, eval=FALSE, echo=TRUE}
@@ -74,7 +74,7 @@ occ.only <- sp_by_depto(c("Norte de Santander"), type = "only")
 head(occ.only)
 ```
 
-The argument all retrieves species present in both departamentos. The argument taxa limit the search to one order. occ.bats has the bats present in Arauca and Norte de Santander. 
+The argument all retrieves species present in both departamentos. The argument taxa limit the search to one order. occ.bats shows the bats present in Arauca and Norte de Santander. 
 
 ```{r eval=FALSE}
 occ.all <- sp_by_depto(c("Arauca", "Norte de Santander"), type = "all")
@@ -91,4 +91,4 @@ citation("mammalcol")
 
 ```
 
-Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.1.0
+Lizcano, DJ. (2025). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.2.7

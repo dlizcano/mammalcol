@@ -1,6 +1,6 @@
 Package: mammalcol
 Title: Access to the List of Mammal Species of Colombia
-Version: 0.2.5
+Version: 0.2.9
 Authors@R: 
     c(
     person("Diego J.", "Lizcano", , "dj.lizcano@gmail.com", role = c("aut", "cre"),
@@ -16,15 +16,11 @@ Authors@R:
     person("Camilo A.", "Calderón-Acevedo", , "calderon.mammalogy@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0002-1468-3565"))
            )
-Date: 2025-08-09
+Date: 2025-09-22
 Maintainer: Diego J. Lizcano <dj.lizcano@gmail.com>
-Description: Allows easy access to the data found in the species list of the 
-    Mammals of  Colombia”. Mammalogy Notes 7(2),253.
-    <doi:10.47603/mano.v7n2.253>. This publication stands as
-    one of Colombia's most comprehensive reviews of mammal diversity. The
-    dataset incorporates detailed species accounts and has been
-    meticulously structured for effortless utilization within the R
-    environment.
+Description: The goal of 'mammalcol' is to provide easy access to a meticulously 
+            structured dataset of Colombian mammal species in R. The 2025 update includes 
+            comprehensive, detailed species accounts, and distribution information.
 License: MIT + file LICENSE
 URL: 
     https://github.com/dlizcano/mammalcol,

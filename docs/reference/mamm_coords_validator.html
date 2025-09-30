@@ -19,7 +19,7 @@ a data frame with validation results and additional information."><meta property
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mammalcol</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.9</span>
       </span>
     </div>
 
@@ -152,14 +152,14 @@ no match. Additional details are provided in the returned data frame.</p>
     <h2>Examples</h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="va">validated_data</span> <span class="op">&lt;-</span> <span class="fu">mamm_coords_validator</span> <span class="op">(</span>df <span class="op">=</span> <span class="va">test_data_coordiantes</span>, sp_names <span class="op">=</span> <span class="st">"species"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 species found in the matrix and  1 is/are valid.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> Validation Finished.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> A total of 20 records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - 0 = Valid species but records not registered within the analyzed boundaries.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - 1 = Valid species and coordinates according to official publications.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - 2 = Valid species and coordinates are registered in the ocean.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> - 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> 1species found in the matrix and 1is/are valid.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Validation Finished.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> A total of20records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> - 0 = Valid species but records not registered within the analyzed boundaries.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> - 1 = Valid species and coordinates according to official publications.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> - 2 = Valid species and coordinates are registered in the ocean.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> - 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> - 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>

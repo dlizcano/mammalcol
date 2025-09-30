@@ -11,7 +11,7 @@ navbar:
     right: [search, github, lightswitch]
 
   rigth: 
-    -  search:
+    -  search: true
   left:
     - icon: fa-home
       href: index.html

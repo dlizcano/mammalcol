@@ -528,6 +528,12 @@ Researchers can explore Colombia's amazing variety of mammals using the `mammalc
 
 ## Installation
 
+You can install `mammalcol` from CRAN with:
+
+``` r
+# install.packages("mammalcol")
+```
+
 You can install the development version of `mammalcol` from [GitHub](https://github.com/dlizcano/mammalcol) with:
 
 ``` r
@@ -664,4 +670,4 @@ citation("mammalcol")
 
 > To cite just the original mammalcol dataset, please use: Mammals of Colombia / Mamíferos de Colombia. SCMas: <doi:10.15472/kl1whs>, but keep in mind:  taxonomy is dinamic and have changed.
 
-Lizcano, DJ. et al. (2025). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.2.5
+Lizcano, DJ. et al. (2025). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.2.9

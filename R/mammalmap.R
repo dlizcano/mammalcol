@@ -27,12 +27,13 @@ mammalmap <- function(species, legend = TRUE) {
   locality <- NULL # Creates a local binding to pass check()
   NAME_1 <- NULL # Creates a local binding to pass check()
   
-  if (!requireNamespace("ggplot2", quietly = TRUE)) {
-    utils::install.packages("ggplot2")
-  }
-  if (!requireNamespace("sf", quietly = TRUE)) {
-    utils::install.packages("sf")
-  }
+  # commented by CRAN request
+  # if (!requireNamespace("ggplot2", quietly = TRUE)) {
+  #   utils::install.packages("ggplot2")
+  # }
+  # if (!requireNamespace("sf", quietly = TRUE)) {
+  #   utils::install.packages("sf")
+  # }
 
   # check if is present in mammal_by_municip
   # index_with_species <- grep(species, mammal_by_municip$Binomial)

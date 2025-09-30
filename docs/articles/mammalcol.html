@@ -37,7 +37,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">mammalcol</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.5</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.2.9</span>
       </span>
     </div>
 
@@ -142,8 +142,8 @@ inconsistent, and ensemble datasets.</p>
 <div class="section level2">
 <h2 id="produce-a-map">Produce a map<a class="anchor" aria-label="anchor" href="#produce-a-map"></a>
 </h2>
-<p>The function mammalmap produces basic a map of distribution at the
-“Departamento” level for a single species.</p>
+<p>The function <code>mammalmap</code> produces basic a map of
+distribution at the “Departamento” level for a single species.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># write a species name in the function to map it</span></span>
 <span><span class="fu"><a href="../reference/mammalmap.html">mammalmap</a></span><span class="op">(</span><span class="st">"Tapirus pinchaque"</span><span class="op">)</span></span></code></pre></div>
@@ -163,7 +163,7 @@ departamento and in no other departamento.</p>
 <code class="sourceCode R"><span><span class="va">occ.only</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"only"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">occ.only</span><span class="op">)</span></span></code></pre></div>
 <p>The argument all retrieves species present in both departamentos. The
-argument taxa limit the search to one order. occ.bats has the bats
+argument taxa limit the search to one order. occ.bats shows the bats
 present in Arauca and Norte de Santander.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">occ.all</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sp_by_depto.html">sp_by_depto</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Arauca"</span>, <span class="st">"Norte de Santander"</span><span class="op">)</span>, type <span class="op">=</span> <span class="st">"all"</span><span class="op">)</span></span>
@@ -175,8 +175,8 @@ present in Arauca and Norte de Santander.</p>
 </h2>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"mammalcol"</span><span class="op">)</span></span></code></pre></div>
-<p>Lizcano, DJ. (2024). mammalcol: Access to the List of Mammal Species
-of Colombia. R package version 0.1.0</p>
+<p>Lizcano, DJ. (2025). mammalcol: Access to the List of Mammal Species
+of Colombia. R package version 0.2.7</p>
 </div>
   </div>
 

@@ -2,10 +2,10 @@
 
 ### package flow
 # 0. load pkgdown, usethis, devtools
-# 1. load data objects
+# 1. load data objects load_all()
 # 2. fix typos in data objects (deptos)
 # 3. put in /R/sysdata.rda using: usethis::use_data(colmap, distribution, taxon, internal = TRUE, overwrite = TRUE)
-# 4. check()
+# 4. devtools::check()
 # 5. build_site()
 # 6. update version in Description
 # 7. add change to NEWS.MD

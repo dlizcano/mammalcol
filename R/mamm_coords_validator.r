@@ -102,9 +102,9 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap_d = NULL, l
   
   # Display summary of species validation
   if (length(vlid_spp$name_submitted) == 0) {
-    cat("There aren't valid species in the dataset. Please review the species names before using this function.")
+    stop("There aren't valid species in the dataset. Please review the species names before using this function.")
   } else {
-    cat(length(sppnms), "species found in the matrix and ", nrow(vlid_spp), "is/are valid.\n")
+    message(length(sppnms), "species found in the matrix and ", nrow(vlid_spp), "is/are valid.\n")
   }
   
   Valispp <- df[df[[sp_names]] %in% unique(vlid_spp$name_submitted), ]
@@ -245,13 +245,13 @@ mamm_coords_validator <- function(df, sp_names, taxon = NULL, colmap_d = NULL, l
   # Return final validated data frame
   finalValT <- finalVal[, c(oriNames, 'validation_result')]
   
-  cat('Validation Finished.\n')
-  cat('A total of', nrow(df), 'records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:\n')
-  cat('- 0 = Valid species but records not registered within the analyzed boundaries.\n')
-  cat('- 1 = Valid species and coordinates according to official publications.\n')
-  cat('- 2 = Valid species and coordinates are registered in the ocean.\n')
-  cat('- 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.\n')
-  cat('- 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.\n')
+  message('Validation Finished.\n')
+  message('A total of', nrow(df), 'records were evaluated. The evaluation results are recorded in the "validation_result" column as follows:\n')
+  message('- 0 = Valid species but records not registered within the analyzed boundaries.\n')
+  message('- 1 = Valid species and coordinates according to official publications.\n')
+  message('- 2 = Valid species and coordinates are registered in the ocean.\n')
+  message('- 3 = Valid species and coordinates off the limits of the ocean administrative boundaries. We recommend reviewing the location manually.\n')
+  message('- 4 = Not valid species. Not validated. Try `search_mammalcol()` to fix typos on species names.\n')
   
   return(finalValT)
 }

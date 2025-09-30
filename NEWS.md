@@ -1,6 +1,18 @@
+# mammalcol 0.2.9
+
+*  Undirected quotation marks in the description text. `mammalcol` --> 'mammalcol'
+
+# mammalcol 0.2.7
+
+* Submission to CRAN fixing notes
+
+# mammalcol 0.2.6
+
+* Submission to CRAN fixing notes
+
 # mammalcol 0.2.5
 
-* Submission to CRAN
+* Initial submission to CRAN 
 
 # mammalcol 0.2.4
 
