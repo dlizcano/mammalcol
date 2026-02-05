@@ -1,0 +1,77 @@
+project:
+  type: website
+  render:
+    - "*.qmd"
+    - "!archive/"
+
+website:
+  title: "VICCM"
+  description: "Sexto congreso colombiano de mastozoologia, organizado por la [SCMas](https://www.mamiferoscolombia.org/)"
+  google-analytics:
+    tracking-id: "G-NC9HV91JFM" # Replace with your own actual GA4 tracking ID
+    anonymize-ip: false  
+  open-graph:
+    image: twitter-card-preview-small.png
+    image-alt: "VICCM, Florencia Caqueta"
+  twitter-card:
+    image: twitter-card-preview-small.png
+    image-alt: "VICCM, Florencia Caqueta"
+    card-style: summary_large_image
+  site-url: https://www.mamiferoscolombia.org/VICCM
+  favicon: images/favicon.ico
+  draft-mode: unlinked
+  navbar:
+    background: "#222322"
+    foreground: "#FFFFFF"
+    title: ""
+    search: true
+    logo: images/logos/VICCM_logo.png
+    right:
+      - href: index.qmd
+        icon: house-door-fill
+        text: " "
+      - href: about/index.qmd
+        text: "Comités"
+      - href: noticias/index.qmd
+        text: "Noticias"
+      - href: simposios/index.qmd
+        text: "Simposios"
+#         menu:
+#         - href: research/citations/index.qmd
+#           text: "All citations"
+      - href: cursos/index.qmd
+        text: "Cursos"
+      - href: sede/index.qmd
+        text: "Sede"
+#      - href: gallery/index.qmd
+#        text: "Gallery"
+      - href: https://www.mamiferoscolombia.org/
+        icon: ala
+      - href: contacto/index.qmd
+        icon: envelope
+        text: " "
+      - href: https://github.com/SCMas/VICCM
+        icon: github
+  # announcement:
+  #   icon: info-circle
+  #   dismissable: true
+  #   content: "Check out the new *Cleaning Biodiversity Data in R* book! [Click here to find out more](https://labs.ala.org.au/books/)."
+  #   type: light
+  #   position: below-navbar
+
+format:
+  html:
+    fontsize: 1.15rem
+    monofont: Fira Code
+    highlight-style: arrow
+    css: [theme.css, custom_theme.scss]
+    toc: true
+    code-overflow: scroll
+    linkcolor: "#B8573E"
+    include-before-body: _fathom.html
+
+execute:
+  freeze: auto
+
+
+

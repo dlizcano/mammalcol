@@ -1,0 +1,15 @@
+{
+  "hash": "a60aa7124a549790a15e8b2ad3076be5",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Catalina Concha-Osbahr\"\nformat: html \n---\n\n\n\n### {{< fa circle-user >}} Bio \n\n:::{.bio-row}\n:::{.bio-column-right}\n\n\n::: {.cell}\n::: {.cell-output-display}\n![](images/Catalina_Concha.jpg){width=275px style=\"display:block; margin-left:auto; margin-right:auto; clip-path: circle();\"}\n:::\n:::\n\n:::\n\n:::{.bio-column-left}\nCatalina es ecologa de la Universidad Javeriana de Bogotá. Es CEO en Arasarí Conservación e Investigación S.A.S. y es la presidenta de la Sociedad Colombiana de Mastozoología. \n\nEn el VICCM Catalina dirije el comité organizador.\n:::\n:::\n\n:::{.column-body style=\"margin-top:-20px;\"}\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"row\" style=\"display: flex;\">\n<div class=\"button-column\">\n<a href=\"https://www.arasari-ci.com/\" style=\"border-bottom: none\">\n<button class=\"button-2\">\n<i class=\"fas fa-globe fa-xl\"></i>\n</button>\n</a>\n</div>\n<div class=\"button-column\">\n<a href=\"https://www.researchgate.net/profile/Dora-Concha-Osbahr-2\" style=\"border-bottom: none\">\n<button class=\"button-2\">\n<i class=\"fab fa-researchgate fa-xl\"></i>\n</button>\n</a>\n</div>\n<div class=\"button-column\">\n<a href=\"https://www.linkedin.com/in/dora-catalina-concha-osbahr-42031297/?trk=prof-samename-name&amp;originalSubdomain=co\" style=\"border-bottom: none\">\n<button class=\"button-2\">\n<i class=\"fab fa-linkedin fa-xl\"></i>\n</button>\n</a>\n</div>\n</div>\n```\n\n:::\n:::\n\n:::\n\n\n\n### {{< fa newspaper >}} Posts \n\n[Invitación](https://www.mamiferoscolombia.org/VICCM/noticias/2026-02-01_invitacion/)<br>\n*El Comité Organizador del VICCM invita a presentar propuestas para la realización de simposios, talleres, mesas redondas, cursos y otras actividades académicas del VICCM.*",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

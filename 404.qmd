@@ -1,0 +1,33 @@
+---
+title: "<span style='text-align:center;'> Pagina no Encontrada </span>"
+title-block-banner: "#B8573E"
+toc: false
+format: 
+  html: 
+    include-after-body: _footer.html
+freeze: true
+---
+
+:::{style="text-align:center;"}
+
+Tal vez hemos movido algo, sin embargo **todo el contenido aun esta acá!** <br>(solo que tal vez ahora se llama diferente) 
+
+:::
+
+::: {layout="[-1,1,-1]" style="margin-left: auto; margin-right: auto;"}
+
+![](images/species/aotus.jpg){.rounded}
+
+:::
+
+::: figure-caption
+**Aotus sp.** - Mono Nocturno (Foto: Ernesto Obando).
+:::
+
+
+
+:::{style="text-align:center;"}
+
+¡No te pierdas nada! Para encontrar lo que buscas, regresa a la [Página de inicio](https://mamiferoscolombia.org/VICCM/) y explora los enlaces. Tambien puedes usar 🔍 (la lupa) de la esquina superior derecha para buscar.
+
+:::

@@ -1,0 +1,15 @@
+{
+  "hash": "bbec4938261f596d9957c7a50d8a1418",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Fototrampeo\"\nauthor: \"Diego Lizcano\"\ndate: \"2026-11-02\"\ntitle-block-banner: \"#C3EDEF\" \ntitle-block-banner-color: \"#212121\"\ninclude-after-body: _footer.html\nfreeze: true\nimage: thumbnail.png \ncategories:\n  - Ecología \n  - Conservación \n  - Método \nparams:\n  authors: \"Díaz-Pulido, Angelica; Lizcano, Diego\"\n  year: 2026\n  title: \"VI Simposio de Fototrampeo\"\n#  publication: \"Ecological Restoration\"\n#  doi: https://doi.org/10.1111/rec.14375\n#  image_url: https://images.ala.org.au/image/details?imageId=9f245984-b05c-4776-a9a7-099a296cbf6b\n#  alt_text: Weeping Tea-tree (*Leptospermum brachyandrum*) inflorescence, showing white and pink flowers \n---\n\n<!-- remove metadata section -->\n\n\n::: {.cell}\n<style type=\"text/css\">\n#title-block-header.quarto-title-block.default .quarto-title-meta {\n    display: none;\n}\n</style>\n:::\n\n\n<!-- Side panel -->\n\n::::::: column-page\n::::: paper-side-column\n<center>\n\n::: {.col-image layout-ncol=\"1\" style=\"margin-left: auto; margin-right: auto;\"}\n<!-- add image url -->\n\n<img src=\"images/venado.jpg\" class=\"rounded\"/></img>\n:::\n\n</center>\n\n::: figure-caption\n<!-- edit caption -->\n\n_Mazama sp_. 2023. Macarena, Colombia\n:::\n\n### Organizan\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\nDíaz-Pulido, Angelica; Lizcano, Diego (2026) VI Simposio de Fototrampeo. \n```\n\n:::\n:::\n\n\n<!--\n#### Page info\n\nPrepared by [Olivia Torresan](https://labs.ala.org.au/about/Torresan_Olivia/)\n-->\n\n:::::\n\n<!-- Main panel description -->\n\n::: paper-main-column\n### OBJETIVOS:\n\n1. Visibilizar los avances y desarrollos que se han realizado recientemente frente al uso del fototrampeo como técnica de muestreo de mamíferos y como el uso de los datos obtenidos ha potenciado la generación de nuevo conocimiento.\n\n2. Mantener la continuidad de un espacio de intercambio de saberes y de fortalecimiento de la red colombiana de fototrampeo.\n\n### RESUMEN:\n\nEl uso de cámaras trampa como herramienta para el muestreo de mamíferos cada vez es más frecuente y con el tiempo no solo se ha incrementado su uso, sino que también se ha diversificado, lo que nos ha permitido obtener una gran cantidad de datos que han sido la base de cientos de registros biológicos y de información de calidad para la toma de decisiones. Adicionalmente, las imágenes obtenidas han acercado a múltiples actores al uso de la herramienta potenciándola en contextos de ciencia ciudadana y reconectándonos con la naturaleza como estrategia de apropiación social del conocimiento, el primer paso para la materialización de estrategias de conservación.\n:::\n:::::::\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

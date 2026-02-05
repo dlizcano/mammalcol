@@ -1,0 +1,81 @@
+---
+title: "Código de conducta, VICCM 2026"
+description: |
+  Los participantes que infrinjan estas normas podrán ser denunciados, sancionados y expulsados del congreso.
+author:
+  - name: "Diego J. Lizcano"
+#  - name: "Dax Kellie"
+date: "2026-01-25"
+title-block-banner: "#B8573E"
+toc: true
+toc-location: left
+toc-depth: 2
+categories:
+  - Código
+  - Acoso
+  - Discriminación 
+image: codigo-de-conducta.png
+freeze: true
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| cache: true
+#| include: false
+library(htmltools)
+```
+
+<!-- remove metadata section -->
+
+```{=html}
+<style>
+  #title-block-header.quarto-title-block.default .quarto-title-meta {
+      display: none;
+  }
+</style>
+```
+
+<!-- Author card -->
+
+::::::: author-card
+::: author-card-text
+#### Author
+
+
+[Diego J. Lizcano](https://mamiferoscolombia.org/VICCM/about/Diego_Lizcano/index.html)
+
+#### Date
+
+25 Enero 2026
+:::
+
+::::: {.row-b layout-ncol="3" style="margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;"}
+::: {.author-card-image style="width: auto; height: 120px; margin-right: auto !important;"}
+<img src="images/Diego_Lizcano.jpg" style="object-fit: cover; border-radius: 50% !important; width: 200px;"/></img>
+:::
+
+
+<!-- ::: {.author-card-image style="width: auto; height: 120px; margin-right: auto;"} -->
+<!-- <img src="https://raw.githubusercontent.com/AtlasOfLivingAustralia/ala-labs/main/images/people/dax.jpg" style="object-fit: cover; border-radius: 50% !important; width: 140px;"/></img> -->
+<!-- ::: -->
+:::::
+:::::::
+
+<!------------------------ Post starts here ------------------------>
+
+:::{.callout-tip}
+
+## VICCM 2026 - Código de conducta
+
+:::
+
+El intercambio abierto de ideas y la libertad de pensamiento y expresión son fundamentales para los objetivos y metas del VICCM 2026; estos requieren un entorno que reconozca el valor inherente de cada persona y grupo, que fomente la dignidad, la comprensión y el respeto mutuo, y que abrace la diversidad. Por estas razones, *los organizadores del VICCM se comprometen* a brindar una experiencia de congreso libre de acoso y discriminación.  
+
+Los participantes que infrinjan estas normas podrán ser denunciados, sancionados y expulsados del congreso, a discreción del comite organizador del VICCM 2026. Si experimenta o presencia acoso o comportamiento discriminatorio, le recomendamos que lo informe de inmediato a los miembros del Comité organizador.
+
+Basado en el [Manual de ética y conducta de la Sociedad Colombiana de Mastozoología (SCMas)](https://drive.google.com/file/d/1lVPcWb7DTu7S18GOEyySObr47G0xylSU/view?usp=sharing).
+
+## A quien puedo contactar?
+
+-  Catalina Concha

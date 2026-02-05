@@ -1,0 +1,33 @@
+---
+title: "Contacto"
+subtitle: "Escribanos con sus inquietudes"
+title-block-banner: "#E06E53"
+title-block-banner-color: body
+toc: false
+format: 
+  html: 
+    include-after-body: _footer.html
+freeze: true
+---
+
+
+
+<!-- modify this form HTML and place wherever you want your form -->
+
+
+<!-- modify this form HTML and place wherever you want your form -->
+<form
+  action="https://formspree.io/f/xreqgpkk"
+  method="POST"
+>
+  <label>
+    email:
+    <input type="email" name="email">
+  </label>
+  <label>
+    mensage:
+    <textarea name="message"></textarea>
+  </label>
+  <!-- your other form fields go here -->
+  <button type="submit">Enviar</button>
+</form>

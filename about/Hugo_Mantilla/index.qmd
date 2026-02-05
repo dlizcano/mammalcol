@@ -1,0 +1,55 @@
+---
+title: "Hugo Mantilla-Meluk"
+format: html 
+---
+
+```{r, include=FALSE}
+library(htmltools)
+library(here)
+source(here("R", "functions.R"))
+```
+
+### {{< fa circle-user >}} Bio 
+
+:::{.bio-row}
+:::{.bio-column-right}
+
+```{r out.width='275px', out.extra='style="display:block; margin-left:auto; margin-right:auto; clip-path: circle();"'}
+#| echo: false
+knitr::include_graphics("images/Hugo_Mantilla.jpg")
+```
+:::
+
+:::{.bio-column-left}
+Hugo es Profesor investigador de la Universidad del Quindío, y curador de su Colección de Mamíferos. Coordinador Centro de estudios de Alta Montaña. Es Biólogo de la Universidad Nacional de Colombia y se graduó con honores del programa doctoral en Sistemática y Evolución de la Universidad Tecnológica de Texas. Es miembro de la Academia Colombiana de Ciencias Exactas Físicas y Naturales. Fue fundador de la Sociedad Colombiana de Mastozoología.
+
+En el VICCM Hugo está encargado del comité científico y los elementos de divulgación se han abordado desde lo técnico.
+:::
+:::
+
+:::{.column-body style="margin-top:-20px;"}
+```{r}
+#| echo: false
+
+tags$div(class = "row", style = "display: flex;",
+         
+create_button(
+  icon = "fab fa-researchgate fa-xl",
+  url = "https://www.researchgate.net/profile/Hugo-Mantilla-Meluk-2"
+),
+create_button(
+  icon = "fab fa-linkedin fa-xl",
+  url = "https://www.linkedin.com/in/hugo-mantilla-meluk-46b405223/?originalSubdomain=co"
+),
+create_button(
+  icon = "fab fa-orcid fa-xl",
+  url = "https://orcid.org/0000-0001-8134-3694"
+)
+)
+```
+:::
+
+
+
+### {{< fa newspaper >}} Posts 
+

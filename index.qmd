@@ -1,0 +1,332 @@
+---
+toc: false
+format: 
+  html: 
+    include-in-header: hero-image.html
+    include-after-body: _footer.html
+    sidebar: false
+    anchor-sections: false
+    css: [theme.css, index.css]
+---
+
+```{r}
+#| include: false
+# To change the hero-image:
+
+# open theme.css
+# find the .hero-image section
+```
+
+```{r}
+#| include: false
+library(htmltools)
+source("R/functions.R")
+```
+
+:::{.column-screen}
+:::{.column-body}
+
+# Bienvenidos
+
+El Congreso Colombiano de Mastozoología se celebra cada dos años y sus sedes se alternan de manera itinerante en distintas regiones biogeográficas de Colombia, con el propósito de visibilizar la riqueza natural y cultural de cada territorio, así como fortalecer el desarrollo de las distintas formas de construcción de conocimiento y de gestión de la biodiversidad de mamíferos. Para esta sexta edición la sede será la Amazonía colombiana, una región reconocida mundialmente por su extraordinaria biodiversidad y por ser el hogar de comunidades que han tejido una relación profunda con la naturaleza.
+
+
+
+:::
+:::
+
+***
+
+
+:::{.column-screen}
+:::{.column-screen-inset}
+:::{.home-column-image .col-right}
+
+
+
+:::
+
+:::{.home-column-text .col-left}
+
+
+:::
+:::
+
+
+
+:::
+
+
+:::{.column-screen style="background-color:#B8573E;"}
+:::{.column-screen-inset}
+:::{.home-column-image .col-left}
+
+<a href="https://www.mamiferoscolombia.org/VICCM/noticias/">
+
+![](images/homepage/noticias.jpg){.home-img}
+
+</a>
+
+:::
+
+:::{.home-column-text .col-right}
+
+<center> <h1 class="heading-home" style="color: #fff;">Noticias</h1>
+<span style = "color: #fff; font-style: italic">Conferencistas Invitados, Simposios, Cursos y Otros Eventos</span> 
+</center>
+
+
+```{r, echo = FALSE}
+tags$div(class = "category-row",
+         
+  tags$div( # conferencista
+    class = "category-column",
+    tags$a(href = "noticias/index.html#category=Conferencista",
+      tags$img(
+        href = "noticias/index.html#category=Conferencista",
+        src = "images/vectors/Person_circle.svg",
+        style = "color:#fff !important;",
+        class = "category-image honey-white"
+  )),
+  tags$h4(style = "text-align:center;",
+      tags$a(
+        class = "white",
+        href = "noticias/index.html#category=Conferencista", "Conferencistas"))),
+  
+  tags$div( # Fechas
+    class = "category-column",
+    tags$a(href = "noticias/index.html#category=Fechas",
+      tags$img(
+        href = "noticias/index.html#category=Fechas",
+        src = "images/vectors/Calendar_solid.svg",
+        style = "color:#fff !important;",
+        class = "category-image honey-white"
+  )),
+  tags$h4(style = "text-align:center",
+      tags$a(
+        class = "white",
+        href = "noticias/index.html#category=Fechas", "Fechas"))),
+  
+  tags$div( # Eventos
+    class = "category-column",
+    tags$a(href = "noticias/index.html#category=Eventos",
+      tags$img(
+        href = "noticias/index.html#category=Eventos",
+        src = "images/vectors/Event.svg",
+        style = "color:#fff !important;",
+        class = "category-image honey-white"
+  )),
+  tags$h4(style = "text-align:center",
+      tags$a(
+        class = "white",
+        href = "noticias/index.html#category=Eventos", "Eventos")))
+  
+  )
+```
+
+
+
+:::
+:::
+:::
+
+:::{.column-screen}
+:::{.column-screen-inset}
+:::{.home-column-image .col-right}
+<a href="https://www.mamiferoscolombia.org/IVCCM/blog/2021/09/03/resumenes/">
+![](images/homepage/TakingNotesOnAComputer.jpg){.home-img}
+</a>
+
+:::
+
+:::{.home-column-text .col-left}
+
+<center> <h1 class="heading-home">Resúmenes</h1>
+
+<span style = "font-style: italic">Prepara y envía tu(s) resúmen(es)</span>
+
+
+</center>
+
+```{r, echo = FALSE}
+tags$div(class = "category-row",
+         
+  tags$div( 
+    class = "category-column",
+    style = "width: 50%",
+    tags$a(href = "https://mamiferoscolombia.org/openconf",
+      tags$img(
+        href = "https://mamiferoscolombia.org/openconf",
+        src = "images/vectors/write.svg",
+        class = "category-image honey"
+  )),
+  tags$h4(style = "text-align:center;",
+      tags$a(href = "https://mamiferoscolombia.org/openconf", "Preparar\nResumen"))),
+  
+   tags$div(
+     class = "category-column",
+     style = "width: 50%",
+     tags$a(href = "https://mamiferoscolombia.org/openconf",
+       tags$img(
+         href = "https://mamiferoscolombia.org/openconf",
+         src = "images/vectors/upload.svg",
+         class = "category-image honey"
+   )),
+   tags$h4(style = "text-align:center;",
+       tags$a(href = "https://mamiferoscolombia.org/openconf", "Enviar\nResumen"))
+
+  )
+)
+```
+
+
+:::
+:::
+:::
+
+
+:::{.column-screen style="background-color:#B8573E;"}
+:::{.column-screen-inset}
+:::{.home-column-image .col-left}
+
+<a href="https://mamiferoscolombia.org/Membresia/">
+
+![](images/homepage/inscribirse.png){.home-img-transparent}
+
+</a>
+
+<!-- :::{.hexBadges} -->
+
+<!-- <a href="https://labs.ala.org.au/software.html"> -->
+<!-- <img src = "https://raw.githubusercontent.com/AtlasOfLivingAustralia/ala-labs/science-impact-testing/images/hex/galah_logo.png" class = "r1 c0"></img> -->
+<!-- </a> -->
+
+<!-- <a href="https://labs.ala.org.au/software.html"> -->
+<!-- <img src = "https://raw.githubusercontent.com/AtlasOfLivingAustralia/ala-labs/science-impact-testing/images/hex/potions-logo.png" class = "r2 c1" style = "width:265px;"></img> -->
+<!-- </a> -->
+<!-- ::: -->
+
+:::
+
+:::{.home-column-text .col-right}
+
+<center> <h1 class="heading-home" style="color: #fff;">Inscribete</h1>
+
+<span style = "font-style: italic; color: #fff;">Las inscripciones para el VICCM 2026 se abrirán pronto</span>
+
+</center>
+
+```{r, echo = FALSE}
+tags$div(class = "category-row",
+  
+  tags$div( 
+    class = "category-column",
+    style = "width: 100%",
+    tags$a(href = "cursos/index.html",
+      tags$img(
+        href = "cursos/index.html",
+        src = "images/vectors/Inscribete.svg",
+        style = "color:#fff !important;",
+        class = "category-image honey-white"
+  )),
+  tags$h4(style = "text-align:center;",
+      tags$a(
+        class = "white",
+        href = "cursos/index.html", "Inscribete"))
+  
+  ))
+```
+
+
+:::
+:::
+:::
+
+
+:::{.column-screen style="background-color:#ffffff;"}
+:::{.column-screen-inset}
+:::{.home-column-image .col-left}
+
+<center> <h1 class="heading-home" style="color: #222322;">La Sede</h1>
+
+<span style = "font-style: italic;">Universidad de la Amazonia. Florencia, Caquetá</span>
+
+</center>
+
+```{r, echo = FALSE}
+tags$div(class = "category-row",
+  
+  tags$div( 
+    class = "category-column",
+    style = "width: 100%",
+    tags$a(href = "sede/index.html",
+      tags$img(
+        href = "sede/index.html",
+        src = "images/vectors/Location.svg",
+        class = "category-image honey"
+  )),
+  tags$h4(style = "text-align:center;",
+      tags$a(
+        href = "sede/index.html", "La Sede"))
+  
+  ))
+```
+
+:::
+
+:::{.home-column-text .col-right}
+
+<center>
+<a href="https://www.mamiferoscolombia.org/VICCM/sede/">
+
+![](images/homepage/foto_uniamazonia.jpg){.home-img-transparent width=45% style="border-radius:2%;"}
+
+</a>
+</center>
+
+:::
+:::
+:::
+
+***
+
+:::{.column-screen style="background-color:#fff;"}
+
+:::{.column-page}
+
+<center> <h1>{{< fa earth-americas >}} Nosotros Valoramos</h1> </center>
+
+:::
+
+:::{.column-screen}
+
+
+```{r, echo = FALSE}
+# find icons at https://fontawesome.com/v5.15/icons?d=gallery&p=2
+
+tags$div(class = "values-row",
+         
+create_values_box1(
+  value = "\    La Integridad",
+  icon = "fas fa-book-open",
+  text = "El intercambio abierto de ideas y la libertad de pensamiento y expresión son fundamentales para los objetivos y metas del VICCM 2026; estos requieren un entorno que reconozca el valor inherente de cada persona y grupo, que fomente la dignidad, la comprensión y el respeto mutuo, y que abrace la diversidad. Por estas razones, los organizadores del VICCM se comprometen a brindar una experiencia de congreso libre de acoso y discriminación."
+),
+
+create_values_box2(
+  value = "\    Transparencia Científica",
+  icon = "fas fa-dna",
+  text = "La transparencia es necesaria para una ciencia reproducible. Promovemos que las decisiones, los métodos y los protocolos sean claros transparentes y reproducibles, en un flujo de trabajo desde la fase de planificación hasta el procesamiento, análisis de datos, y el resultado final."
+),
+
+create_values_box3(
+  value = "\    Métodos Robustos",
+  icon = "far fa-chart-bar",
+  text = "Ningún método ni procedimiento analítico es perfecto! Valoramos la consideración de las fortalezas y limitaciones de cada método o análisis. Esta actitud de reconocimiento ayuda a los nuevos investigadores a elegir métodos que proporcionen resultados sólidos para sus nuevas preguntas de investigación."
+)
+
+)
+```
+
+:::
+:::
+

@@ -1,0 +1,36 @@
+---
+title: "Sede"
+subtitle: "Informacion sobre la sede del congreso"
+title-block-banner: "#E06E53"
+title-block-banner-color: body
+toc: false
+format: 
+  html: 
+    include-after-body: _footer.html
+freeze: true
+---
+
+<style>
+  d-title {
+    display: none;
+  }
+</style>
+
+:::{.column-page layout="[35,65]" style="margin-left: auto; margin-right: auto;"}
+
+<a href="https://colombia.travel/es/florencia">
+![Florencia en el portal de Colombia Travel](images/CatedralNtraSraLourdesAtardecer.jpg){style="width:95%;margin-left: auto;margin-right: auto;"}
+</a>
+
+
+# Florencia, Caquetá
+
+La ciudad ofrece una amplia variedad de restaurantes y sitios de esparcimiento nocturno, la mayoría de ellos ubicados en la zona rosa de la ciudad, cerca del parque longitudinal Paseo de los Fundadores. Destacan de igual forma sus parques, iglesias, edificios históricos y construcciones modernas. En Florencia existen múltiples monumentos públicos que rinden homenaje a los personajes y hechos históricos de la región, siendo los más conocidos el Monumento a los Colonos, a la Diosa del Chairá y a la Ciencia, Hombre y Manigua.
+
+Adicionalmente existen varios museos en Florencia, siendo el Museo Etnográfico y Centro Indigenista del Caquetá uno de los más visitados, pues en sus instalaciones se encuentra una detallada colección de más de diez mil piezas precolombinas pertenecientes a las tribus originarias de la región. La ciudad también es reconocida por su folclor, expresado a través de sus festivales y ferias que se desarrollan principalmente en los meses de junio y julio en el marco de las fiestas sampedrinas, así como en octubre (Feria ExpoFlorencia) y diciembre (Festival Musical El Colono de Oro).
+
+:::
+
+
+
+

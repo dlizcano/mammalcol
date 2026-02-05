@@ -1,0 +1,55 @@
+---
+title: "Andres Felipe Suárez-Castro"
+format: html 
+---
+
+```{r, include=FALSE}
+library(htmltools)
+library(here)
+source(here("R", "functions.R"))
+```
+
+### {{< fa circle-user >}} Bio 
+
+:::{.bio-row}
+:::{.bio-column-right}
+
+```{r out.width='275px', out.extra='style="display:block; margin-left:auto; margin-right:auto; clip-path: circle();"'}
+#| echo: false
+knitr::include_graphics("images/Andres-Suarez-Castro.jpg")
+```
+:::
+
+:::{.bio-column-left}
+Andres Felipe es Ph.D. de la Universidad de Queensland (Australia) y tiene una maestría en conservación y gestión de la vida silvestre de la Universidad Nacional de Colombia, en donde tambien estudió biología. Su investigacion estudia los factores que impulsan los patrones de distribución de las especies, el efecto de la transformación en el paisaje sobre la biodiversidad, los servicios ecosistémicos, y la interfaz ciencia-política entre los servicios ecosistémicos y la biodiversidad, para fundamentar la planificación del paisaje. 
+
+En el VICCM Andres Felipe apoya al comité científico.
+:::
+:::
+
+:::{.column-body style="margin-top:-20px;"}
+```{r}
+#| echo: false
+
+tags$div(class = "row", style = "display: flex;",
+         
+create_button(
+  icon = "fab fa-researchgate fa-xl",
+  url = "https://www.researchgate.net/profile/Andres-Suarez-Castro"
+),
+create_button(
+  icon = "fab fa-twitter fa-xl",
+  url = "https://x.com/fsuarezca"
+),
+create_button(
+  icon = "fab fa-orcid fa-xl",
+  url = "https://orcid.org/0000-0002-6621-3821"
+)
+)
+```
+:::
+
+
+
+### {{< fa newspaper >}} Posts 
+

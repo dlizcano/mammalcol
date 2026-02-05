@@ -1,0 +1,103 @@
+---
+title: "Cursos"
+subtitle: "Cursos y talleres"
+title-block-banner: "#E06E53"
+title-block-banner-color: body
+toc: false
+format: 
+  html: 
+    include-after-body: _footer.html
+freeze: true
+---
+
+<style>
+  d-title {
+    display: none;
+  }
+</style>
+
+:::{.column-page layout="[1,1]" style="float:left;"}
+
+<a href="https://www.mamiferoscolombia.org/VICCM/cursos/">
+![](images/Armadillo.png){style="width:73%;"}
+</a>
+
+# Cursos  
+
+Mas Detalles Próximamente
+
+:::
+
+***
+
+:::{.column-page layout="[1,1]" style="float:left;"}
+
+
+
+<a href="https://www.mamiferoscolombia.org/VICCM/cursos/">
+![](images/Delfin.png){style="width:73%;"}
+</a>
+
+
+
+# Talleres
+
+Mas Detalles Próximamente
+
+:::
+
+***
+
+:::{.column-page layout="[1,1]" style="float:left;"}
+
+
+
+<a href=" ">
+![](images/Comadreja.png){style="width:73%;"}
+</a>
+
+
+
+# Muy pronto les daremos más detalles
+
+No dejes de visitarnos!
+
+
+:::
+
+***
+
+:::{.column-page layout="[1,1]" style="float:left;"}
+
+
+
+<a href=" ">
+![](){style="width:73%;"}
+</a>
+
+
+
+# 
+
+
+
+:::
+
+***
+
+:::{.column-page layout="[1,1]" style="float:left;"}
+
+
+
+<a href=" ">
+![](){style="width:73%;"}
+</a>
+
+
+
+# 
+
+
+
+:::
+

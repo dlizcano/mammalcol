@@ -1,0 +1,55 @@
+---
+title: "Luisa F. Martinez"
+format: html 
+---
+
+```{r, include=FALSE}
+library(htmltools)
+library(here)
+source(here("R", "functions.R"))
+```
+
+### {{< fa circle-user >}} Bio 
+
+:::{.bio-row}
+:::{.bio-column-right}
+
+```{r out.width='275px', out.extra='style="display:block; margin-left:auto; margin-right:auto; clip-path: circle();"'}
+#| echo: false
+knitr::include_graphics("images/Luisa_Martinez.jpg")
+```
+:::
+
+:::{.bio-column-left}
+Luisa es Biologa de la universidad de la Amazonia, joven investigadora de la misma universidad y especialista en fototrampeo de mamíferos.
+
+En el VICCM Luisa está encargada de los elementos de divulgación y logistica.
+:::
+:::
+
+:::{.column-body style="margin-top:-20px;"}
+```{r}
+#| echo: false
+
+tags$div(class = "row", style = "display: flex;",
+         
+create_button(
+  icon = "fab fa-facebook fa-xl",
+  url = "https://www.facebook.com/luisa.martineztkd/photos"
+),
+# create_button(
+#   icon = "fab fa-linkedin fa-xl",
+#   url = "https://www.linkedin.com/in/hugo-mantilla-meluk-46b405223/?originalSubdomain=co"
+# ),
+create_button(
+  icon = "fab fa-instagram fa-xl",
+  url = "https://www.instagram.com/Luisamartineztkd"
+)
+)
+```
+:::
+
+
+
+### {{< fa newspaper >}} Posts 
+

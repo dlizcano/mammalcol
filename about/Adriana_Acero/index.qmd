@@ -1,0 +1,62 @@
+---
+title: "Adriana C. Acero-Murcia"
+format: html 
+---
+
+```{r, include=FALSE}
+library(htmltools)
+library(here)
+source(here("R", "functions.R"))
+```
+
+### {{< fa circle-user >}} Bio 
+
+:::{.bio-row}
+:::{.bio-column-right}
+
+```{r out.width='275px', out.extra='style="display:block; margin-left:auto; margin-right:auto; clip-path: circle();"'}
+#| echo: false
+knitr::include_graphics("images/Adriana_Acero.jpg")
+```
+:::
+
+:::{.bio-column-left}
+Adriana es Licenciada en Biología de la Universidad Distrital Francisco José de Caldas. Tiene maestría en Ecología y Evolución de la Universidad Federal de São Paulo, y Ph.D. en Ecología y Conservación de la Universidad Federal de Mato Grosso do Sul en
+Brasil. Su investigación se centra en la ecología de mamíferos, con énfasis en
+primatología y quiropterología, integrando bioacústica, etología, morfometría
+geométrica y ecología de comunidades. Actualmente, profundiza en ciencias de la
+computación para aplicar machine learning al análisis de grandes volúmenes de datos
+acústicos. Posee una sólida trayectoria editorial como revisora en revistas científicas, incluyendo Community Ecology, Mammal Species, PeerJ, Caldasia y
+**Mammalogy Notes**.
+
+En el VICCM Adriana apoya el comité científico.
+:::
+:::
+
+:::{.column-body style="margin-top:-20px;"}
+```{r}
+#| echo: false
+
+tags$div(class = "row", style = "display: flex;",
+         
+
+create_button(
+  icon = "fab fa-orcid fa-xl",
+  url = "https://orcid.org/0000-0002-3376-5099"
+),
+create_button(
+  icon = "fab fa-researchgate fa-xl",
+  url = "https://www.researchgate.net/profile/Adriana-Acero-Murcia"
+),
+create_button(
+  icon = "fab fa-linkedin fa-xl",
+  url = "https://co.linkedin.com/in/adriana-acero-murcia-9290b9a9"
+)
+)
+```
+:::
+
+
+
+### {{< fa newspaper >}} Posts 
+

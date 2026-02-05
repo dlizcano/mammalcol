@@ -1,0 +1,47 @@
+---
+title: "Javier García-Villalba"
+format: html 
+---
+
+```{r, include=FALSE}
+library(htmltools)
+library(here)
+source(here("R", "functions.R"))
+```
+
+### {{< fa circle-user >}} Bio 
+
+:::{.bio-row}
+:::{.bio-column-right}
+
+```{r out.width='275px', out.extra='style="display:block; margin-left:auto; margin-right:auto; clip-path: circle();"'}
+#| echo: false
+knitr::include_graphics("images/Javier_Garcia.png")
+```
+:::
+
+:::{.bio-column-left}
+Javier es biólogo de la Universidad Nacional de Bogotá, su experiencia se ha concentrado en la Amazonía colombiana, en proyectos de educación ambiental, zoología, ecología y biología de la conservación. Sus inventarios de mastofauna, su conocimiento taxonómico de la fauna silvestre amazónica y el énfasis especial en la conservación de primates, lo han convertido en uno de los más comprometidos en el cuidado del Caquetá y sus ecosistemas.
+
+En el VICCM Javier está encargado de la organizacion general del congreso.
+:::
+:::
+
+:::{.column-body style="margin-top:-20px;"}
+```{r}
+#| echo: false
+
+tags$div(class = "row", style = "display: flex;",
+         
+create_button(
+  icon = "fab fa-google fa-xl",
+  url = "https://scholar.google.com/citations?user=0d6gVY0AAAAJ&hl=es"
+)
+)
+```
+:::
+
+
+
+### {{< fa newspaper >}} Posts 
+

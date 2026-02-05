@@ -1,0 +1,116 @@
+---
+title: "Comités"
+subtitle: Roles de los miembros de los comites del VICCM
+format: 
+  html: 
+    include-after-body: _footer.html
+title-block-banner: "#E06E53"
+title-block-banner-color: body
+---
+
+```{r setup}
+#| include: false
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r}
+#| include: false
+library(htmltools)
+source("../R/functions.R")
+```
+
+
+
+
+# Comité Científico 
+Su función es seleccionar las ponencias presentadas. Las ponencias se revisan y seleccionan en función de su excelencia científica. Los integrantes del Comité Científico realizan una selección final de las ponencias científicamente excelentes para crear un programa equilibrado e interesante, que fomente una amplia participación y representación de todos los temas del VICCM.
+
+*Haga clic en las fotos para ver sus detalles y contribuciones.*
+```{r}
+#| echo: false
+tags$div(class = "row",# Create a row for 3 team-member cards
+         
+create_team_card(
+  person_page = "Hugo_Mantilla/index.html",
+  img_src = "images/Hugo_Mantilla.jpg",
+  name = "Hugo Mantilla-Meluk",
+  text = "Aspectos científicos y divulgación"
+),
+create_team_card(
+  person_page = "Felipe_Suarez/index.html",
+  img_src = "images/Andres-Suarez-Castro.jpg",
+  name = "Andres Felipe Suárez-Castro",
+  text = "Comité científico"
+),
+create_team_card(
+  person_page = "Adriana_Acero/index.html",
+  img_src = "images/Adriana_Acero.jpg",
+  name = "Adriana C. Acero-Murcia",
+  text = "Comité científico"
+)
+)
+tags$div(class = "row", # Create a row for 3 team-member cards
+         
+# create_team_card(
+#   person_page = "Kellie_Dax/index.html",
+#   img_src = "../images/people/dax.jpg",
+#   name = "Dax Kellie",
+#   text = "Data Analyst"
+# )
+
+)
+```
+
+
+# Comité Organizador
+
+Es responsable de definir el desarrollo a medio y largo plazo de la serie de conferencias y de garantizar que esta mantenga un alto nivel organizativo. El congreso suele tener una duración de una semana (de lunes a viernes) en noviembre 2026.
+
+*Haga clic en las fotos para ver sus detalles y contribuciones.*
+```{r}
+#| echo: false
+tags$div(class = "row",# Create a row for 3 team-member cards
+         
+create_team_card(
+  person_page = "Javier_Garcia/index.html",
+  img_src = "images/Javier_Garcia.png",
+  name = "Javier García-Villalba",
+  text = "Organizador"
+),
+
+create_team_card(
+  person_page = "Luisa_Martinez/index.html",
+  img_src = "images/Luisa_Martinez.jpg",
+  name = "Luisa F. Martínez",
+  text = "Comunicaciones y logística"
+),
+create_team_card(
+  person_page = "Catalina_Concha/index.html",
+  img_src = "images/Catalina_Concha.jpg",
+  name = "Catalina Concha-Osbahr",
+  text = "Presidenta SCMas"
+)
+)
+tags$div(class = "row", # Create a row for 3 team-member cards
+         
+# create_team_card(
+#   person_page = "Kellie_Dax/index.html",
+#   img_src = "../images/people/dax.jpg",
+#   name = "Dax Kellie",
+#   text = "Data Analyst"
+# ),
+# create_team_card(
+#   person_page = "Seers_Juliet/index.html",
+#   img_src = "../images/people/juliet.jpg",
+#   name = "Juliet Seers",
+#   text = "Training & Outreach Coordinator"
+# ), 
+create_team_card(
+  person_page = "Diego_Lizcano/index.html",
+  img_src = "images/Diego_Lizcano.jpg",
+  name = "Diego J. Lizcano",
+  text = "Pagina web y OpenConf"
+)
+)
+```
+
