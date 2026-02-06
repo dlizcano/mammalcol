@@ -12,16 +12,18 @@ bibentry(
            comment = c(ORCID = "0000-0002-6621-3821")),
     person("Baltazar", "González", , "baltazargch@gmail.com", role = c("ctb","aut"),
            comment = c(ORCID = "0000-0001-5805-8107")),
+    person("Karol", "Aguilar-Rios", , "Kaguilar1d2002@gmail.com", role = c("ctb","aut"),
+           comment = c(ORCID = "0009-0002-6331-2653")),
     person("Alejandra", "Bonilla-Sánchez", , "alejabonilla.sanchez@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0003-0803-5884")),
     person("Camilo A.", "Calderón-Acevedo", , "calderon.mammalogy@gmail.com", role = c("ctb"),
            comment = c(ORCID = "0000-0002-1468-3565"))
            ),
-  year     = 2025,
-  note     = "R data package version 0.2.9",
+  year     = 2026,
+  note     = "R data package version 0.3.0",
   url = "https://dlizcano.github.io/mammalcol/",
   textVersion = paste(
-"Lizcano, DJ. et al., (2025). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.2.9"
+"Lizcano, DJ. et al., (2026). mammalcol: Access to the List of Mammal Species of Colombia. R package version 0.3.0"
   ),
   footer = "To cite just the original mammalcol dataset, please use: Mammals of Colombia / Mamíferos de Colombia. SCMas: <doi:10.15472/kl1whs>, but keep in mind taxonomy is dinamic and have changed."
 
