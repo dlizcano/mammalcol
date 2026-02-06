@@ -1,3 +1,8 @@
+# mammalcol 0.3.0
+
+*  New functions to: map species by municipio (experimental)
+*  Added Karol Aguilar-Rios as author and contributor.
+
 # mammalcol 0.2.9
 
 *  Undirected quotation marks in the description text. `mammalcol` --> 'mammalcol'

@@ -8,7 +8,7 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-The goal of 'mammalcol' is to provide easy access to a meticulously structured dataset of Colombian mammal species in R. The 2025 update includes comprehensive, detailed species accounts, and distribution information.
+The goal of 'mammalcol' is to provide easy access to a meticulously structured dataset of Colombian mammal species in R. The 2026 update includes comprehensive, detailed species accounts, and distribution information at departamental and municipal level.
 }
 \seealso{
 Useful links:
@@ -27,6 +27,7 @@ Authors:
   \item Cristian A. Cruz-Rodríguez \email{cristian.alexander.cruz.rodriguez@umontreal.ca} (\href{https://orcid.org/0000-0002-8319-4706}{ORCID}) [contributor]
   \item Andres F. Suárez-Castro \email{a.suarezcastro@griffith.edu.au} (\href{https://orcid.org/0000-0002-6621-3821}{ORCID}) [contributor]
   \item Baltazar González \email{baltazargch@gmail.com} (\href{https://orcid.org/0000-0001-5805-8107}{ORCID}) [contributor]
+  \item Karol Aguilar-Rios \email{Kaguilar1d2002@gmail.com} (\href{https://orcid.org/0009-0002-6331-2653}{ORCID}) [contributor]
 }
 
 Other contributors:
